@@ -11,6 +11,8 @@
 		7B934ADC2C063B0A00185089 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B934ADB2C063B0A00185089 /* ContentView.swift */; };
 		7B934ADE2C063B0C00185089 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B934ADD2C063B0C00185089 /* Assets.xcassets */; };
 		7B934AE22C063B0C00185089 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B934AE12C063B0C00185089 /* Preview Assets.xcassets */; };
+		7B934AEB2C063F9000185089 /* DailyStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B934AEA2C063F9000185089 /* DailyStats.swift */; };
+		7B934AED2C06401800185089 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B934AEC2C06401800185089 /* Recipe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,8 @@
 		7B934ADD2C063B0C00185089 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7B934ADF2C063B0C00185089 /* NutriMate_v1.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NutriMate_v1.entitlements; sourceTree = "<group>"; };
 		7B934AE12C063B0C00185089 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7B934AEA2C063F9000185089 /* DailyStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyStats.swift; sourceTree = "<group>"; };
+		7B934AEC2C06401800185089 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +56,8 @@
 		7B934AD82C063B0A00185089 /* NutriMate_v1 */ = {
 			isa = PBXGroup;
 			children = (
+				7B934AE92C063C9D00185089 /* View */,
+				7B934AE82C063C9500185089 /* Model */,
 				7B934AD92C063B0A00185089 /* NutriMate_v1App.swift */,
 				7B934ADB2C063B0A00185089 /* ContentView.swift */,
 				7B934ADD2C063B0C00185089 /* Assets.xcassets */,
@@ -67,6 +73,22 @@
 				7B934AE12C063B0C00185089 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		7B934AE82C063C9500185089 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7B934AEA2C063F9000185089 /* DailyStats.swift */,
+				7B934AEC2C06401800185089 /* Recipe.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7B934AE92C063C9D00185089 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,7 +162,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B934ADC2C063B0A00185089 /* ContentView.swift in Sources */,
+				7B934AEB2C063F9000185089 /* DailyStats.swift in Sources */,
 				7B934ADA2C063B0A00185089 /* NutriMate_v1App.swift in Sources */,
+				7B934AED2C06401800185089 /* Recipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
