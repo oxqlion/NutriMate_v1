@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0412C2C32C08354800E32B96 /* ListRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0412C2C22C08354800E32B96 /* ListRecipe.swift */; };
+		3FD5F0B92C08435D007B5C6A /* DetailRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD5F0B82C08435D007B5C6A /* DetailRecipeView.swift */; };
 		3FEF106D2C083B20003A5F72 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEF106C2C083B20003A5F72 /* User.swift */; };
 		7B934ADA2C063B0A00185089 /* NutriMate_v1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B934AD92C063B0A00185089 /* NutriMate_v1App.swift */; };
 		7B934ADC2C063B0A00185089 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B934ADB2C063B0A00185089 /* ContentView.swift */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		0412C2C22C08354800E32B96 /* ListRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRecipe.swift; sourceTree = "<group>"; };
+		3FD5F0B82C08435D007B5C6A /* DetailRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRecipeView.swift; sourceTree = "<group>"; };
 		3FEF106C2C083B20003A5F72 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7B934AD62C063B0A00185089 /* NutriMate_v1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutriMate_v1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B934AD92C063B0A00185089 /* NutriMate_v1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutriMate_v1App.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				7B934AF72C06427B00185089 /* iOSHomepageView.swift */,
+				3FD5F0B82C08435D007B5C6A /* DetailRecipeView.swift */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 				7B934AF82C06427B00185089 /* iOSHomepageView.swift in Sources */,
 				3FEF106D2C083B20003A5F72 /* User.swift in Sources */,
 				7B934AEB2C063F9000185089 /* DailyStats.swift in Sources */,
+				3FD5F0B92C08435D007B5C6A /* DetailRecipeView.swift in Sources */,
 				7B934ADA2C063B0A00185089 /* NutriMate_v1App.swift in Sources */,
 				7B934AED2C06401800185089 /* Recipe.swift in Sources */,
 			);
