@@ -13,6 +13,8 @@
 		7B934AE22C063B0C00185089 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B934AE12C063B0C00185089 /* Preview Assets.xcassets */; };
 		7B934AEB2C063F9000185089 /* DailyStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B934AEA2C063F9000185089 /* DailyStats.swift */; };
 		7B934AED2C06401800185089 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B934AEC2C06401800185089 /* Recipe.swift */; };
+		7B934AF52C06426C00185089 /* macOSHomepageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B934AF42C06426C00185089 /* macOSHomepageView.swift */; };
+		7B934AF82C06427B00185089 /* iOSHomepageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B934AF72C06427B00185089 /* iOSHomepageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		7B934AE12C063B0C00185089 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7B934AEA2C063F9000185089 /* DailyStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyStats.swift; sourceTree = "<group>"; };
 		7B934AEC2C06401800185089 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		7B934AF42C06426C00185089 /* macOSHomepageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macOSHomepageView.swift; sourceTree = "<group>"; };
+		7B934AF72C06427B00185089 /* iOSHomepageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSHomepageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,8 +91,26 @@
 		7B934AE92C063C9D00185089 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7B934AEF2C06421900185089 /* iOS */,
+				7B934AEE2C06421500185089 /* macOS */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		7B934AEE2C06421500185089 /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				7B934AF42C06426C00185089 /* macOSHomepageView.swift */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+		7B934AEF2C06421900185089 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				7B934AF72C06427B00185089 /* iOSHomepageView.swift */,
+			);
+			path = iOS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,7 +183,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B934AF52C06426C00185089 /* macOSHomepageView.swift in Sources */,
 				7B934ADC2C063B0A00185089 /* ContentView.swift in Sources */,
+				7B934AF82C06427B00185089 /* iOSHomepageView.swift in Sources */,
 				7B934AEB2C063F9000185089 /* DailyStats.swift in Sources */,
 				7B934ADA2C063B0A00185089 /* NutriMate_v1App.swift in Sources */,
 				7B934AED2C06401800185089 /* Recipe.swift in Sources */,

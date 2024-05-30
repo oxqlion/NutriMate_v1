@@ -10,10 +10,13 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, Joren And Friends :D!")
+#if os(macOS)
+            macOSHomepageView()
+#elseif os(iOS)
+            iOSHomepageView()
+#else
+            Text("Gtw")
+#endif
         }
         .padding()
     }
