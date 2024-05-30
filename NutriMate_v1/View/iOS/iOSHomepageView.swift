@@ -1,10 +1,3 @@
-//
-//  iOSHomepageView.swift
-//  NutriMate_v1
-//
-//  Created by zenzen on 28/05/24.
-//
-
 import SwiftUI
 
 struct iOSHomepageView: View {
@@ -21,6 +14,7 @@ struct iOSHomepageView: View {
             
             Text("You haven’t set any plans yet. Start planning today!📝🍌")
                 .font(.subheadline)
+                .multilineTextAlignment(.center)
                 .padding()
             
             Button(action: {
@@ -34,6 +28,8 @@ struct iOSHomepageView: View {
             }
             .sheet(isPresented: $showSheet) {
                 SheetView()
+                    .presentationDragIndicator(.visible)
+                    .ignoresSafeArea()
             }
         }
         .padding()
@@ -44,43 +40,45 @@ struct SheetView: View {
     @State private var target: String = ""
     @State private var selectedDate = Date()
     
-    @State private var selectedOptions: [String] = ["","","","",""]
+    @State private var selectedOptions: [String] = ["", "", "", "", ""]
     private let options = ["🥬 Vegetables", "🍉 Fruits", "🐟 Proteins", "🥛 Milk", "🫚 Herbs"]
     
-    
     var body: some View {
-        ScrollView {
+        
+        VStack {
+            
+//            Rectangle()
+//                .frame(width: 50, height: 6)
+//                .foregroundColor(.gray)
+//                .padding(.top, 20)
+            
+            Text("Set Plan")
+                .font(.title2)
+                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                .padding(.top, 20)
+                .padding(.horizontal)
+                .frame(maxWidth: .infinity, alignment: .leading)
+            
+            TextField("Target in Kg", text: $target)
+                .padding()
+                .background(.white)
+                .cornerRadius(10)
+            DatePicker("Deadline", selection: $selectedDate, displayedComponents: .date)
+                .padding(.horizontal)
+                .padding(.vertical, 10)
+                .background(.white)
+                .cornerRadius(10)
+                .foregroundColor(.gray)
             
             VStack {
-                Rectangle()
-                    .foregroundColor(.gray)
-                    .frame(width: 80, height: 10)
-                    .cornerRadius(100)
+                Text("Select preffered meal")
+                    .font(.headline)
+                    .fontWeight(.bold)
+                    .frame(maxWidth: .infinity, alignment: .leading)
                     .padding()
-                
-                Text("Create new plan")
-                
-                Section(header: Text("Input Weigh Loss (kg)")) {
-                    TextField("Target", text: $target)
-                        .padding()
-                        .background(.white)
-                        .cornerRadius(10)
-                        .onChange(of: target) { newValue in
-                            let filtered = newValue.filter { "0123456789".contains($0) }
-                            if target != filtered {
-                                target = filtered
-                            }
-                        }
-                    
-                }
-                
-                Section(header: Text("Due Date")) {
-                    DatePicker("Date", selection: $selectedDate, displayedComponents: .date)
-                        .datePickerStyle(GraphicalDatePickerStyle())
-                }
-                
                 HStack {
                     Text("+ 🥬 Vegetables")
+                        .font(.caption)
                         .padding()
                         .background(selectedOptions.contains("Vegetables") ? Color(hex: 0xD3D3D3) : Color.white)
                         .cornerRadius(100)
@@ -88,10 +86,12 @@ struct SheetView: View {
                             if selectedOptions.contains("Vegetables") {
                                 selectedOptions[0] = ""
                             } else {
-                                self.selectedOptions[0] = "Vegetables"                            }
+                                self.selectedOptions[0] = "Vegetables"
+                            }
                         }
                     
                     Text("+ 🍉 Fruits")
+                        .font(.caption)
                         .padding()
                         .background(selectedOptions.contains("Fruits") ? Color(hex: 0xD3D3D3) : Color.white)
                         .cornerRadius(100)
@@ -99,14 +99,11 @@ struct SheetView: View {
                             if selectedOptions.contains("Fruits") {
                                 selectedOptions[1] = ""
                             } else {
-                                self.selectedOptions[1] = "Fruits"                            }
+                                self.selectedOptions[1] = "Fruits"
+                            }
                         }
-                    Spacer()
-                }
-                
-                HStack {
-                    
                     Text("+ 🫚 Herbs")
+                        .font(.caption)
                         .padding()
                         .background(selectedOptions.contains("Herbs") ? Color(hex: 0xD3D3D3) : Color.white)
                         .cornerRadius(100)
@@ -114,10 +111,15 @@ struct SheetView: View {
                             if selectedOptions.contains("Herbs") {
                                 selectedOptions[2] = ""
                             } else {
-                                self.selectedOptions[2] = "Herbs"                            }
+                                self.selectedOptions[2] = "Herbs"
+                            }
                         }
+                    Spacer()
+                }
+                HStack {
                     
                     Text("+ 🥛 Milk")
+                        .font(.caption)
                         .padding()
                         .background(selectedOptions.contains("Milk") ? Color(hex: 0xD3D3D3) : Color.white)
                         .cornerRadius(100)
@@ -125,14 +127,11 @@ struct SheetView: View {
                             if selectedOptions.contains("Milk") {
                                 selectedOptions[3] = ""
                             } else {
-                                self.selectedOptions[3] = "Milk"                            }
+                                self.selectedOptions[3] = "Milk"
+                            }
                         }
-                    Spacer()
-                }
-                
-                HStack {
-                    
                     Text("+ 🐟 Proteins")
+                        .font(.caption)
                         .padding()
                         .background(selectedOptions.contains("Proteins") ? Color(hex: 0xD3D3D3) : Color.white)
                         .cornerRadius(100)
@@ -140,35 +139,29 @@ struct SheetView: View {
                             if selectedOptions.contains("Proteins") {
                                 selectedOptions[4] = ""
                             } else {
-                                self.selectedOptions[4] = "Proteins"                            }
+                                self.selectedOptions[4] = "Proteins"
+                            }
                         }
-                    
                     Spacer()
                 }
-                
-                Text("Selected Options: \(selectedOptions.joined(separator: ", "))")
-                    .padding()
-                
-                Button{
-                    
-                } label: {
-                    Text("Done")
-                        .foregroundColor(.white)
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .background(Color.black)
-                        .cornerRadius(10)
-                }
-                .padding()
             }
-            .padding(.horizontal)
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .cornerRadius(10)
-            .background(Color(hex: 0xf4f4f4))
-#if os(iOS)
-            .navigationBarTitle("Input Form", displayMode: .inline)
-#endif
+//            .padding(.horizontal)
+            
+            Button(action: {
+                
+            }) {
+                Text("See Plan")
+                    .foregroundColor(.white)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(Color.black)
+                    .cornerRadius(15)
+            }
+            .padding(.bottom, 10)
+            .padding(.top, 330)
         }
+        .padding()
+        .background(Color(hex: 0xF4F4F4))
     }
 }
 
