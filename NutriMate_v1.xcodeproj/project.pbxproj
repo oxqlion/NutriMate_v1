@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0412C2C32C08354800E32B96 /* ListRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0412C2C22C08354800E32B96 /* ListRecipe.swift */; };
 		7B934ADA2C063B0A00185089 /* NutriMate_v1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B934AD92C063B0A00185089 /* NutriMate_v1App.swift */; };
 		7B934ADC2C063B0A00185089 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B934ADB2C063B0A00185089 /* ContentView.swift */; };
 		7B934ADE2C063B0C00185089 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B934ADD2C063B0C00185089 /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0412C2C22C08354800E32B96 /* ListRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRecipe.swift; sourceTree = "<group>"; };
 		7B934AD62C063B0A00185089 /* NutriMate_v1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutriMate_v1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B934AD92C063B0A00185089 /* NutriMate_v1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutriMate_v1App.swift; sourceTree = "<group>"; };
 		7B934ADB2C063B0A00185089 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 			children = (
 				7B934AEF2C06421900185089 /* iOS */,
 				7B934AEE2C06421500185089 /* macOS */,
+				0412C2C22C08354800E32B96 /* ListRecipe.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0412C2C32C08354800E32B96 /* ListRecipe.swift in Sources */,
 				7B934AF52C06426C00185089 /* macOSHomepageView.swift in Sources */,
 				7B934ADC2C063B0A00185089 /* ContentView.swift in Sources */,
 				7B934AF82C06427B00185089 /* iOSHomepageView.swift in Sources */,
@@ -318,7 +322,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NutriMate_v1/Preview Content\"";
-				DEVELOPMENT_TEAM = A44MXXZ627;
+				DEVELOPMENT_TEAM = A5UJ6H8599;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -356,7 +360,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NutriMate_v1/Preview Content\"";
-				DEVELOPMENT_TEAM = A44MXXZ627;
+				DEVELOPMENT_TEAM = A5UJ6H8599;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
