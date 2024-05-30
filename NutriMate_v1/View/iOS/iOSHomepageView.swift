@@ -44,6 +44,10 @@ struct SheetView: View {
     @State private var target: String = ""
     @State private var selectedDate = Date()
     
+    @State private var selectedOptions: [String] = []
+    private let options = ["+ 🥬 Vegetables", "+ 🍉 Fruits", "+ 🐟 Proteins", "+ 🥛 Milk", "+ 🫚 Herbs"]
+    
+    
     var body: some View {
         VStack {
             
@@ -58,9 +62,33 @@ struct SheetView: View {
                     DatePicker("Date", selection: $selectedDate, displayedComponents: .date)
                         .datePickerStyle(GraphicalDatePickerStyle())
                 }
+                
+                Section(header: Text("Select Options")) {
+                    ForEach(options, id: \.self) { option in
+                        Button(action: {
+                            if let index = selectedOptions.firstIndex(of: option) {
+                                selectedOptions.remove(at: index)
+                            } else {
+                                selectedOptions.append(option)
+                            }
+                        }) {
+                            HStack {
+                                Text(option)
+                                    .foregroundColor(.white)
+                                    .padding()
+                                    .background(selectedOptions.contains(option) ? Color.green : Color.blue)
+                                    .cornerRadius(100)
+                            }
+                        }
+                        .padding(.vertical, 4)
+                    }
+                }
             }
             .cornerRadius(10)
             .padding(.horizontal)
+            
+            Text("Selected Options: \(selectedOptions.joined(separator: ", "))")
+                .padding()
             
             Button{
                 
