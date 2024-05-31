@@ -147,11 +147,10 @@ struct SheetView: View {
                 }
             }
 //            .padding(.horizontal)
-            
-            Button(action: {
-                
-            }) {
-                Text("See Plan")
+            Button{
+               
+            } label: {
+                Text("Done")
                     .foregroundColor(.white)
                     .padding()
                     .frame(maxWidth: .infinity)
