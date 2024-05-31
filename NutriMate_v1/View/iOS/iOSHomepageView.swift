@@ -6,9 +6,9 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct iOSHomepageView: View {
-    
     @State private var showSheet = false
     
     var body: some View {
@@ -33,7 +33,7 @@ struct iOSHomepageView: View {
                     .cornerRadius(10)
             }
             .sheet(isPresented: $showSheet) {
-                SheetView()
+                SheetView();
             }
         }
         .padding()
@@ -41,6 +41,7 @@ struct iOSHomepageView: View {
 }
 
 struct SheetView: View {
+    @Environment(\.modelContext) var modelContext
     @State private var target: String = ""
     @State private var selectedDate = Date()
     
@@ -91,7 +92,7 @@ struct SheetView: View {
                 .padding()
             
             Button{
-                
+               
             } label: {
                 Text("Done")
                     .foregroundColor(.white)

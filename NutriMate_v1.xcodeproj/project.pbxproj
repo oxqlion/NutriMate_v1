@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0412C2C32C08354800E32B96 /* ListRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0412C2C22C08354800E32B96 /* ListRecipe.swift */; };
+		046C9F002C09702D00B2200E /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C9EFF2C09702D00B2200E /* SplashScreen.swift */; };
 		0483DBFF2C0851AA00810FAB /* ProfilePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0483DBFE2C0851AA00810FAB /* ProfilePage.swift */; };
 		0483DC012C0851E700810FAB /* ScreenSizeDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0483DC002C0851E700810FAB /* ScreenSizeDetector.swift */; };
 		3FEF106D2C083B20003A5F72 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEF106C2C083B20003A5F72 /* User.swift */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		0412C2C22C08354800E32B96 /* ListRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRecipe.swift; sourceTree = "<group>"; };
+		046C9EFF2C09702D00B2200E /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		0483DBFE2C0851AA00810FAB /* ProfilePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfilePage.swift; path = ../../../../ProfilePage.swift; sourceTree = "<group>"; };
 		0483DC002C0851E700810FAB /* ScreenSizeDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenSizeDetector.swift; sourceTree = "<group>"; };
 		3FEF106C2C083B20003A5F72 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				7B934AF72C06427B00185089 /* iOSHomepageView.swift */,
 				3FEF10722C083F8C003A5F72 /* ListsRecipe.swift */,
 				0483DBFE2C0851AA00810FAB /* ProfilePage.swift */,
+				046C9EFF2C09702D00B2200E /* SplashScreen.swift */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				046C9F002C09702D00B2200E /* SplashScreen.swift in Sources */,
 				0412C2C32C08354800E32B96 /* ListRecipe.swift in Sources */,
 				0483DC012C0851E700810FAB /* ScreenSizeDetector.swift in Sources */,
 				7B934AF52C06426C00185089 /* macOSHomepageView.swift in Sources */,
