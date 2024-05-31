@@ -6,10 +6,10 @@
 //
 
 import SwiftUI
-
-import SwiftUI
+import SwiftData
 
 struct ListsRecipe: View {
+    
     @State private var searchTerm = ""
     var body: some View {
         NavigationView {
