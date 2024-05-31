@@ -16,7 +16,7 @@ struct DetailRecipeView: View {
                     .multilineTextAlignment(.center)
                     .padding()
 
-                Image("Lamb")
+                Image("Lamb Lamb")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 360)
