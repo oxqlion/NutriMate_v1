@@ -9,7 +9,8 @@ import SwiftUI
 import SwiftData
 
 struct ListsRecipe: View {
-    
+    @Environment(\.modelContext) var modelContext
+    @Query var recipes: [Recipe]
     @State private var searchTerm = ""
     var body: some View {
         NavigationView {
@@ -24,7 +25,7 @@ struct ListsRecipe: View {
                         .resizable()
                         .frame(width: 40, height: 40)
                         .clipShape(Circle())
-                    
+                    Button("Add Samples", action: addsamples)
                 } .padding(.top,50)
             
                 .padding(.horizontal)
@@ -44,8 +45,44 @@ struct ListsRecipe: View {
                     .font(.subheadline)
                     .padding(.horizontal)
                 
+                
                 List {
-                    RecipeItem()
+                    ForEach(recipes){ recipe in
+                        VStack(spacing:20){
+                            ZStack(alignment: .topTrailing) {
+                                Image(recipe.image)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .cornerRadius(20)
+                                
+                                HStack {
+                                    Image(systemName: "star.fill")
+                                    Text("5.0")
+                                }
+                                .padding(6)
+                                .background(Color.yellow)
+                                .clipShape(RoundedRectangle(cornerRadius: 6))
+                                .offset(x: -8, y: 8)
+                            }
+                            
+                            VStack(){
+                                VStack{
+                                    HStack{
+                                        Image(systemName: "clock").foregroundStyle(.green)
+                                        Text("\(recipe.cookTime) minutes").foregroundStyle(.green)
+                                        
+                                        Image(systemName: "flame").foregroundStyle(.red)
+                                        Text("\(recipe.calories) kcal")
+                                            .foregroundStyle(.red)
+                                    }
+                                }.frame(maxWidth: .infinity, alignment: .leading)
+                                VStack(alignment:.leading){
+                                    Text(recipe.name).font(.title)
+                                    Text(recipe.desc).font(.caption2).foregroundStyle(.gray)
+                                }.frame(maxWidth: .infinity, alignment: .leading)
+                            }
+                        } .padding(.vertical, 10)
+                    }
                 }
             }
             .background(Color(.systemGray6))
@@ -53,11 +90,17 @@ struct ListsRecipe: View {
             .navigationBarHidden(true)
             .edgesIgnoringSafeArea(.bottom)
             .edgesIgnoringSafeArea(.top)
+            
         }
         .background(Color(.gray))
         .navigationBarHidden(true)
         .ignoresSafeArea()
         .edgesIgnoringSafeArea(.bottom)
+    }
+    func addsamples(){
+        let esteler =  Recipe(name: "Pasta", desc: "Delicious pasta recipe", calories: 300, fat: 10, carbs: 40, protein: 15, sugar: 5, cookTime: 20, steps: ["Step 1", "Step 2", "Step 3"], image: "image 11")
+        
+        modelContext.insert(esteler)
     }
 }
 
@@ -110,7 +153,9 @@ struct RecipeItem: View {
                 }.frame(maxWidth: .infinity, alignment: .leading)
             }
         } .padding(.vertical, 10)
+        
     }
+    
 }
 
 struct RecipePage_Previews: PreviewProvider {

@@ -53,6 +53,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04544C862C0C0DEC006106DA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		7B934ACD2C063B0A00185089 = {
 			isa = PBXGroup;
 			children = (
@@ -72,6 +79,7 @@
 		7B934AD82C063B0A00185089 /* NutriMate_v1 */ = {
 			isa = PBXGroup;
 			children = (
+				04544C862C0C0DEC006106DA /* Controller */,
 				7B934AE82C063C9500185089 /* Model */,
 				7B934AE92C063C9D00185089 /* View */,
 				7B934AD92C063B0A00185089 /* NutriMate_v1App.swift */,
