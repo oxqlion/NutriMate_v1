@@ -12,6 +12,6 @@ struct NutriMate_v1App: App {
     var body: some Scene {
         WindowGroup {
             ListsRecipe()
-        }.modelContainer(for: Recipe.self)
+        }.modelContainer(for: Recipers.self)
     }
 }

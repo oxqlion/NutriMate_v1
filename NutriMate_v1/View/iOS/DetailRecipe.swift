@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct DetailRecipe: View {
+    let recipe: Recipers
     var body: some View {
             ScrollView {
                 VStack {
@@ -16,7 +17,7 @@ struct DetailRecipe: View {
                         .multilineTextAlignment(.center)
                         .padding()
 
-                    Image("Lamb")
+                    Image("\(recipe.name)")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 360)
@@ -55,7 +56,7 @@ struct DetailRecipe: View {
                                 .font(.headline)
                             Spacer()
                                 .frame(height: 16)
-                            Text("45 Mins")
+                            Text("\(recipe.cookTime) Mins")
                                 .font(.subheadline)
                         }
 
@@ -64,7 +65,7 @@ struct DetailRecipe: View {
                             .foregroundColor(.black)
 
                         VStack {
-                            Text("Calories")
+                            Text("\(recipe.calories)")
                                 .font(.headline)
                             Spacer()
                                 .frame(height: 16)
@@ -78,7 +79,7 @@ struct DetailRecipe: View {
 
                     ZStack {
                         RoundedRectangle(cornerRadius: 10)
-//                            .foregroundColor(Color(hex: 0xeeeeee))
+                            .foregroundColor(Color(hex: 0xeeeeee))
                             .frame(width: 360, height: 520)
 
                         VStack(alignment: .leading) {
@@ -221,10 +222,32 @@ struct DetailRecipe: View {
 
     struct ContentView_Previews: PreviewProvider {
         static var previews: some View {
-            DetailRecipe()
+            let sampleRecipe = Recipers(name: "Sample Recipe",
+                                        desc: "This is a sample recipe description.",
+                                        calories: 200,
+                                        fat: 5,
+                                        carbs: 30,
+                                        protein: 6,
+                                        sugar: 20,
+                                        cookTime: 15,
+                                        ingredients: ["Ingredient 1", "Ingredient 2", "Ingredient 3"],
+                                        steps: ["Step 1", "Step 2", "Step 3"],
+                                        image: "sample_image")
+            DetailRecipe(recipe: sampleRecipe)
         }
     }
 
-    #Preview {
-        DetailRecipe()
-    }
+#Preview {
+    DetailRecipe(recipe: Recipers(name: "Sample Recipe",
+                                      desc: "This is a sample recipe description.",
+                                      calories: 200,
+                                      fat: 5,
+                                      carbs: 30,
+                                      protein: 6,
+                                      sugar: 20,
+                                      cookTime: 15,
+                                      ingredients: ["Ingredient 1", "Ingredient 2", "Ingredient 3"],
+                                      steps: ["Step 1", "Step 2", "Step 3"],
+                                      image: "sample_image"))
+}
+
