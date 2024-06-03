@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Bucket
-   uuid = "B7B23718-E173-43DC-8A11-222F18B6F2F3"
-   type = "1"
-   version = "2.0">
+   uuid="B7B23718-E173-43DC-8A11-222F18B6F2F3"
+   type="1"
+   version="2.0">
    <Breakpoints>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         BreakpointExtensionID="Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "894C3D35-E591-43CC-B980-AD865B509880"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NutriMate_v1/View/iOS/DetailRecipeView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "226"
-            endingLineNumber = "226"
-            landmarkName = "ContentView_Previews"
-            landmarkType = "14">
+            uuid="894C3D35-E591-43CC-B980-AD865B509880"
+            shouldBeEnabled="Yes"
+            ignoreCount="0"
+            continueAfterRunningActions="No"
+            filePath="NutriMate_v1/View/iOS/DetailRecipeView.swift"
+            startingColumnNumber="9223372036854775807"
+            endingColumnNumber="9223372036854775807"
+            startingLineNumber="226"
+            endingLineNumber="226"
+            landmarkName="ContentView_Previews"
+            landmarkType="14">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
