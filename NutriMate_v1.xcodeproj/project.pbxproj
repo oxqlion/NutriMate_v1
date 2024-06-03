@@ -21,6 +21,7 @@
 		7B934AED2C06401800185089 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B934AEC2C06401800185089 /* Recipe.swift */; };
 		7B934AF52C06426C00185089 /* macOSHomepageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B934AF42C06426C00185089 /* macOSHomepageView.swift */; };
 		7B934AF82C06427B00185089 /* iOSHomepageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B934AF72C06427B00185089 /* iOSHomepageView.swift */; };
+		7BA47D8B2C0DB40C007854FB /* DetailRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA47D8A2C0DB40C007854FB /* DetailRecipe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		7B934AEC2C06401800185089 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		7B934AF42C06426C00185089 /* macOSHomepageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macOSHomepageView.swift; sourceTree = "<group>"; };
 		7B934AF72C06427B00185089 /* iOSHomepageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSHomepageView.swift; sourceTree = "<group>"; };
+		7BA47D8A2C0DB40C007854FB /* DetailRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRecipe.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 				3FEF10722C083F8C003A5F72 /* ListsRecipe.swift */,
 				046C9EFF2C09702D00B2200E /* SplashScreen.swift */,
 				046C9F012C09783F00B2200E /* ProfileView.swift */,
+				7BA47D8A2C0DB40C007854FB /* DetailRecipe.swift */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 			files = (
 				046C9F002C09702D00B2200E /* SplashScreen.swift in Sources */,
 				046C9F022C09783F00B2200E /* ProfileView.swift in Sources */,
+				7BA47D8B2C0DB40C007854FB /* DetailRecipe.swift in Sources */,
 				0412C2C32C08354800E32B96 /* ListRecipe.swift in Sources */,
 				0483DC012C0851E700810FAB /* ScreenSizeDetector.swift in Sources */,
 				7B934AF52C06426C00185089 /* macOSHomepageView.swift in Sources */,
