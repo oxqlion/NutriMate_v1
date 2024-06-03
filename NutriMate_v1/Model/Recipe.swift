@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 
 @Model
-class Recipe {
+class Recipers {
     var name: String
     var desc: String
     var calories: Int
@@ -20,8 +20,9 @@ class Recipe {
     var cookTime: Int
     var steps: [String]
     var image: String
+    var ingredients: [String]
     
-    init(name: String, desc: String, calories: Int, fat: Int, carbs: Int, protein: Int, sugar: Int, cookTime: Int, steps: [String], image: String) {
+    init(name: String="", desc: String="", calories: Int = 0, fat: Int = 0, carbs: Int = 0, protein: Int = 0, sugar: Int = 0, cookTime: Int = 0,ingredients:[String],  steps: [String] = [""], image: String = "" ) {
         self.name = name
         self.desc = desc
         self.calories = calories
@@ -32,5 +33,6 @@ class Recipe {
         self.cookTime = cookTime
         self.steps = steps
         self.image = image
+        self.ingredients = ingredients
     }
 }
