@@ -10,8 +10,7 @@ import OpenAI
 import Combine
 
 class AIResponse: ObservableObject {
-//    private let openAi = OpenAI(apiToken: "sk-proj-ZQUB4mavEpf9YJMsBwdLT3BlbkFJ2Xjzue2caz72r20WRtIP")
-    private let openAi = OpenAI(apiToken: "sk-proj-0CmCQPZJjywktuSapNfsT3BlbkFJC8Y3oOFPOxtdLnNG7t8Z")
+    private let openAi = OpenAI(apiToken: "API_KEY")
     @Published var responseText: String = ""
 
     func getReply(prompt: String, completion: @escaping (String) -> Void) {
