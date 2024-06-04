@@ -12,6 +12,12 @@ struct ListsRecipe: View {
     @Environment(\.modelContext) var modelContexts
     @Query var recipess: [Recipers]
     @State private var searchTerm = ""
+    var filteredRecipes:[Recipers]{
+        guard !searchTerm.isEmpty else{return recipess}
+        return recipess.filter{ $0.name.localizedCaseInsensitiveContains(searchTerm)}
+    }
+    
+    
     var body: some View {
         NavigationView {
             VStack(alignment: .leading) {
@@ -30,13 +36,16 @@ struct ListsRecipe: View {
             
                 .padding(.horizontal)
                 HStack{
-                    VStack{
-                        Image(systemName: "clock")
-                        Text("brodda")
-                    }.padding(.top,0.2)
-                        .padding(.bottom)
-                        .background(Color(.systemGray6))
+                        VStack{
+                            Image(systemName: "clock")
+                            Button("Show details"){
+                                
+                            }
+                        }.padding(.top,0.2)
+                            .padding(.bottom)
+                            .background(Color(.systemGray6))
                 }.padding(.horizontal)
+                    
                 
                 SearchBar(searchTerm: $searchTerm)
                     .padding(.horizontal)
@@ -47,7 +56,7 @@ struct ListsRecipe: View {
                 
                 
                 List {
-                    ForEach(recipess){ recipe in
+                    ForEach(filteredRecipes){ recipe in
                         NavigationLink(destination: DetailRecipe(recipe: recipe)) {
                             VStack(spacing:20){
                                 ZStack(alignment: .topTrailing) {
@@ -171,7 +180,7 @@ struct RecipeItem: View {
 
 struct RecipePage_Previews: PreviewProvider {
     static var previews: some View {
-        ListsRecipe()
+        ListsRecipe().modelContainer(for: Recipers.self)
     }
 }
 
