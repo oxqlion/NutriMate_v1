@@ -25,7 +25,7 @@ struct ListsRecipe: View {
                         .resizable()
                         .frame(width: 40, height: 40)
                         .clipShape(Circle())
-                    Button("Add Samples", action: addsamples)
+
                 } .padding(.top,50)
             
                 .padding(.horizontal)
@@ -92,6 +92,12 @@ struct ListsRecipe: View {
             .navigationBarHidden(true)
             .edgesIgnoringSafeArea(.bottom)
             .edgesIgnoringSafeArea(.top)
+            .onAppear {
+                           if !UserDefaults.standard.bool(forKey: "isDataSeeded") {
+                               addsamples()
+                               UserDefaults.standard.set(true, forKey: "isDataSeeded")
+                           }
+                       }
             
         }
         .background(Color(.gray))
