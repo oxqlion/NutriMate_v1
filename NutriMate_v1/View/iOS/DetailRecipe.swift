@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DetailRecipe: View {
-    let recipe: Recipers
+    let recipe: Recipes
     var body: some View {
             ScrollView {
                 VStack {
@@ -222,7 +222,7 @@ struct DetailRecipe: View {
 
     struct ContentView_Previews: PreviewProvider {
         static var previews: some View {
-            let sampleRecipe = Recipers(name: "Sample Recipe",
+            let sampleRecipe = Recipes(name: "Sample Recipe",
                                         desc: "This is a sample recipe description.",
                                         calories: 200,
                                         fat: 5,
@@ -238,7 +238,7 @@ struct DetailRecipe: View {
     }
 
 #Preview {
-    DetailRecipe(recipe: Recipers(name: "Sample Recipe",
+    DetailRecipe(recipe: Recipes(name: "Sample Recipe",
                                       desc: "This is a sample recipe description.",
                                       calories: 200,
                                       fat: 5,

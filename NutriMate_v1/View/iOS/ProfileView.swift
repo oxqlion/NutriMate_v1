@@ -15,7 +15,7 @@ struct Product: Identifiable {
 }
 
 struct Minerals: Identifiable {
-    //aa
+    //aa 
     let id = UUID()
     let name: String
     let amount: Double
