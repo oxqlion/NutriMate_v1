@@ -30,7 +30,8 @@ class Recipers {
     }
 }
 
-func parseAIResponse(response: String) -> Recipers? {
+func parseAIResponse(response: String) -> Recipes {
+
     let components = response.split(separator: "\n")
     var name = ""
     var desc = ""
