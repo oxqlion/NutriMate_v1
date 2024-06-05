@@ -13,6 +13,12 @@ struct ListsRecipe: View {
     @Query var recipes: [Recipers]
     @State private var searchTerm = ""
     let isIpad = ScreenSizeDetector().screenWidth > 650
+    var filteredRecipes:[Recipes]{
+        guard !searchTerm.isEmpty else{return recipess}
+        return recipess.filter{ $0.name.localizedCaseInsensitiveContains(searchTerm)}
+    }
+    
+    
     var body: some View {
 
 
@@ -131,6 +137,18 @@ struct ListsRecipe: View {
                 }
             }
             .padding(0)
+            .background(Color(.systemGray6))
+            .cornerRadius(20)
+            .navigationBarHidden(true)
+            .edgesIgnoringSafeArea(.bottom)
+            .edgesIgnoringSafeArea(.top)
+            .onAppear {
+                           if !UserDefaults.standard.bool(forKey: "isDataSeeded") {
+                               addsamples()
+                               UserDefaults.standard.set(true, forKey: "isDataSeeded")
+                           }
+                       }
+            
         }
         .background(Color(.systemGray6))
         .cornerRadius(20)
@@ -236,3 +254,16 @@ struct RecipeItem: View {
 #Preview {
     ListsRecipe()
 }
+        } .padding(.vertical, 10)
+        
+    }
+    
+}
+
+struct RecipePage_Previews: PreviewProvider {
+    static var previews: some View {
+        ListsRecipe().modelContainer(for: [Recipes.self, DailyStats.self])
+    }
+}
+
+
