@@ -56,10 +56,10 @@ struct ProfileView: View {
         VStack{
             ScrollView(.horizontal) {
                 LazyHStack {
+                    
+                    
+                    //DONUT-CHART =================================
                     ZStack {
-                        
-                        
-                        //DONUT-CHART =================================
                         Chart(products) { product in
                             SectorMark(
                                 angle: .value(
@@ -76,7 +76,7 @@ struct ProfileView: View {
                             )
                         }.frame(width: isIpad ? ScreenSizeDetector().screenWidth/2.3: ScreenSizeDetector().screenWidth/2, height: isIpad ? ScreenSizeDetector().screenHeight/2.3 : ScreenSizeDetector().screenHeight/2)
                             .padding(.horizontal, isIpad ? ScreenSizeDetector().screenWidth/5.1: ScreenSizeDetector().screenWidth/6.5)
-                        //=============================================
+                        
                         
                         
                         //TEXT ========================================
@@ -92,15 +92,12 @@ struct ProfileView: View {
                             .padding(.bottom, 15)
                         }
                         //=============================================
-                        
-                        
                     }
+                    //=============================================
                     
                     
+                    //BAR-CHART =================================
                     ZStack {
-                        
-                        
-                        //BAR-CHART =================================
                         Chart(body_minerals) { items in
                             BarMark(
                                 x: .value(Text(verbatim: "Name"), items.name),
@@ -136,7 +133,7 @@ struct ProfileView: View {
                         
                     }
                 }
-                .padding(.vertical, isIpad ? ScreenSizeDetector().screenHeight/6       : 0)
+                .frame(height: ScreenSizeDetector().screenHeight/3)
             }
             
             //DATE  =======================================
@@ -151,7 +148,7 @@ struct ProfileView: View {
             Text("Nutritional Needs:")
                 .font(.system(size: isIpad ? 18 : 10))
                 .foregroundColor(.gray)
-                .padding(.bottom, isIpad ? 20 : 20)
+                .padding(.bottom, isIpad ? 15 : 10)
             //=============================================
             
             

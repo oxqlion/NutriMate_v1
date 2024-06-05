@@ -4,17 +4,18 @@ import GoogleGenerativeAI
 
 struct iOSHomepageView: View {
     @State private var showSheet = false
+    let isIpad = ScreenSizeDetector().screenWidth > 650
     
     var body: some View {
         VStack {
             Image("25")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 150, height: 150)
+                .frame(width: isIpad ? 250 : 150, height: isIpad ? 250 : 150)
                 .padding()
             
             Text("You haven’t set any plans yet. Start planning today!📝🍌")
-                .font(.subheadline)
+                .font(.system(size: isIpad ? 24 : 16))
                 .multilineTextAlignment(.center)
                 .padding()
             
@@ -22,6 +23,7 @@ struct iOSHomepageView: View {
                 showSheet.toggle()
             }) {
                 Text("Set Plan")
+                    .font(.system(size: isIpad ? 20 : 16))
                     .foregroundColor(.white)
                     .padding()
                     .background(Color.black)
@@ -39,7 +41,6 @@ struct iOSHomepageView: View {
 
 struct SheetView: View {
     @Environment(\.modelContext) var modelContext
-    @StateObject private var viewModel = OpenAIViewModel()
     let model = GenerativeModel(name: "gemini-pro", apiKey: APIKey.default)
     @State private var target: String = "i want to start a diet. i want to lose 5 kg in 30 days. give me a food recipe to help me on my diet. generate it with this format : meal name : meal description : meal total calories : meal total fat : meal total carbs : meal total protein : meal total sugar : meal cook time : meal step by step to make, separate each step with a / : meal ingredients, separate each ingredients with a / : i prefer a meal with this ingredients : vegetables egg"
     @State private var responseText: String = ""

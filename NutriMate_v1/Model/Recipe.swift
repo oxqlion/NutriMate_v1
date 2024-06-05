@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 
 @Model
-class Recipes {
+class Recipers {
     var name: String
     var desc: String
     var calories: Int

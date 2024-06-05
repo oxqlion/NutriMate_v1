@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0412C2C32C08354800E32B96 /* ListRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0412C2C22C08354800E32B96 /* ListRecipe.swift */; };
+		0412C2C32C08354800E32B96 /* MacListsRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0412C2C22C08354800E32B96 /* MacListsRecipe.swift */; };
 		046C9F002C09702D00B2200E /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C9EFF2C09702D00B2200E /* SplashScreen.swift */; };
 		046C9F022C09783F00B2200E /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C9F012C09783F00B2200E /* ProfileView.swift */; };
 		0483DC012C0851E700810FAB /* ScreenSizeDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0483DC002C0851E700810FAB /* ScreenSizeDetector.swift */; };
@@ -36,7 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0412C2C22C08354800E32B96 /* ListRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRecipe.swift; sourceTree = "<group>"; };
+		0412C2C22C08354800E32B96 /* MacListsRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacListsRecipe.swift; sourceTree = "<group>"; };
 		046C9EFF2C09702D00B2200E /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		046C9F012C09783F00B2200E /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		0483DC002C0851E700810FAB /* ScreenSizeDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenSizeDetector.swift; sourceTree = "<group>"; };
@@ -147,7 +147,7 @@
 			children = (
 				7B934AEF2C06421900185089 /* iOS */,
 				7B934AEE2C06421500185089 /* macOS */,
-				0412C2C22C08354800E32B96 /* ListRecipe.swift */,
+				0412C2C22C08354800E32B96 /* MacListsRecipe.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -261,7 +261,7 @@
 				04EE86362C10363800DD182E /* RecipeRepository.swift in Sources */,
 				7B5F6A442C0F501200A34CCD /* AIResponse.swift in Sources */,
 				7B5F6A502C0F9FE000A34CCD /* APIKey.swift in Sources */,
-				0412C2C32C08354800E32B96 /* ListRecipe.swift in Sources */,
+				0412C2C32C08354800E32B96 /* MacListsRecipe.swift in Sources */,
 				0483DC012C0851E700810FAB /* ScreenSizeDetector.swift in Sources */,
 				7B934AF52C06426C00185089 /* macOSHomepageView.swift in Sources */,
 				7B934ADC2C063B0A00185089 /* ContentView.swift in Sources */,
