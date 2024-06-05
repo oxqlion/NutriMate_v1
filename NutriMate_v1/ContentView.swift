@@ -10,12 +10,11 @@ import SwiftUI
 struct ContentView: View {
     
     @State var selectedTab = 1
-    
     var body: some View {#if os(macOS)
             macOSHomepageView()
 #elseif os(iOS)
             TabView(selection: $selectedTab) {
-                iOSHomepageView()
+                ProfileView()
                     .tabItem {
                         VStack {
                             Image(systemName: "house")

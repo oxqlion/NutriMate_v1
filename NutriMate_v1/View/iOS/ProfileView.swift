@@ -30,6 +30,8 @@ struct Weight: Identifiable {
 }
 
 struct ProfileView: View {
+    @Environment(\.modelContext) var modelContexts
+    @Query var dailystats: [DailyStats]
     let isIpad = ScreenSizeDetector().screenWidth > 650
     @State private var products: [Product] = [
         .init(title: "Eaten", revenue: 0.9),
@@ -51,12 +53,31 @@ struct ProfileView: View {
         .init(name: "Saturday", amount: 71.9),
         .init(name: "Sunday", amount: 71.5),
     ]
+    var totalCarbs: Int {
+        dailystats.filter { $0.isSameDay(as: Date()) }.reduce(0) { $0 + $1.carbs }
+    }
+    var totalProtein: Int {
+        dailystats.filter { $0.isSameDay(as: Date()) }.reduce(0) { $0 + $1.protein}
+    }
+    var totalSugar: Int{
+        dailystats.filter { $0.isSameDay(as: Date()) }.reduce(0) { $0 + $1.sugar}
+    }
+    var totalfat: Int{
+        dailystats.filter { $0.isSameDay(as: Date()) }.reduce(0) { $0 + $1.fat}
+    }
+    var totalEaten: Int{
+        dailystats.filter { $0.isSameDay(as: Date()) }.reduce(0) { $0 + $1.totalCalories}
+    }
+    
     var body: some View {
-      
         VStack{
             ScrollView(.horizontal) {
                 LazyHStack {
-                    
+                    Text("\(totalCarbs)")
+                    Text("\(totalProtein)")
+                    Text("\(totalSugar)")
+                    Text("\(totalfat)")
+                    Text("\(totalEaten)")
                     
                     //DONUT-CHART =================================
                     ZStack {

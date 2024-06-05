@@ -120,14 +120,15 @@ struct DetailRecipe: View {
                 .padding(.trailing, 32)
                 
                 Button{
+                    addsampless()
                     if dailystats.filter({ $0.date == Date() }).isEmpty {
-                                let newDailyStats = DailyStats(carbs: 0, protein: 0, fat: 0, sugar: 0, totalCalories: 0, date: Date())
+                        let newDailyStats = DailyStats(carbs: recipe.carbs , protein: recipe.protein, fat: recipe.fat, sugar: recipe.sugar, totalCalories: recipe.calories, date: Date())
 //                                newDailyStats.consumed.append(recipe)
                                 modelContexts.insert(newDailyStats)
                     } else {
                         // DailyStats exist, update the consumed recipes
                         let todayStats = dailystats.filter({ $0.date == Date() }).first!
-                        
+                        todayStats.carbs = todayStats.carbs+recipe.carbs
 //                        todayStats.consumed.append(recipe)
                         do {
                            try modelContexts.save()
@@ -150,8 +151,9 @@ struct DetailRecipe: View {
             }
         }
     }
-    func addSamplesss(){
-        
+    func addsampless(){
+        let newDailyStats = DailyStats(carbs: 0, protein: 0, fat: 0, sugar: 0, totalCalories: 0, date: Date())
+        modelContexts.insert(newDailyStats)
     }
 }
 struct ContentView_Previews: PreviewProvider {
