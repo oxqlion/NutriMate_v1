@@ -179,7 +179,9 @@ struct SheetView: View {
                 let components = calendar.dateComponents([.day], from: today, to: selectedDate)
                 let days = components.day ?? 0
                 
-                let prompt = """
+                for _ in 1...5 {
+                    
+                    let prompt = """
                                 I want to start a diet. I want to lose \(target) kg in \(days) days.
                                 Give me a food recipe to help me on my diet. Generate it with this format:
                                 meal name: meal description: meal total calories: meal total fat:
@@ -188,17 +190,19 @@ struct SheetView: View {
                                 meal ingredients, separate each ingredients with a /:
                                 I prefer a meal with these ingredients: \(selectedOptions.joined(separator: ", "))
                                 """
-                let result = try await model.generateContent(prompt)
-                responseText = result.text ?? "No response ... "
-                target = ""
-                
-                let resModel = parseAIResponse(response: responseText)
+                    let result = try await model.generateContent(prompt)
+                    responseText = result.text ?? "No response ... "
+                    target = ""
+                    
+                    let resModel = parseAIResponse(response: responseText)
+                    
+                    modelContext.insert(resModel)
+                }
             } catch {
                 responseText = "Something went wrong ..."
             }
         }
     }
-    
 }
 
 #Preview {
