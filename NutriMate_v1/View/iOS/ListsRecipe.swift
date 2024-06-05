@@ -11,7 +11,6 @@ import SwiftData
 struct ListsRecipe: View {
     @Environment(\.modelContext) var modelContexts
     @Query var recipess: [Recipers]
-    @Query var dailystats: [DailyStats]
     @State private var searchTerm = ""
     var filteredRecipes:[Recipers]{
         guard !searchTerm.isEmpty else{return recipess}
@@ -121,8 +120,7 @@ struct ListsRecipe: View {
 
         let fruitsRecipe9 = Recipers(name: "Mango Salsa", desc: "A fresh and tangy mango salsa perfect for summer.", calories: 100, fat: 0, carbs: 25, protein: 1, sugar: 20, cookTime: 10,ingredients: ["strawberi"], steps: ["Combine diced mango, red bell pepper, red onion, and cilantro in a bowl.", "Add lime juice and salt.", "Toss gently and serve chilled."], image: "image 11")
         modelContexts.insert(fruitsRecipe8)
-        let newDailyStats = DailyStats(carbs: 0, protein: 0, fat: 0, sugar: 0, totalCalories: 0, date: Date())
-        modelContexts.insert(newDailyStats)
+        modelContexts.insert(fruitsRecipe9)
     }
     
 }

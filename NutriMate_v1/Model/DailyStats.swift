@@ -17,7 +17,7 @@ class DailyStats {
     var totalCalories: Int
     var date: Date
     
-    @Relationship() var consumed: [Recipers] = []
+//    @Relationship() var consumed: [Recipers] = []
     
     init(carbs: Int = 0, protein: Int = 0, fat: Int = 0, sugar: Int = 0, totalCalories: Int = 0, date: Date) {
         self.carbs = carbs

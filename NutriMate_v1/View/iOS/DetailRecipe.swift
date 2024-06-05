@@ -122,13 +122,13 @@ struct DetailRecipe: View {
                 Button{
                     if dailystats.filter({ $0.date == Date() }).isEmpty {
                                 let newDailyStats = DailyStats(carbs: 0, protein: 0, fat: 0, sugar: 0, totalCalories: 0, date: Date())
-                                newDailyStats.consumed.append(recipe)
+//                                newDailyStats.consumed.append(recipe)
                                 modelContexts.insert(newDailyStats)
                     } else {
                         // DailyStats exist, update the consumed recipes
                         let todayStats = dailystats.filter({ $0.date == Date() }).first!
                         
-                        todayStats.consumed.append(recipe)
+//                        todayStats.consumed.append(recipe)
                         do {
                            try modelContexts.save()
                            print("Daily Stats saved successfully!")
