@@ -7,7 +7,7 @@
 
 import Foundation
 class ListsRecipeViewModel: ObservableObject {
-    @Published var recipes: [Recipes] = []
+    @Published var recipes: [Recipers] = []
     private let repository = RecipeRepository()
     func seedDataIfNeeded() {
         if !UserDefaults.standard.bool(forKey: "isDataSeeded") {

@@ -30,7 +30,7 @@ class Recipers {
     }
 }
 
-func parseAIResponse(response: String) -> Recipes? {
+func parseAIResponse(response: String) -> Recipers? {
     let components = response.split(separator: "\n")
     var name = ""
     var desc = ""
@@ -81,5 +81,5 @@ func parseAIResponse(response: String) -> Recipes? {
         }
     }
     
-    return Recipes(name: name, desc: desc, calories: calories, fat: fat, carbs: carbs, protein: protein, sugar: sugar, cookTime: cookTime, ingredients: ingredients, steps: steps)
+    return Recipers(name: name, desc: desc, calories: calories, fat: fat, carbs: carbs, protein: protein, sugar: sugar, cookTime: cookTime, ingredients: ingredients, steps: steps)
 }

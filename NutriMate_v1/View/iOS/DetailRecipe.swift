@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct DetailRecipe: View {
-    let recipe: Recipes
+    let recipe: Recipers
     @Environment(\.modelContext) var modelContexts
     @Query var dailystats: [DailyStats]
 //    @EnvironmentObject var viewModel: DetailRecipeViewModel
@@ -156,7 +156,7 @@ struct DetailRecipe: View {
 }
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        let sampleRecipe = Recipes(name: "Sample Recipe",
+        let sampleRecipe = Recipers(name: "Sample Recipe",
                                     desc: "This is a sample recipe description.",
                                     calories: 200,
                                     fat: 5,
@@ -172,7 +172,7 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 #Preview {
-    DetailRecipe(recipe: Recipes(name: "Sample Recipe",
+    DetailRecipe(recipe: Recipers(name: "Sample Recipe",
                                   desc: "This is a sample recipe description.",
                                   calories: 200,
                                   fat: 5,

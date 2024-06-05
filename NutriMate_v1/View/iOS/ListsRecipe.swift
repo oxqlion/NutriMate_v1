@@ -13,9 +13,9 @@ struct ListsRecipe: View {
     @Query var recipes: [Recipers]
     @State private var searchTerm = ""
     let isIpad = ScreenSizeDetector().screenWidth > 650
-    var filteredRecipes:[Recipes]{
-        guard !searchTerm.isEmpty else{return recipess}
-        return recipess.filter{ $0.name.localizedCaseInsensitiveContains(searchTerm)}
+    var filteredRecipes:[Recipers]{
+        guard !searchTerm.isEmpty else{return recipes}
+        return recipes.filter{ $0.name.localizedCaseInsensitiveContains(searchTerm)}
     }
     
     
@@ -254,15 +254,10 @@ struct RecipeItem: View {
 #Preview {
     ListsRecipe()
 }
-        } .padding(.vertical, 10)
-        
-    }
-    
-}
 
 struct RecipePage_Previews: PreviewProvider {
     static var previews: some View {
-        ListsRecipe().modelContainer(for: [Recipes.self, DailyStats.self])
+        ListsRecipe().modelContainer(for: [Recipers.self, DailyStats.self])
     }
 }
 

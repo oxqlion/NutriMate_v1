@@ -12,7 +12,7 @@ class RecipeRepository {
         
     }
 
-    func getAllRecipes() -> [Recipes] {
+    func getAllRecipes() -> [Recipers] {
         
         return []
     }
