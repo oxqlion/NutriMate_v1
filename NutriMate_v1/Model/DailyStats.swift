@@ -27,4 +27,10 @@ class DailyStats {
         self.totalCalories = totalCalories
         self.date = date
     }
+    func isSameDay(as otherDate: Date) -> Bool {
+        let calendar = Calendar.current
+        let components1 = calendar.dateComponents([.year, .month, .day], from: self.date)
+        let components2 = calendar.dateComponents([.year, .month, .day], from: otherDate)
+        return components1 == components2
+    }
 }

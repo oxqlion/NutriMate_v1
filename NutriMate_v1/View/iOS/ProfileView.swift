@@ -30,6 +30,8 @@ struct Weight: Identifiable {
 }
 
 struct ProfileView: View {
+    @Environment(\.modelContext) var modelContexts
+    @Query var dailystats: [DailyStats]
     let isIpad = ScreenSizeDetector().screenWidth > 650
     @State private var products: [Product] = [
         .init(title: "Eaten", revenue: 0.9),
@@ -51,15 +53,34 @@ struct ProfileView: View {
         .init(name: "Saturday", amount: 71.9),
         .init(name: "Sunday", amount: 71.5),
     ]
+    var totalCarbs: Int {
+        dailystats.filter { $0.isSameDay(as: Date()) }.reduce(0) { $0 + $1.carbs }
+    }
+    var totalProtein: Int {
+        dailystats.filter { $0.isSameDay(as: Date()) }.reduce(0) { $0 + $1.protein}
+    }
+    var totalSugar: Int{
+        dailystats.filter { $0.isSameDay(as: Date()) }.reduce(0) { $0 + $1.sugar}
+    }
+    var totalfat: Int{
+        dailystats.filter { $0.isSameDay(as: Date()) }.reduce(0) { $0 + $1.fat}
+    }
+    var totalEaten: Int{
+        dailystats.filter { $0.isSameDay(as: Date()) }.reduce(0) { $0 + $1.totalCalories}
+    }
+    
     var body: some View {
-      
         VStack{
             ScrollView(.horizontal) {
                 LazyHStack {
+                    Text("\(totalCarbs)")
+                    Text("\(totalProtein)")
+                    Text("\(totalSugar)")
+                    Text("\(totalfat)")
+                    Text("\(totalEaten)")
+                    
+                    //DONUT-CHART =================================
                     ZStack {
-                        
-                        
-                        //DONUT-CHART =================================
                         Chart(products) { product in
                             SectorMark(
                                 angle: .value(
@@ -76,7 +97,7 @@ struct ProfileView: View {
                             )
                         }.frame(width: isIpad ? ScreenSizeDetector().screenWidth/2.3: ScreenSizeDetector().screenWidth/2, height: isIpad ? ScreenSizeDetector().screenHeight/2.3 : ScreenSizeDetector().screenHeight/2)
                             .padding(.horizontal, isIpad ? ScreenSizeDetector().screenWidth/5.1: ScreenSizeDetector().screenWidth/6.5)
-                        //=============================================
+                        
                         
                         
                         //TEXT ========================================
@@ -92,15 +113,12 @@ struct ProfileView: View {
                             .padding(.bottom, 15)
                         }
                         //=============================================
-                        
-                        
                     }
+                    //=============================================
                     
                     
+                    //BAR-CHART =================================
                     ZStack {
-                        
-                        
-                        //BAR-CHART =================================
                         Chart(body_minerals) { items in
                             BarMark(
                                 x: .value(Text(verbatim: "Name"), items.name),
@@ -136,7 +154,7 @@ struct ProfileView: View {
                         
                     }
                 }
-                .padding(.vertical, isIpad ? ScreenSizeDetector().screenHeight/6       : 0)
+                .frame(height: ScreenSizeDetector().screenHeight/3)
             }
             
             //DATE  =======================================
@@ -151,7 +169,7 @@ struct ProfileView: View {
             Text("Nutritional Needs:")
                 .font(.system(size: isIpad ? 18 : 10))
                 .foregroundColor(.gray)
-                .padding(.bottom, isIpad ? 20 : 20)
+                .padding(.bottom, isIpad ? 15 : 10)
             //=============================================
             
             
