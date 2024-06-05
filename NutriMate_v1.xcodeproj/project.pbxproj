@@ -163,10 +163,10 @@
 		7B934AEF2C06421900185089 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				046C9F012C09783F00B2200E /* ProfileView.swift */,
 				7B934AF72C06427B00185089 /* iOSHomepageView.swift */,
 				3FEF10722C083F8C003A5F72 /* ListsRecipe.swift */,
 				046C9EFF2C09702D00B2200E /* SplashScreen.swift */,
-				046C9F012C09783F00B2200E /* ProfileView.swift */,
 				7BA47D8A2C0DB40C007854FB /* DetailRecipe.swift */,
 			);
 			path = iOS;
