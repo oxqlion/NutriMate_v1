@@ -6,9 +6,13 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct DetailRecipe: View {
     let recipe: Recipers
+    @Environment(\.modelContext) var modelContexts
+    @Query var dailystats: [DailyStats]
+//    @EnvironmentObject var viewModel: DetailRecipeViewModel
     var body: some View {
         ScrollView {
             VStack {
@@ -116,7 +120,23 @@ struct DetailRecipe: View {
                 .padding(.trailing, 32)
                 
                 Button{
-                    
+                    if dailystats.filter({ $0.date == Date() }).isEmpty {
+                                let newDailyStats = DailyStats(carbs: 0, protein: 0, fat: 0, sugar: 0, totalCalories: 0, date: Date())
+                                newDailyStats.consumed.append(recipe)
+                                modelContexts.insert(newDailyStats)
+                    } else {
+                        // DailyStats exist, update the consumed recipes
+                        let todayStats = dailystats.filter({ $0.date == Date() }).first!
+                        
+                        todayStats.consumed.append(recipe)
+                        do {
+                           try modelContexts.save()
+                           print("Daily Stats saved successfully!")
+                         } catch {
+                           print("Error saving Daily Stats: \(error)")
+                           // Handle the error here, like showing an alert to the user
+                         }
+                    }
                 } label: {
                     Text("Select this recipe")
                         .foregroundColor(.white)
@@ -130,36 +150,39 @@ struct DetailRecipe: View {
             }
         }
     }
+    func addSamplesss(){
+        
+    }
 }
 
-    struct ContentView_Previews: PreviewProvider {
-        static var previews: some View {
-            let sampleRecipe = Recipers(name: "Sample Recipe",
-                                        desc: "This is a sample recipe description.",
-                                        calories: 200,
-                                        fat: 5,
-                                        carbs: 30,
-                                        protein: 6,
-                                        sugar: 20,
-                                        cookTime: 15,
-                                        ingredients: ["Ingredient 1", "Ingredient 2", "Ingredient 3"],
-                                        steps: ["Step 1", "Step 2", "Step 3"],
-                                        image: "sample_image")
-            DetailRecipe(recipe: sampleRecipe)
-        }
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        let sampleRecipe = Recipers(name: "Sample Recipe",
+                                    desc: "This is a sample recipe description.",
+                                    calories: 200,
+                                    fat: 5,
+                                    carbs: 30,
+                                    protein: 6,
+                                    sugar: 20,
+                                    cookTime: 15,
+                                    ingredients: ["Ingredient 1", "Ingredient 2", "Ingredient 3"],
+                                    steps: ["Step 1", "Step 2", "Step 3"],
+                                    image: "sample_image")
+        DetailRecipe(recipe: sampleRecipe)
     }
+}
 
 #Preview {
     DetailRecipe(recipe: Recipers(name: "Sample Recipe",
-                                      desc: "This is a sample recipe description.",
-                                      calories: 200,
-                                      fat: 5,
-                                      carbs: 30,
-                                      protein: 6,
-                                      sugar: 20,
-                                      cookTime: 15,
-                                      ingredients: ["Ingredient 1", "Ingredient 2", "Ingredient 3"],
-                                      steps: ["Step 1", "Step 2", "Step 3"],
-                                      image: "sample_image"))
+                                  desc: "This is a sample recipe description.",
+                                  calories: 200,
+                                  fat: 5,
+                                  carbs: 30,
+                                  protein: 6,
+                                  sugar: 20,
+                                  cookTime: 15,
+                                  ingredients: ["Ingredient 1", "Ingredient 2", "Ingredient 3"],
+                                  steps: ["Step 1", "Step 2", "Step 3"],
+                                  image: "sample_image"))
 }
 

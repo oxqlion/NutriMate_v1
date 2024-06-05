@@ -11,6 +11,7 @@ import SwiftData
 struct ListsRecipe: View {
     @Environment(\.modelContext) var modelContexts
     @Query var recipess: [Recipers]
+    @Query var dailystats: [DailyStats]
     @State private var searchTerm = ""
     var filteredRecipes:[Recipers]{
         guard !searchTerm.isEmpty else{return recipess}
@@ -57,7 +58,7 @@ struct ListsRecipe: View {
                 
                 List {
                     ForEach(filteredRecipes){ recipe in
-                        NavigationLink(destination: DetailRecipe(recipe: recipe)) {
+                        NavigationLink(destination: DetailRecipe(recipe: recipe).modelContainer(for: DailyStats.self)) {
                             VStack(spacing:20){
                                 ZStack(alignment: .topTrailing) {
                                     Image(recipe.image)
@@ -102,6 +103,7 @@ struct ListsRecipe: View {
             .edgesIgnoringSafeArea(.bottom)
             .edgesIgnoringSafeArea(.top)
             .onAppear {
+                addsamples()
                            if !UserDefaults.standard.bool(forKey: "isDataSeeded") {
                                addsamples()
                                UserDefaults.standard.set(true, forKey: "isDataSeeded")
@@ -118,8 +120,9 @@ struct ListsRecipe: View {
         let fruitsRecipe8 = Recipers(name: "Berry Parfait", desc: "A delicious and healthy berry parfait.", calories: 200, fat: 5, carbs: 30, protein: 6, sugar: 20, cookTime: 5,ingredients: ["strawberi"], steps: ["Layer Greek yogurt, mixed berries, and granola in a glass.", "Repeat the layers.", "Serve immediately."], image: "image 11")
 
         let fruitsRecipe9 = Recipers(name: "Mango Salsa", desc: "A fresh and tangy mango salsa perfect for summer.", calories: 100, fat: 0, carbs: 25, protein: 1, sugar: 20, cookTime: 10,ingredients: ["strawberi"], steps: ["Combine diced mango, red bell pepper, red onion, and cilantro in a bowl.", "Add lime juice and salt.", "Toss gently and serve chilled."], image: "image 11")
-        modelContexts.insert(fruitsRecipe9)
         modelContexts.insert(fruitsRecipe8)
+        let newDailyStats = DailyStats(carbs: 0, protein: 0, fat: 0, sugar: 0, totalCalories: 0, date: Date())
+        modelContexts.insert(newDailyStats)
     }
     
 }
@@ -180,7 +183,7 @@ struct RecipeItem: View {
 
 struct RecipePage_Previews: PreviewProvider {
     static var previews: some View {
-        ListsRecipe().modelContainer(for: Recipers.self)
+        ListsRecipe().modelContainer(for: [Recipers.self, DailyStats.self])
     }
 }
 
