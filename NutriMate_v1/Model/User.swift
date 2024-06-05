@@ -13,6 +13,7 @@ class User  {
 var username: String
     var target:Int
     var selectedoption:String
+    
     init(username: String = "",target:Int = 0, selectedoption:String = "") {
         self.username = username
         self.target = target

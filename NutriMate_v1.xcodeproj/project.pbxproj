@@ -11,6 +11,11 @@
 		046C9F002C09702D00B2200E /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C9EFF2C09702D00B2200E /* SplashScreen.swift */; };
 		046C9F022C09783F00B2200E /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C9F012C09783F00B2200E /* ProfileView.swift */; };
 		0483DC012C0851E700810FAB /* ScreenSizeDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0483DC002C0851E700810FAB /* ScreenSizeDetector.swift */; };
+		04EE86362C10363800DD182E /* RecipeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EE86352C10363800DD182E /* RecipeRepository.swift */; };
+		04EE86382C10379900DD182E /* ListsRecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EE86372C10379900DD182E /* ListsRecipeViewModel.swift */; };
+		04EE863A2C1037FD00DD182E /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EE86392C1037FD00DD182E /* ProfileViewModel.swift */; };
+		04EE863C2C10382B00DD182E /* DailyStatsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EE863B2C10382B00DD182E /* DailyStatsRepository.swift */; };
+		04EE86402C10530400DD182E /* ModelContainers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EE863F2C10530400DD182E /* ModelContainers.swift */; };
 		3FEF106D2C083B20003A5F72 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEF106C2C083B20003A5F72 /* User.swift */; };
 		3FEF10732C083F8C003A5F72 /* ListsRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEF10722C083F8C003A5F72 /* ListsRecipe.swift */; };
 		7B5F6A442C0F501200A34CCD /* AIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5F6A432C0F501200A34CCD /* AIResponse.swift */; };
@@ -35,6 +40,11 @@
 		046C9EFF2C09702D00B2200E /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		046C9F012C09783F00B2200E /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		0483DC002C0851E700810FAB /* ScreenSizeDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenSizeDetector.swift; sourceTree = "<group>"; };
+		04EE86352C10363800DD182E /* RecipeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeRepository.swift; sourceTree = "<group>"; };
+		04EE86372C10379900DD182E /* ListsRecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsRecipeViewModel.swift; sourceTree = "<group>"; };
+		04EE86392C1037FD00DD182E /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		04EE863B2C10382B00DD182E /* DailyStatsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyStatsRepository.swift; sourceTree = "<group>"; };
+		04EE863F2C10530400DD182E /* ModelContainers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelContainers.swift; sourceTree = "<group>"; };
 		3FEF106C2C083B20003A5F72 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3FEF10722C083F8C003A5F72 /* ListsRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsRecipe.swift; sourceTree = "<group>"; };
 		7B5F6A432C0F501200A34CCD /* AIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIResponse.swift; sourceTree = "<group>"; };
@@ -70,6 +80,10 @@
 		04544C862C0C0DEC006106DA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				04EE86352C10363800DD182E /* RecipeRepository.swift */,
+				04EE86372C10379900DD182E /* ListsRecipeViewModel.swift */,
+				04EE86392C1037FD00DD182E /* ProfileViewModel.swift */,
+				04EE863B2C10382B00DD182E /* DailyStatsRepository.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -122,6 +136,7 @@
 				7B934AEA2C063F9000185089 /* DailyStats.swift */,
 				7B934AEC2C06401800185089 /* Recipe.swift */,
 				3FEF106C2C083B20003A5F72 /* User.swift */,
+				04EE863F2C10530400DD182E /* ModelContainers.swift */,
 				7B5F6A432C0F501200A34CCD /* AIResponse.swift */,
 			);
 			path = Model;
@@ -239,19 +254,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				046C9F002C09702D00B2200E /* SplashScreen.swift in Sources */,
+				04EE86402C10530400DD182E /* ModelContainers.swift in Sources */,
 				046C9F022C09783F00B2200E /* ProfileView.swift in Sources */,
-				7B5F6A442C0F501200A34CCD /* AIResponse.swift in Sources */,
+				04EE86382C10379900DD182E /* ListsRecipeViewModel.swift in Sources */,
 				7BA47D8B2C0DB40C007854FB /* DetailRecipe.swift in Sources */,
+				04EE86362C10363800DD182E /* RecipeRepository.swift in Sources */,
+				7B5F6A442C0F501200A34CCD /* AIResponse.swift in Sources */,
 				7B5F6A502C0F9FE000A34CCD /* APIKey.swift in Sources */,
 				0412C2C32C08354800E32B96 /* ListRecipe.swift in Sources */,
 				0483DC012C0851E700810FAB /* ScreenSizeDetector.swift in Sources */,
 				7B934AF52C06426C00185089 /* macOSHomepageView.swift in Sources */,
 				7B934ADC2C063B0A00185089 /* ContentView.swift in Sources */,
+				04EE863C2C10382B00DD182E /* DailyStatsRepository.swift in Sources */,
 				7B934AF82C06427B00185089 /* iOSHomepageView.swift in Sources */,
 				3FEF106D2C083B20003A5F72 /* User.swift in Sources */,
 				7B934AEB2C063F9000185089 /* DailyStats.swift in Sources */,
 				3FEF10732C083F8C003A5F72 /* ListsRecipe.swift in Sources */,
 				7B934ADA2C063B0A00185089 /* NutriMate_v1App.swift in Sources */,
+				04EE863A2C1037FD00DD182E /* ProfileViewModel.swift in Sources */,
 				7B934AED2C06401800185089 /* Recipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,8 +10,14 @@ import SwiftData
 
 struct ListsRecipe: View {
     @Environment(\.modelContext) var modelContexts
-    @Query var recipes: [Recipes]
+    @Query var recipess: [Recipers]
     @State private var searchTerm = ""
+    var filteredRecipes:[Recipers]{
+        guard !searchTerm.isEmpty else{return recipess}
+        return recipess.filter{ $0.name.localizedCaseInsensitiveContains(searchTerm)}
+    }
+    
+    
     var body: some View {
         NavigationView {
             VStack(alignment: .leading) {
@@ -25,18 +31,21 @@ struct ListsRecipe: View {
                         .resizable()
                         .frame(width: 40, height: 40)
                         .clipShape(Circle())
-                    Button("Add Samples", action: addsamples)
+
                 } .padding(.top,50)
             
                 .padding(.horizontal)
                 HStack{
-                    VStack{
-                        Image(systemName: "clock")
-                        Text("brodda")
-                    }.padding(.top,0.2)
-                        .padding(.bottom)
-                        .background(Color(.systemGray6))
+                        VStack{
+                            Image(systemName: "clock")
+                            Button("Show details"){
+                                
+                            }
+                        }.padding(.top,0.2)
+                            .padding(.bottom)
+                            .background(Color(.systemGray6))
                 }.padding(.horizontal)
+                    
                 
                 SearchBar(searchTerm: $searchTerm)
                     .padding(.horizontal)
@@ -47,8 +56,8 @@ struct ListsRecipe: View {
                 
                 
                 List {
-                    ForEach(recipes){ recipe in
-                        NavigationLink(destination: DetailRecipe(recipe: recipe)) {
+                    ForEach(filteredRecipes){ recipe in
+                        NavigationLink(destination: DetailRecipe(recipe: recipe).modelContainer(for: DailyStats.self)) {
                             VStack(spacing:20){
                                 ZStack(alignment: .topTrailing) {
                                     Image(recipe.image)
@@ -92,6 +101,13 @@ struct ListsRecipe: View {
             .navigationBarHidden(true)
             .edgesIgnoringSafeArea(.bottom)
             .edgesIgnoringSafeArea(.top)
+            .onAppear {
+                addsamples()
+                           if !UserDefaults.standard.bool(forKey: "isDataSeeded") {
+                               addsamples()
+                               UserDefaults.standard.set(true, forKey: "isDataSeeded")
+                           }
+                       }
             
         }
         .background(Color(.gray))
@@ -101,10 +117,10 @@ struct ListsRecipe: View {
     }
     func addsamples(){
         let fruitsRecipe8 = Recipes(name: "Berry Parfait", desc: "A delicious and healthy berry parfait.", calories: 200, fat: 5, carbs: 30, protein: 6, sugar: 20, cookTime: 5,ingredients: ["strawberi"], steps: ["Layer Greek yogurt, mixed berries, and granola in a glass.", "Repeat the layers.", "Serve immediately."], image: "image 11")
-
         let fruitsRecipe9 = Recipes(name: "Mango Salsa", desc: "A fresh and tangy mango salsa perfect for summer.", calories: 100, fat: 0, carbs: 25, protein: 1, sugar: 20, cookTime: 10,ingredients: ["strawberi"], steps: ["Combine diced mango, red bell pepper, red onion, and cilantro in a bowl.", "Add lime juice and salt.", "Toss gently and serve chilled."], image: "image 11")
         modelContexts.insert(fruitsRecipe9)
         modelContexts.insert(fruitsRecipe8)
+        modelContexts.insert(fruitsRecipe9)
     }
     
 }
@@ -165,7 +181,7 @@ struct RecipeItem: View {
 
 struct RecipePage_Previews: PreviewProvider {
     static var previews: some View {
-        ListsRecipe()
+        ListsRecipe().modelContainer(for: [Recipers.self, DailyStats.self])
     }
 }
 

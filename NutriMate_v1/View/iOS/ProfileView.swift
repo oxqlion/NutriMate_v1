@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Charts
+import SwiftData
 struct Product: Identifiable {
     //aa
     let id = UUID()
@@ -51,6 +52,7 @@ struct ProfileView: View {
         .init(name: "Sunday", amount: 71.5),
     ]
     var body: some View {
+      
         VStack{
             ScrollView(.horizontal) {
                 LazyHStack {
