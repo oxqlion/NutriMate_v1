@@ -154,7 +154,6 @@ struct DetailRecipe: View {
         
     }
 }
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         let sampleRecipe = Recipers(name: "Sample Recipe",

@@ -11,7 +11,8 @@ import SwiftUI
 struct NutriMate_v1App: App {
     var body: some Scene {
         WindowGroup {
-            ListsRecipe()
-        }.modelContainer(for: Recipers.self)
+            ContentView()
+        }
+        .modelContainer(for: [Recipes.self, User.self])
     }
 }

@@ -8,17 +8,34 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        VStack {
-#if os(macOS)
+    
+    @State var selectedTab = 1
+    
+    var body: some View {#if os(macOS)
             macOSHomepageView()
 #elseif os(iOS)
-            iOSHomepageView()
+            TabView(selection: $selectedTab) {
+                iOSHomepageView()
+                    .tabItem {
+                        VStack {
+                            Image(systemName: "house")
+                            Text("Home")
+                        }
+                    }
+                    .tag(1)
+                
+                ListsRecipe()
+                    .tabItem {
+                        VStack {
+                            Image(systemName: "carrot.fill")
+                            Text("Recipes")
+                        }
+                    }
+                    .tag(2)
+            }
 #else
             Text("Gtw")
 #endif
-        }
-        .padding()
     }
 }
 

@@ -1,5 +1,6 @@
 import SwiftUI
 import SwiftData
+import GoogleGenerativeAI
 
 struct iOSHomepageView: View {
     @State private var showSheet = false
@@ -38,7 +39,10 @@ struct iOSHomepageView: View {
 
 struct SheetView: View {
     @Environment(\.modelContext) var modelContext
-    @State private var target: String = ""
+    @StateObject private var viewModel = OpenAIViewModel()
+    let model = GenerativeModel(name: "gemini-pro", apiKey: APIKey.default)
+    @State private var target: String = "i want to start a diet. i want to lose 5 kg in 30 days. give me a food recipe to help me on my diet. generate it with this format : meal name : meal description : meal total calories : meal total fat : meal total carbs : meal total protein : meal total sugar : meal cook time : meal step by step to make, separate each step with a / : meal ingredients, separate each ingredients with a / : i prefer a meal with this ingredients : vegetables egg"
+    @State private var responseText: String = ""
     @State private var selectedDate = Date()
     
     @State private var selectedOptions: [String] = ["", "", "", "", ""]
@@ -48,10 +52,10 @@ struct SheetView: View {
         
         VStack {
             
-//            Rectangle()
-//                .frame(width: 50, height: 6)
-//                .foregroundColor(.gray)
-//                .padding(.top, 20)
+            //            Rectangle()
+            //                .frame(width: 50, height: 6)
+            //                .foregroundColor(.gray)
+            //                .padding(.top, 20)
             
             Text("Set Plan")
                 .font(.title2)
@@ -146,9 +150,13 @@ struct SheetView: View {
                     Spacer()
                 }
             }
-//            .padding(.horizontal)
+            
+            //            .padding(.horizontal)
+            
+            Text(responseText)
+            
             Button{
-               
+                generateResponse()
             } label: {
                 Text("Done")
                     .foregroundColor(.white)
@@ -159,10 +167,25 @@ struct SheetView: View {
             }
             .padding(.bottom, 10)
             .padding(.top, 330)
+            
+            
         }
         .padding()
         .background(Color(hex: 0xF4F4F4))
     }
+    
+    func generateResponse() {
+        Task {
+            do {
+                let result = try await model.generateContent(target)
+                responseText = result.text ?? "No response ... "
+                target = ""
+            } catch {
+                responseText = "Something went wrong ..."
+            }
+        }
+    }
+    
 }
 
 #Preview {
