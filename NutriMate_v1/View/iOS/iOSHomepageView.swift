@@ -39,9 +39,9 @@ struct iOSHomepageView: View {
 
 struct SheetView: View {
     @Environment(\.modelContext) var modelContext
-    @StateObject private var viewModel = OpenAIViewModel()
+    //    @StateObject private var viewModel = OpenAIViewModel()
     let model = GenerativeModel(name: "gemini-pro", apiKey: APIKey.default)
-    @State private var target: String = "i want to start a diet. i want to lose 5 kg in 30 days. give me a food recipe to help me on my diet. generate it with this format : meal name : meal description : meal total calories : meal total fat : meal total carbs : meal total protein : meal total sugar : meal cook time : meal step by step to make, separate each step with a / : meal ingredients, separate each ingredients with a / : i prefer a meal with this ingredients : vegetables egg"
+    @State private var target: String = ""
     @State private var responseText: String = ""
     @State private var selectedDate = Date()
     
@@ -150,9 +150,6 @@ struct SheetView: View {
                     Spacer()
                 }
             }
-            
-            //            .padding(.horizontal)
-            
             Text(responseText)
             
             Button{
@@ -177,9 +174,25 @@ struct SheetView: View {
     func generateResponse() {
         Task {
             do {
-                let result = try await model.generateContent(target)
+                let calendar = Calendar.current
+                let today = Date()
+                let components = calendar.dateComponents([.day], from: today, to: selectedDate)
+                let days = components.day ?? 0
+                
+                let prompt = """
+                                I want to start a diet. I want to lose \(target) kg in \(days) days.
+                                Give me a food recipe to help me on my diet. Generate it with this format:
+                                meal name: meal description: meal total calories: meal total fat:
+                                meal total carbs: meal total protein: meal total sugar: meal cook time:
+                                meal step by step to make, separate each step with a /:
+                                meal ingredients, separate each ingredients with a /:
+                                I prefer a meal with these ingredients: \(selectedOptions.joined(separator: ", "))
+                                """
+                let result = try await model.generateContent(prompt)
                 responseText = result.text ?? "No response ... "
                 target = ""
+                
+                let resModel = parseAIResponse(response: responseText)
             } catch {
                 responseText = "Something went wrong ..."
             }

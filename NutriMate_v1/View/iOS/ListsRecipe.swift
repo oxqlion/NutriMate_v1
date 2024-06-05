@@ -10,9 +10,9 @@ import SwiftData
 
 struct ListsRecipe: View {
     @Environment(\.modelContext) var modelContexts
-    @Query var recipess: [Recipers]
+    @Query var recipess: [Recipes]
     @State private var searchTerm = ""
-    var filteredRecipes:[Recipers]{
+    var filteredRecipes:[Recipes]{
         guard !searchTerm.isEmpty else{return recipess}
         return recipess.filter{ $0.name.localizedCaseInsensitiveContains(searchTerm)}
     }
@@ -102,7 +102,6 @@ struct ListsRecipe: View {
             .edgesIgnoringSafeArea(.bottom)
             .edgesIgnoringSafeArea(.top)
             .onAppear {
-                addsamples()
                            if !UserDefaults.standard.bool(forKey: "isDataSeeded") {
                                addsamples()
                                UserDefaults.standard.set(true, forKey: "isDataSeeded")
@@ -181,7 +180,7 @@ struct RecipeItem: View {
 
 struct RecipePage_Previews: PreviewProvider {
     static var previews: some View {
-        ListsRecipe().modelContainer(for: [Recipers.self, DailyStats.self])
+        ListsRecipe().modelContainer(for: [Recipes.self, DailyStats.self])
     }
 }
 
