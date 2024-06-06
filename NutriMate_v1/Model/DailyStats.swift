@@ -10,6 +10,7 @@ import SwiftData
 
 @Model
 class DailyStats {
+    var allowedCalories: Int
     var carbs: Int
     var protein: Int
     var fat: Int
@@ -19,7 +20,8 @@ class DailyStats {
     
 //    @Relationship() var consumed: [Recipers] = []
     
-    init(carbs: Int = 0, protein: Int = 0, fat: Int = 0, sugar: Int = 0, totalCalories: Int = 0, date: Date) {
+    init(allowedCalories: Int = 0, carbs: Int = 0, protein: Int = 0, fat: Int = 0, sugar: Int = 0, totalCalories: Int = 0, date: Date) {
+        self.allowedCalories = allowedCalories
         self.carbs = carbs
         self.protein = protein
         self.fat = fat
