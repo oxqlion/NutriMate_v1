@@ -47,7 +47,7 @@ struct iOSHomepageView: View {
 }
 
 struct SheetView: View {
-    @Environment(\.modelContext) var modelContext
+    @Environment(\.modelContext) var modelContexts
     //    @StateObject private var viewModel = OpenAIViewModel()
     let model = GenerativeModel(name: "gemini-pro", apiKey: APIKey.default)
     @State private var target: String = ""
@@ -304,7 +304,7 @@ struct SheetView: View {
                     
                     let resModel = parseAIResponse(response: responseText)
                     
-                    modelContext.insert(resModel)
+                    modelContexts.insert(resModel)
                 }
             } catch {
                 responseText = "Something went wrong ..."
