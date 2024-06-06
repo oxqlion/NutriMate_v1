@@ -76,10 +76,6 @@ struct MacProfileView: View {
                             )
                         }.frame(width: geometry.size.height/3.2, height: geometry.size.height/3.2)
                             .padding(.horizontal, 30)
-                        
-                        
-                        
-                        //TEXT ========================================
                         VStack {
                             HStack {
                                 Text("1350")
@@ -91,8 +87,8 @@ struct MacProfileView: View {
                             }
                             .padding(.bottom, 15)
                         }
-                        //=============================================
                     }
+                    .padding(.horizontal, 60)
                     //=============================================
                     
                     
@@ -107,14 +103,13 @@ struct MacProfileView: View {
                         }
                         .frame(width: geometry.size.height/3.2, height: geometry.size.height/3.2)
                         .padding(.horizontal, 30)
-                        //=============================================
-                        
-                        
                     }
+                    .padding(.horizontal, 60)
+                    //=============================================
                     
+                    
+                    // LINE-CHART =================================
                     ZStack {
-                        
-                        // LINE-CHART =================================
                         Chart {
                             ForEach(body_weight) { weight in
                                 LineMark(
@@ -126,12 +121,12 @@ struct MacProfileView: View {
                         }
                         .frame(width: geometry.size.height/3.2, height: geometry.size.height/3.2)
                         .padding(.horizontal, 30)
-                        // =============================================
-                        
-                        
                     }
+                    .padding(.horizontal, 60)
                 }
                 .frame(height: geometry.size.height/3)
+                // ============================================
+                
                 
                 //DATE  =======================================
                 Text("Thursday, 15 March 2024")
@@ -142,57 +137,76 @@ struct MacProfileView: View {
                 
                 //DIVIDER =====================================
                 Divider()
-                Text("Nutritional Needs:")
-                    .font(.system(size: 18))
-                    .foregroundColor(.gray)
-                    .padding(.bottom, 10)
-                //=============================================
-                
-                
-                //PROGRESS-VIEW ===============================
-                ForEach(body_minerals) { index in
-                    HStack {
-                        Text(index.name)
-                            .fontWeight(.bold)
-                            .font(.system(size: 16))
-                        Spacer()
-                    }
-                    ProgressView(value: index.amount)
-                        .accentColor(.green)
-                        .scaleEffect(x: 1, y: 4, anchor: .center)
-                        .padding(.bottom, 10)
+                HStack {
+                    Text("Nutritional Needs:")
+                        .font(.system(size: 18))
+                        .foregroundColor(.gray)
+//                        .padding(.bottom, 10)
+                    Spacer()
+                    Spacer()
                 }
                 //=============================================
                 
                 
-                //CONSUMED-MEAL ===============================
-                VStack() {
-                    Form {
-                        Section(header: Text("Consumed Meal").font(.system(size: 18))) {
-                            ForEach(1..<5) {index in
-                                HStack{
-                                    Circle()
-                                        .frame(width: 20)
-                                    Text("PLACEHOLDER")
-                                        .padding(.horizontal, 20)
+                HStack {
+//                    Spacer()
+                    HStack {
+                        //PROGRESS-VIEW ===============================
+                        VStack {
+                            ForEach(body_minerals) { index in
+                                HStack {
+                                    Text(index.name)
+                                        .fontWeight(.bold)
                                         .font(.system(size: 24))
                                     Spacer()
                                 }
-                                .padding(.vertical, 10)
+                                ProgressView(value: index.amount)
+                                    .accentColor(.green)
+                                    .scaleEffect(x: 1, y: 4, anchor: .center)
+                                    .padding(.bottom, 10)
                             }
-                            
                         }
+//                        .padding(.horizontal, 40)
+                        //=============================================
+                        
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        
+                        //CONSUMED-MEAL ===============================
+                        VStack() {
+                            List {
+                                Section(header: Text("Consumed Meal").font(.system(size: 18))) {
+                                    ForEach(1..<5) {index in
+                                        HStack{
+                                            Circle()
+                                                .frame(width: 20)
+                                            Text("PLACEHOLDER")
+                                                .padding(.horizontal, 20)
+                                                .font(.system(size: 24))
+                                            Spacer()
+                                        }
+                                        .padding(.vertical, 10)
+                                    }
+                                }
+                            }
+                            .background(Color(.systemGray))
+                        }.background(Color(.systemGray))
+                            .cornerRadius(16)
+    //                        .padding(.top, 40)
+//                            .padding(.horizontal, 40)
+                        //=============================================
                     }
-                    .background(Color(.systemGray))
-                }.background(Color(.systemGray))
-                    .cornerRadius(16)
-                    .padding(.top, 40)
-                //=============================================
+//                    Spacer()
+                }
+                .frame(width: geometry.size.width - geometry.size.width/10, height: geometry.size.height/2)
                 
                 
             }.frame(maxWidth: geometry.size.width)
                 .padding(.horizontal, 80)
-                .padding(.top, 20)
+                .padding(.vertical, 40)
         }
     }
 }
