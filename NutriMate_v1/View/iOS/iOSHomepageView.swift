@@ -5,37 +5,44 @@ import GoogleGenerativeAI
 struct iOSHomepageView: View {
     @State private var showSheet = false
     let isIpad = ScreenSizeDetector().screenWidth > 650
+    @Environment(\.modelContext) var modelContexts
+    @Query var recipes: [Recipes]
     
     var body: some View {
-        VStack {
-            Image("25")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: isIpad ? 250 : 150, height: isIpad ? 250 : 150)
-                .padding()
-            
-            Text("You haven’t set any plans yet. Start planning today!📝🍌")
-                .font(.system(size: isIpad ? 24 : 16))
-                .multilineTextAlignment(.center)
-                .padding()
-            
-            Button(action: {
-                showSheet.toggle()
-            }) {
-                Text("Set Plan")
-                    .font(.system(size: isIpad ? 20 : 16))
-                    .foregroundColor(.white)
+        
+        if recipes.isEmpty {
+            VStack {
+                Image("25")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: isIpad ? 250 : 150, height: isIpad ? 250 : 150)
                     .padding()
-                    .background(Color.black)
-                    .cornerRadius(10)
+                
+                Text("You haven’t set any plans yet. Start planning today!📝🍌")
+                    .font(.system(size: isIpad ? 24 : 16))
+                    .multilineTextAlignment(.center)
+                    .padding()
+                
+                Button(action: {
+                    showSheet.toggle()
+                }) {
+                    Text("Set Plan")
+                        .font(.system(size: isIpad ? 20 : 16))
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Color.black)
+                        .cornerRadius(10)
+                }
+                .sheet(isPresented: $showSheet) {
+                    SheetView()
+                        .presentationDragIndicator(.visible)
+                        .ignoresSafeArea()
+                }
             }
-            .sheet(isPresented: $showSheet) {
-                SheetView()
-                    .presentationDragIndicator(.visible)
-                    .ignoresSafeArea()
-            }
+            .padding()
+        } else {
+            ProfileView()
         }
-        .padding()
     }
 }
 
@@ -46,6 +53,16 @@ struct SheetView: View {
     @State private var target: String = ""
     @State private var responseText: String = ""
     @State private var selectedDate = Date()
+    @State private var totalDays: String = ""
+    @State private var gender: String = "male"
+    @State private var age: String = ""
+    @State private var weight: String = ""
+    @State private var height: String = ""
+    @State private var activityLevel: String = "sedentary"
+    
+    let genders = ["male", "female"]
+    let activityLevels = ["sedentary", "lightly active", "moderately active", "very active", "super active"]
+    
     
     @State private var selectedOptions: [String] = ["", "", "", "", ""]
     private let options = ["🥬 Vegetables", "🍉 Fruits", "🐟 Proteins", "🥛 Milk", "🫚 Herbs"]
@@ -76,6 +93,36 @@ struct SheetView: View {
                 .background(.white)
                 .cornerRadius(10)
                 .foregroundColor(.gray)
+            
+            Picker("Gender", selection: $gender) {
+                ForEach(genders, id: \.self) {
+                    Text($0.capitalized)
+                }
+            }
+            .pickerStyle(SegmentedPickerStyle())
+            
+            TextField("Age", text: $age)
+                .keyboardType(.numberPad)
+                .padding()
+                .background(.white)
+                .cornerRadius(10)
+            TextField("Weight (kg)", text: $weight)
+                .keyboardType(.decimalPad)
+                .padding()
+                .background(.white)
+                .cornerRadius(10)
+            TextField("Height (cm)", text: $height)
+                .keyboardType(.decimalPad)
+                .padding()
+                .background(.white)
+                .cornerRadius(10)
+            
+            Picker("Activity Level", selection: $activityLevel) {
+                ForEach(activityLevels, id: \.self) {
+                    Text($0.capitalized)
+                }
+            }
+            .pickerStyle(WheelPickerStyle())
             
             VStack {
                 Text("Select preffered meal")
@@ -165,7 +212,7 @@ struct SheetView: View {
                     .cornerRadius(15)
             }
             .padding(.bottom, 10)
-            .padding(.top, 330)
+            //            .padding(.top, 330)
             
             
         }
@@ -181,7 +228,68 @@ struct SheetView: View {
                 let components = calendar.dateComponents([.day], from: today, to: selectedDate)
                 let days = components.day ?? 0
                 
-                let prompt = """
+                func calculateCalories() {
+                    guard let loseTargetInt = Int(target),
+//                          let totalDaysInt = days,
+                          let ageInt = Int(age),
+                          let weightDouble = Double(weight),
+                          let heightDouble = Double(height) else {
+                        print("Invalid input")
+                        return
+                    }
+                    
+                    let allowedCalories = calculateAllowedCaloriesPerDay(
+                        loseTarget: loseTargetInt,
+                        totalDays: days,
+                        gender: gender,
+                        age: ageInt,
+                        weight: weightDouble,
+                        height: heightDouble,
+                        activityLevel: activityLevel
+                    )
+                    
+                    print("Allowed calories per day: \(allowedCalories)")
+                }
+                
+                func calculateAllowedCaloriesPerDay(loseTarget: Int, totalDays: Int, gender: String, age: Int, weight: Double, height: Double, activityLevel: String) -> Double {
+                    let caloriesPerKg = 7700.0
+                    let totalCaloricDeficit = Double(loseTarget) * caloriesPerKg
+                    let dailyCaloricDeficit = totalCaloricDeficit / Double(totalDays)
+                    
+                    let bmr: Double
+                    if gender.lowercased() == "male" {
+                        bmr = 88.362 + (13.397 * weight) + (4.799 * height) - (5.677 * Double(age))
+                    } else if gender.lowercased() == "female" {
+                        bmr = 447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * Double(age))
+                    } else {
+                        return 0.0
+                    }
+                    
+                    let activityMultiplier: Double
+                    switch activityLevel.lowercased() {
+                    case "sedentary":
+                        activityMultiplier = 1.2
+                    case "lightly active":
+                        activityMultiplier = 1.375
+                    case "moderately active":
+                        activityMultiplier = 1.55
+                    case "very active":
+                        activityMultiplier = 1.725
+                    case "super active":
+                        activityMultiplier = 1.9
+                    default:
+                        return 0.0
+                    }
+                    
+                    let tdee = bmr * activityMultiplier
+                    let allowedCaloriesPerDay = tdee - dailyCaloricDeficit
+                    let minimumCalories = gender.lowercased() == "male" ? 1500.0 : 1200.0
+                    return max(allowedCaloriesPerDay, minimumCalories)
+                }
+                
+                for _ in 1...5 {
+                    
+                    let prompt = """
                                 I want to start a diet. I want to lose \(target) kg in \(days) days.
                                 Give me a food recipe to help me on my diet. Generate it with this format:
                                 meal name: meal description: meal total calories: meal total fat:
@@ -190,17 +298,19 @@ struct SheetView: View {
                                 meal ingredients, separate each ingredients with a /:
                                 I prefer a meal with these ingredients: \(selectedOptions.joined(separator: ", "))
                                 """
-                let result = try await model.generateContent(prompt)
-                responseText = result.text ?? "No response ... "
-                target = ""
-                
-                let resModel = parseAIResponse(response: responseText)
+                    let result = try await model.generateContent(prompt)
+                    responseText = result.text ?? "No response ... "
+                    target = ""
+                    
+                    let resModel = parseAIResponse(response: responseText)
+                    
+                    modelContext.insert(resModel)
+                }
             } catch {
                 responseText = "Something went wrong ..."
             }
         }
     }
-    
 }
 
 #Preview {

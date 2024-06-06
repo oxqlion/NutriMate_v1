@@ -16,7 +16,7 @@ struct Product: Identifiable {
 }
 
 struct Minerals: Identifiable {
-    //aa 
+    //aa
     let id = UUID()
     let name: String
     let amount: Double
@@ -32,6 +32,7 @@ struct Weight: Identifiable {
 struct ProfileView: View {
     @Environment(\.modelContext) var modelContexts
     @Query var dailystats: [DailyStats]
+    @Query var recipes: [Recipes]
     let isIpad = ScreenSizeDetector().screenWidth > 650
     @State private var products: [Product] = [
         .init(title: "Eaten", revenue: 0.9),
@@ -70,157 +71,168 @@ struct ProfileView: View {
     }
     
     var body: some View {
-        VStack{
-            ScrollView(.horizontal) {
-                LazyHStack {
-                    Text("\(totalCarbs)")
-                    Text("\(totalProtein)")
-                    Text("\(totalSugar)")
-                    Text("\(totalfat)")
-                    Text("\(totalEaten)")
-                    
-                    //DONUT-CHART =================================
-                    ZStack {
-                        Chart(products) { product in
-                            SectorMark(
-                                angle: .value(
-                                    Text(verbatim: product.title),
-                                    product.revenue
-                                ),
-                                innerRadius: .ratio(isIpad ? 0.75 : 0.8)
-                            )
-                            .foregroundStyle(
-                                by: .value(
-                                    Text(verbatim: product.title),
-                                    product.title
+        NavigationView {
+            VStack{
+                ScrollView(.horizontal) {
+                    LazyHStack {
+                        //                    Text("\(totalCarbs)")
+                        //                    Text("\(totalProtein)")
+                        //                    Text("\(totalSugar)")
+                        //                    Text("\(totalfat)")
+                        //                    Text("\(totalEaten)")
+                        
+                        //DONUT-CHART =================================
+                        ZStack {
+                            Chart(products) { product in
+                                SectorMark(
+                                    angle: .value(
+                                        Text(verbatim: product.title),
+                                        product.revenue
+                                    ),
+                                    innerRadius: .ratio(isIpad ? 0.75 : 0.8)
                                 )
-                            )
-                        }.frame(width: isIpad ? ScreenSizeDetector().screenWidth/2.3: ScreenSizeDetector().screenWidth/2, height: isIpad ? ScreenSizeDetector().screenHeight/2.3 : ScreenSizeDetector().screenHeight/2)
-                            .padding(.horizontal, isIpad ? ScreenSizeDetector().screenWidth/5.1: ScreenSizeDetector().screenWidth/6.5)
-                        
-                        
-                        
-                        //TEXT ========================================
-                        VStack {
-                            HStack {
-                                Text("1350")
-                                    .font(.system(size: isIpad ? 48 : 28))
-                                    .fontWeight(.bold)
-                                    .foregroundColor(.green)
-                                Text("/1800")
-                                    .font(.system(size: isIpad ? 24 : 12))
+                                .foregroundStyle(
+                                    by: .value(
+                                        Text(verbatim: product.title),
+                                        product.title
+                                    )
+                                )
+                            }.frame(width: isIpad ? ScreenSizeDetector().screenWidth/2.3: ScreenSizeDetector().screenWidth/2, height: isIpad ? ScreenSizeDetector().screenHeight/2.3 : ScreenSizeDetector().screenHeight/2)
+                                .padding(.horizontal, isIpad ? ScreenSizeDetector().screenWidth/5.1: ScreenSizeDetector().screenWidth/6.5)
+                            
+                            
+                            
+                            //TEXT ========================================
+                            VStack {
+                                HStack {
+                                    Text("1350")
+                                        .font(.system(size: isIpad ? 48 : 28))
+                                        .fontWeight(.bold)
+                                        .foregroundColor(.green)
+                                    Text("/1800")
+                                        .font(.system(size: isIpad ? 24 : 12))
+                                }
+                                .padding(.bottom, 15)
                             }
-                            .padding(.bottom, 15)
+                            //=============================================
                         }
                         //=============================================
-                    }
-                    //=============================================
-                    
-                    
-                    //BAR-CHART =================================
-                    ZStack {
-                        Chart(body_minerals) { items in
-                            BarMark(
-                                x: .value(Text(verbatim: "Name"), items.name),
-                                y: .value(Text(verbatim: "Amount"), items.amount)
-                            )
-                            .foregroundStyle(by: .value(Text(verbatim: items.name), items.amount))
-                        }
-                        .frame(width: isIpad ? ScreenSizeDetector().screenWidth/2.3 : ScreenSizeDetector().screenWidth/2,
-                               height: isIpad ? ScreenSizeDetector().screenHeight/4 : ScreenSizeDetector().screenHeight/5)
-                        .padding(.horizontal, isIpad ? ScreenSizeDetector().screenWidth/5.1 : ScreenSizeDetector().screenWidth/6.5)
-                        //=============================================
-                                                
                         
-                    }
-                    
-                    ZStack {
                         
-                        // LINE-CHART =================================
-                        Chart {
-                            ForEach(body_weight) { weight in
-                                LineMark(
-                                    x: .value("Product", weight.name),
-                                    y: .value("Revenue", weight.amount)
+                        //BAR-CHART =================================
+                        ZStack {
+                            Chart(body_minerals) { items in
+                                BarMark(
+                                    x: .value(Text(verbatim: "Name"), items.name),
+                                    y: .value(Text(verbatim: "Amount"), items.amount)
                                 )
+                                .foregroundStyle(by: .value(Text(verbatim: items.name), items.amount))
                             }
-                            .interpolationMethod(.catmullRom) // Optional: adds smooth curves
+                            .frame(width: isIpad ? ScreenSizeDetector().screenWidth/2.3 : ScreenSizeDetector().screenWidth/2,
+                                   height: isIpad ? ScreenSizeDetector().screenHeight/4 : ScreenSizeDetector().screenHeight/5)
+                            .padding(.horizontal, isIpad ? ScreenSizeDetector().screenWidth/5.1 : ScreenSizeDetector().screenWidth/6.5)
+                            //=============================================
+                            
+                            
                         }
-                        .frame(width: isIpad ? ScreenSizeDetector().screenWidth/2.3 : ScreenSizeDetector().screenWidth/2,
-                               height: isIpad ? ScreenSizeDetector().screenHeight/4 : ScreenSizeDetector().screenHeight/5)
-                        .padding(.horizontal, isIpad ? ScreenSizeDetector().screenWidth/5.1 : ScreenSizeDetector().screenWidth/6.5)
-                        // =============================================
-                                                
                         
+                        ZStack {
+                            // LINE-CHART =================================
+                            Chart {
+                                ForEach(body_weight) { weight in
+                                    LineMark(
+                                        x: .value("Product", weight.name),
+                                        y: .value("Revenue", weight.amount)
+                                    )
+                                }
+                                .interpolationMethod(.catmullRom) // Optional: adds smooth curves
+                            }
+                            .frame(width: isIpad ? ScreenSizeDetector().screenWidth/2.3 : ScreenSizeDetector().screenWidth/2,
+                                   height: isIpad ? ScreenSizeDetector().screenHeight/4 : ScreenSizeDetector().screenHeight/5)
+                            .padding(.horizontal, isIpad ? ScreenSizeDetector().screenWidth/5.1 : ScreenSizeDetector().screenWidth/6.5)
+                            // =============================================
+                        }
                     }
+                    .frame(height: ScreenSizeDetector().screenHeight/4)
                 }
-                .frame(height: ScreenSizeDetector().screenHeight/3)
-            }
-            
-            //DATE  =======================================
-            Text("Thursday, 15 March 2024")
-                .fontWeight(isIpad ? .bold : .medium)
-                .font(.system(size: isIpad ? 28 : 20))
-            //=============================================
-            
-            
-            //DIVIDER =====================================
-            Divider()
-            Text("Nutritional Needs:")
-                .font(.system(size: isIpad ? 18 : 10))
-                .foregroundColor(.gray)
-                .padding(.bottom, isIpad ? 15 : 10)
-            //=============================================
-            
-            
-            //PROGRESS-VIEW ===============================
-            ForEach(body_minerals) { index in
-                HStack {
-                    Text(index.name)
-                        .fontWeight(isIpad ? .bold : .medium)
-                        .font(.system(size: isIpad ? 32 : 16))
-                    Spacer()
+                
+                //DATE  =======================================
+                Text("Thursday, 15 March 2024")
+                    .fontWeight(isIpad ? .bold : .medium)
+                    .font(.system(size: isIpad ? 28 : 20))
+                //=============================================
+                
+                
+                //DIVIDER =====================================
+                Divider()
+                Text("Nutritional Needs:")
+                    .font(.system(size: isIpad ? 18 : 10))
+                    .foregroundColor(.gray)
+                    .padding(.bottom, isIpad ? 15 : 10)
+                //=============================================
+                
+                
+                //PROGRESS-VIEW ===============================
+                ForEach(body_minerals) { index in
+                    HStack {
+                        Text(index.name)
+                            .fontWeight(isIpad ? .bold : .medium)
+                            .font(.system(size: isIpad ? 32 : 16))
+                        Spacer()
+                    }
+                    ProgressView(value: index.amount)
+                        .accentColor(.green)
+                        .scaleEffect(x: 1, y: isIpad ? 4 : 2.5, anchor: .center)
+                        .padding(.bottom, isIpad ? 10 : 0)
                 }
-                ProgressView(value: index.amount)
-                    .accentColor(.green)
-                    .scaleEffect(x: 1, y: isIpad ? 4 : 2.5, anchor: .center)
-                    .padding(.bottom, isIpad ? 10 : 0)
-            }
-            //=============================================
-            
-            
-            //CONSUMED-MEAL ===============================
-            VStack() {
-                Form {
-                    Section(header: Text("Consumed Meal").font(.system(size: isIpad ? 18 : 10))) {
-                        ForEach(1..<5) {index in
-                            HStack{
-                                Circle()
-                                    .frame(width: 20)
-                                Text("PLACEHOLDER")
-                                    .padding(.horizontal, 20)
-                                    .font(.system(size: isIpad ? 24 : 16))
-                                Spacer()
-                            }
-                            .padding(.vertical, isIpad ? 10 : 0)
+                //=============================================
+                
+                
+                //CONSUMED-MEAL ===============================
+                VStack() {
+                    //                Form {
+                    //                    Section(header: Text("Consumed Meal").font(.system(size: isIpad ? 18 : 10))) {
+                    //                        ForEach(1..<5) {index in
+                    //                            HStack{
+                    //                                Circle()
+                    //                                    .frame(width: 20)
+                    //                                Text("PLACEHOLDER")
+                    //                                    .padding(.horizontal, 20)
+                    //                                    .font(.system(size: isIpad ? 24 : 16))
+                    //                                Spacer()
+                    //                            }
+                    //                            .padding(.vertical, isIpad ? 10 : 0)
+                    //                        }
+                    //                    }
+                    //                }
+                    //                .background(Color(.systemGray6))
+                    
+                    List(recipes) { item in
+                        NavigationLink(destination: DetailRecipe(recipe: item)) {
+                            Text(item.name)
                         }
-                        
                     }
                 }
                 .background(Color(.systemGray6))
-            }.background(Color(.systemGray6))
                 .cornerRadius(16)
-                .padding(.top, 40)
-            //=============================================
-            
-            
-        }.frame(maxWidth: ScreenSizeDetector().screenWidth)
-            .padding(.horizontal, isIpad ? 80 : 40)
-            .padding(.top, 20)
+                .padding(.top, 30)
+                
+                //=============================================
+                
+                
+            }.frame(maxWidth: ScreenSizeDetector().screenWidth)
+                .padding(.horizontal, isIpad ? 80 : 40)
+                .padding(.top, 20)
+        }
     }
 }
 
 
 #Preview {
     ProfileView()
+}
+struct ProfilePage_Previews: PreviewProvider {
+    static var previews: some View {
+        ProfileView().modelContainer(for: [Recipes.self, DailyStats.self])
+    }
 }
