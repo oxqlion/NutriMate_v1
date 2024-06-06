@@ -16,7 +16,7 @@ struct Product: Identifiable {
 }
 
 struct Minerals: Identifiable {
-    //aa 
+    //aa
     let id = UUID()
     let name: String
     let amount: Double
@@ -32,6 +32,7 @@ struct Weight: Identifiable {
 struct ProfileView: View {
     @Environment(\.modelContext) var modelContexts
     @Query var dailystats: [DailyStats]
+    @Query var recipes: [Recipes]
     let isIpad = ScreenSizeDetector().screenWidth > 650
     @State private var products: [Product] = [
         .init(title: "Eaten", revenue: 0.9),
@@ -73,11 +74,11 @@ struct ProfileView: View {
         VStack{
             ScrollView(.horizontal) {
                 LazyHStack {
-//                    Text("\(totalCarbs)")
-//                    Text("\(totalProtein)")
-//                    Text("\(totalSugar)")
-//                    Text("\(totalfat)")
-//                    Text("\(totalEaten)")
+                    //                    Text("\(totalCarbs)")
+                    //                    Text("\(totalProtein)")
+                    //                    Text("\(totalSugar)")
+                    //                    Text("\(totalfat)")
+                    //                    Text("\(totalEaten)")
                     
                     //DONUT-CHART =================================
                     ZStack {
@@ -130,7 +131,7 @@ struct ProfileView: View {
                                height: isIpad ? ScreenSizeDetector().screenHeight/4 : ScreenSizeDetector().screenHeight/5)
                         .padding(.horizontal, isIpad ? ScreenSizeDetector().screenWidth/5.1 : ScreenSizeDetector().screenWidth/6.5)
                         //=============================================
-                                                
+                        
                         
                     }
                     
@@ -188,26 +189,32 @@ struct ProfileView: View {
             
             //CONSUMED-MEAL ===============================
             VStack() {
-                Form {
-                    Section(header: Text("Consumed Meal").font(.system(size: isIpad ? 18 : 10))) {
-                        ForEach(1..<5) {index in
-                            HStack{
-                                Circle()
-                                    .frame(width: 20)
-                                Text("PLACEHOLDER")
-                                    .padding(.horizontal, 20)
-                                    .font(.system(size: isIpad ? 24 : 16))
-                                Spacer()
-                            }
-                            .padding(.vertical, isIpad ? 10 : 0)
-                        }
-                        
+                //                Form {
+                //                    Section(header: Text("Consumed Meal").font(.system(size: isIpad ? 18 : 10))) {
+                //                        ForEach(1..<5) {index in
+                //                            HStack{
+                //                                Circle()
+                //                                    .frame(width: 20)
+                //                                Text("PLACEHOLDER")
+                //                                    .padding(.horizontal, 20)
+                //                                    .font(.system(size: isIpad ? 24 : 16))
+                //                                Spacer()
+                //                            }
+                //                            .padding(.vertical, isIpad ? 10 : 0)
+                //                        }
+                //                    }
+                //                }
+                //                .background(Color(.systemGray6))
+                
+                List(recipes) { item in
+                    NavigationLink(destination: DetailRecipe(recipe: item)) {
+                        Text(item.name)
                     }
                 }
-                .background(Color(.systemGray6))
             }.background(Color(.systemGray6))
                 .cornerRadius(16)
                 .padding(.top, 30)
+            
             //=============================================
             
             
@@ -220,4 +227,9 @@ struct ProfileView: View {
 
 #Preview {
     ProfileView()
+}
+struct ProfilePage_Previews: PreviewProvider {
+    static var previews: some View {
+        ProfileView().modelContainer(for: [Recipes.self, DailyStats.self])
+    }
 }
