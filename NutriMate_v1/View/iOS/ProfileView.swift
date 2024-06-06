@@ -75,11 +75,11 @@ struct ProfileView: View {
             VStack{
                 ScrollView(.horizontal) {
                     LazyHStack {
-                        //                    Text("\(totalCarbs)")
-                        //                    Text("\(totalProtein)")
-                        //                    Text("\(totalSugar)")
-                        //                    Text("\(totalfat)")
-                        //                    Text("\(totalEaten)")
+                                            Text("\(totalCarbs)")
+                                            Text("\(totalProtein)")
+                                            Text("\(totalSugar)")
+                                            Text("\(totalfat)")
+                                            Text("\(totalEaten)")
                         
                         //DONUT-CHART =================================
                         ZStack {
