@@ -17,17 +17,17 @@ struct Product: Identifiable {
 }
 
 struct Minerals: Identifiable {
-    //aa
-    let id = UUID()
-    let name: String
-    let amount: Double
+        //aa
+        let id = UUID()
+        let name: String
+        let amount: Double
 }
 
 struct Weight: Identifiable {
-    //aa
-    let id = UUID()
-    let name: String
-    let amount: Double
+            //aa
+            let id = UUID()
+            let name: String
+            let amount: Double
 }
 
 struct MacProfileView: View {
@@ -54,7 +54,7 @@ struct MacProfileView: View {
     var body: some View {
         
         GeometryReader { geometry in
-            VStack{
+            VStack(alignment: .center){
                 LazyHStack {
                     
                     
@@ -87,22 +87,6 @@ struct MacProfileView: View {
                             }
                             .padding(.bottom, 15)
                         }
-                    }
-                    .padding(.horizontal, 60)
-                    //=============================================
-                    
-                    
-                    //BAR-CHART =================================
-                    ZStack {
-                        Chart(body_minerals) { items in
-                            BarMark(
-                                x: .value(Text(verbatim: "Name"), items.name),
-                                y: .value(Text(verbatim: "Amount"), items.amount)
-                            )
-                            .foregroundStyle(by: .value(Text(verbatim: items.name), items.amount))
-                        }
-                        .frame(width: geometry.size.height/3.2, height: geometry.size.height/3.2)
-                        .padding(.horizontal, 30)
                     }
                     .padding(.horizontal, 60)
                     //=============================================
@@ -141,72 +125,97 @@ struct MacProfileView: View {
                     Text("Nutritional Needs:")
                         .font(.system(size: 18))
                         .foregroundColor(.gray)
-//                        .padding(.bottom, 10)
+                    //                        .padding(.bottom, 10)
                     Spacer()
                     Spacer()
                 }
                 //=============================================
                 
                 
+                //                HStack {
+                //                    Spacer()
                 HStack {
-//                    Spacer()
-                    HStack {
-                        //PROGRESS-VIEW ===============================
-                        VStack {
-                            ForEach(body_minerals) { index in
-                                HStack {
-                                    Text(index.name)
-                                        .fontWeight(.bold)
-                                        .font(.system(size: 24))
-                                    Spacer()
-                                }
-                                ProgressView(value: index.amount)
-                                    .accentColor(.green)
-                                    .scaleEffect(x: 1, y: 100000000, anchor: .center)
-                                    .padding(.bottom, 10)
+                    
+                    Spacer()
+                    Spacer()
+                    Spacer()
+                    Spacer()
+                    
+                    //PROGRESS-VIEW ===============================
+                    VStack (alignment: .leading) {
+                        ForEach(body_minerals) { index in
+                            HStack {
+                                Text(index.name)
+                                    .fontWeight(.bold)
+                                    .font(.system(size: 24))
+                                Spacer()
+                            }
+                            ZStack(alignment: .leading) {
+                                Rectangle()
+                                    .foregroundColor(Color.gray.opacity(0.3)) // Background color
+                                    .frame(width: geometry.size.width/2.2, height: 20) // Adjust the height as needed
+                                    .cornerRadius(16)
+                                
+                                Rectangle()
+                                    .foregroundColor(.green) // Progress color
+                                    .frame(width: min(CGFloat(index.amount) * geometry.size.width/2.2, geometry.size.width/2.2), height: 20) // Adjust the height as needed
+                                    .cornerRadius(16)
                             }
                         }
-//                        .padding(.horizontal, 40)
-                        //=============================================
-                        
-                        Spacer()
-                        Spacer()
-                        Spacer()
-                        Spacer()
-                        Spacer()
-                        
-                        //CONSUMED-MEAL ===============================
-                        VStack() {
-                            List {
-                                Section(header: Text("Consumed Meal").font(.system(size: 18))) {
-                                    ForEach(1..<5) {index in
-                                        HStack{
-                                            Circle()
-                                                .frame(width: 20)
-                                            Text("PLACEHOLDER")
-                                                .padding(.horizontal, 20)
-                                                .font(.system(size: 24))
-                                            Spacer()
-                                        }
-                                        .padding(.vertical, 10)
+                    }
+                    //                        .padding(.horizontal, 40)
+                    //=============================================
+                    
+                    Spacer()
+                    Spacer()
+                    Spacer()
+                    Spacer()
+                    Spacer()
+                    Spacer()
+                    Spacer()
+                    Spacer()
+                    
+                    //CONSUMED-MEAL ===============================
+                    VStack(alignment: .trailing) {
+                        Form {
+                            Section(header: Text("Consumed Meal").font(.system(size: 18))) {
+                                ForEach(1..<5) {index in
+                                    HStack{
+                                        Circle()
+                                            .frame(width: 20)
+                                        Text("PLACEHOLDER")
+                                            .padding(.horizontal, 20)
+                                            .font(.system(size: 24))
+                                        Spacer()
                                     }
+                                    .padding(.vertical, 5)
                                 }
                             }
-                            .background(Color(.systemGray))
-                        }.background(Color(.systemGray))
-                            .cornerRadius(16)
-    //                        .padding(.top, 40)
-//                            .padding(.horizontal, 40)
-                        //=============================================
+                            .padding()
+                        }
+                        .background(Color(.systemGray))
                     }
-//                    Spacer()
+                    .cornerRadius(16)
+                    //                        .padding(.top, 40)
+                    //                            .padding(.horizontal, 40)
+                    //=============================================
+                    
+                    Spacer()
+                    Spacer()
+                    Spacer()
+                    Spacer()
+                    
                 }
-                .frame(width: geometry.size.width - geometry.size.width/10, height: geometry.size.height/2)
+                .frame(width: geometry.size.width, height: geometry.size.height/2)
+                //                    Spacer()
+                //                }
+                //                .frame(width: geometry.size.width - geometry.size.width/10, height: geometry.size.height/2)
                 
                 
-            }.frame(maxWidth: geometry.size.width)
-                .padding(.horizontal, 80)
-                .padding(.vertical, 40)
+            }
+            .frame(maxWidth: geometry.size.width - geometry.size.width/73)
+            .padding(.horizontal, 10)
+            .padding(.vertical, 40)
         }
     }
 }
