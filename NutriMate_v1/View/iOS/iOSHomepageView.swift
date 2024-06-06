@@ -227,6 +227,7 @@ struct SheetView: View {
                 let today = Date()
                 let components = calendar.dateComponents([.day], from: today, to: selectedDate)
                 let days = components.day ?? 0
+                calculateCalories()
                 
                 @MainActor
                 func calculateCalories() {
@@ -301,7 +302,7 @@ struct SheetView: View {
                                 meal step by step to make, separate each step with a /:
                                 meal ingredients, separate each ingredients with a /:
                                 I prefer a meal with these ingredients: \(selectedOptions.joined(separator: ", "))
-                                where if its \(selectedOptions.joined(separator: ", ")), classified as recipe for vegetables, the meal image would be 'vegetable recipe', if its for milk its 'milk recipe', if its protein its, 'protein recipe', if its herb, its 'herb recipe', remembe the image name, just make it so that its inside. for example like this
+                                where if its \(selectedOptions.joined(separator: ", ")), classified as recipe for vegetables, the meal image would be 'vegetable recipe', if its for milk its 'milk recipe', if its protein its, 'protein recipe', if its herb, its 'herb recipe'if its for fruits ,its 'fruit recipe', remembe the image name, just make it so that its inside. for example like this
                                 **Meal Name:** Chicken Breast with Roasted Vegetables
                                 **Meal Description:** A healthy and flavorful dish with lean protein and roasted vegetables.
                                 **Meal Total Calories:** 350

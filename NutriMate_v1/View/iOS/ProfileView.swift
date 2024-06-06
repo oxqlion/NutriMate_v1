@@ -36,15 +36,7 @@ struct ProfileView: View {
     @Query var dailystats: [DailyStats]
     @Query var recipes: [Recipes]
     let isIpad = ScreenSizeDetector().screenWidth > 650
-//    @State private var body_weight: [Weight] = [
-//        .init(name: "Monday", amount: 72.5),
-//        .init(name: "Tuesday", amount: 73.1),
-//        .init(name: "Wednesday", amount: 73.5),
-//        .init(name: "Thursday", amount: 73.4),
-//        .init(name: "Friday", amount: 72.2),
-//        .init(name: "Saturday", amount: 71.9),
-//        .init(name: "Sunday", amount: 71.5),
-//    ]
+
     var totalCarbs: Double {
         Double(dailystats.filter { $0.isSameDay(as: Date()) }.reduce(0) { $0 + $1.carbs })
     }
@@ -63,10 +55,6 @@ struct ProfileView: View {
     func totalEatens(date:Date)->Double{
         return Double(dailystats.filter { $0.isSameDay(as: date) }.reduce(0) { $0 + $1.totalCalories})
     }
-//    @State private var products: [Product] = [
-//        .init(title: "Eaten", revenue: Double(totalCarbs)),
-//        .init(title: "Cals Left", revenue: 0.3),
-//    ]
     var products: [Product] {
       [
         .init(title: "Eaten", revenue: totalCarbs),
@@ -95,98 +83,6 @@ struct ProfileView: View {
         NavigationView {
             VStack{
                 ScrollView(.horizontal) {
-//                    LazyHStack {
-//                        Text("\(totalCarbs)")
-//                        Text("\(totalProtein)")
-//                        Text("\(totalSugar)")
-//                        Text("\(totalfat)")
-//                        Text("\(totalEaten)")
-//                        
-//                        //DONUT-CHART =================================
-//                        //                ScrollView(.horizontal) {
-//                        //                    LazyHStack {
-//                        //                        //                    Text("\(totalCarbs)")
-//                        //                        //                    Text("\(totalProtein)")
-//                        //                        //                    Text("\(totalSugar)")
-//                        //                        //                    Text("\(totalfat)")
-//                        //                        //                    Text("\(totalEaten)")
-//                        //
-//                        //                        //DONUT-CHART =================================
-//                        //                        ZStack {
-//                        //                            Chart(products) { product in
-//                        //                                SectorMark(
-//                        //                                    angle: .value(
-//                        //                                        Text(verbatim: product.title),
-//                        //                                        product.revenue
-//                        //                                    ),
-//                        //                                    innerRadius: .ratio(isIpad ? 0.75 : 0.8)
-//                        //                                )
-//                        //                                .foregroundStyle(
-//                        //                                    by: .value(
-//                        //                                        Text(verbatim: product.title),
-//                        //                                        product.title
-//                        //                                    )
-//                        //                                )
-//                        //                            }.frame(width: isIpad ? ScreenSizeDetector().screenWidth/2.3: ScreenSizeDetector().screenWidth/2, height: isIpad ? ScreenSizeDetector().screenHeight/2.3 : ScreenSizeDetector().screenHeight/2)
-//                        //                                .padding(.horizontal, isIpad ? ScreenSizeDetector().screenWidth/5.1: ScreenSizeDetector().screenWidth/6.5)
-//                        //
-//                        //
-//                        //
-//                        //                            //TEXT ========================================
-//                        //                            VStack {
-//                        //                                HStack {
-//                        //                                    Text("1350")
-//                        //                                        .font(.system(size: isIpad ? 48 : 28))
-//                        //                                        .fontWeight(.bold)
-//                        //                                        .foregroundColor(.green)
-//                        //                                    Text("/1800")
-//                        //                                        .font(.system(size: isIpad ? 24 : 12))
-//                        //                                }
-//                        //                                .padding(.bottom, 15)
-//                        //                            }
-//                        //                            //=============================================
-//                        //                        }
-//                        //                        //=============================================
-//                        //
-//                        //
-//                        //                        //BAR-CHART =================================
-//                        //                        ZStack {
-//                        //                            Chart(body_minerals) { items in
-//                        //                                BarMark(
-//                        //                                    x: .value(Text(verbatim: "Name"), items.name),
-//                        //                                    y: .value(Text(verbatim: "Amount"), items.amount)
-//                        //                                )
-//                        //                                .foregroundStyle(by: .value(Text(verbatim: items.name), items.amount))
-//                        //                            }
-//                        //                            .frame(width: isIpad ? ScreenSizeDetector().screenWidth/2.3 : ScreenSizeDetector().screenWidth/2,
-//                        //                                   height: isIpad ? ScreenSizeDetector().screenHeight/4 : ScreenSizeDetector().screenHeight/5)
-//                        //                            .padding(.horizontal, isIpad ? ScreenSizeDetector().screenWidth/5.1 : ScreenSizeDetector().screenWidth/6.5)
-//                        //                            //=============================================
-//                        //
-//                        //
-//                        //                        }
-//                        //
-//                        //                        ZStack {
-//                        //                            // LINE-CHART =================================
-//                        //                            Chart {
-//                        //                                ForEach(body_weight) { weight in
-//                        //                                    LineMark(
-//                        //                                        x: .value("Product", weight.name),
-//                        //                                        y: .value("Revenue", weight.amount)
-//                        //                                    )
-//                        //                                }
-//                        //                                .interpolationMethod(.catmullRom) // Optional: adds smooth curves
-//                        //                            }
-//                        //                            .frame(width: isIpad ? ScreenSizeDetector().screenWidth/2.3 : ScreenSizeDetector().screenWidth/2,
-//                        //                                   height: isIpad ? ScreenSizeDetector().screenHeight/4 : ScreenSizeDetector().screenHeight/5)
-//                        //                            .padding(.horizontal, isIpad ? ScreenSizeDetector().screenWidth/5.1 : ScreenSizeDetector().screenWidth/6.5)
-//                        //                            // =============================================
-//                        //                        }
-//                        //                    }
-//                        //                    .frame(height: ScreenSizeDetector().screenHeight/4)
-//                        //                }
-//                    }
-                        
                         HStack {
                             if showGraph == 1 {
                                 ZStack {
@@ -317,23 +213,6 @@ struct ProfileView: View {
                         
                         //CONSUMED-MEAL ===============================
                         VStack() {
-                            //                Form {
-                            //                    Section(header: Text("Consumed Meal").font(.system(size: isIpad ? 18 : 10))) {
-                            //                        ForEach(1..<5) {index in
-                            //                            HStack{
-                            //                                Circle()
-                            //                                    .frame(width: 20)
-                            //                                Text("PLACEHOLDER")
-                            //                                    .padding(.horizontal, 20)
-                            //                                    .font(.system(size: isIpad ? 24 : 16))
-                            //                                Spacer()
-                            //                            }
-                            //                            .padding(.vertical, isIpad ? 10 : 0)
-                            //                        }
-                            //                    }
-                            //                }
-                            //                .background(Color(.systemGray6))
-                            
                             List(recipes) { item in
                                 NavigationLink(destination: DetailRecipe(recipe: item)) {
                                     Text(item.name)
@@ -356,9 +235,7 @@ struct ProfileView: View {
     }
     
 
-//#Preview {
-//    ProfileView()
-//}
+
 struct ProfilePage_Previews: PreviewProvider {
     static var previews: some View {
         ProfileView().modelContainer(for: [Recipes.self, DailyStats.self])
