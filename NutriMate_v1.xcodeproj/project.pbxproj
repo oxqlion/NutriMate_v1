@@ -7,9 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0412C2C32C08354800E32B96 /* ListRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0412C2C22C08354800E32B96 /* ListRecipe.swift */; };
-		3FD5F0B92C08435D007B5C6A /* DetailRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD5F0B82C08435D007B5C6A /* DetailRecipeView.swift */; };
+		0412C2C32C08354800E32B96 /* MacListsRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0412C2C22C08354800E32B96 /* MacListsRecipe.swift */; };
+		046C9F002C09702D00B2200E /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C9EFF2C09702D00B2200E /* SplashScreen.swift */; };
+		046C9F022C09783F00B2200E /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C9F012C09783F00B2200E /* ProfileView.swift */; };
+		0483DC012C0851E700810FAB /* ScreenSizeDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0483DC002C0851E700810FAB /* ScreenSizeDetector.swift */; };
+		04EE86362C10363800DD182E /* RecipeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EE86352C10363800DD182E /* RecipeRepository.swift */; };
+		04EE86382C10379900DD182E /* ListsRecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EE86372C10379900DD182E /* ListsRecipeViewModel.swift */; };
+		04EE863A2C1037FD00DD182E /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EE86392C1037FD00DD182E /* ProfileViewModel.swift */; };
+		04EE863C2C10382B00DD182E /* DailyStatsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EE863B2C10382B00DD182E /* DailyStatsRepository.swift */; };
+		04EE86402C10530400DD182E /* ModelContainers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EE863F2C10530400DD182E /* ModelContainers.swift */; };
 		3FEF106D2C083B20003A5F72 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEF106C2C083B20003A5F72 /* User.swift */; };
+		3FEF10732C083F8C003A5F72 /* ListsRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEF10722C083F8C003A5F72 /* ListsRecipe.swift */; };
+		7B5F6A442C0F501200A34CCD /* AIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5F6A432C0F501200A34CCD /* AIResponse.swift */; };
+		7B5F6A472C0F56CE00A34CCD /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7B5F6A462C0F56CE00A34CCD /* OpenAISwift */; };
+		7B5F6A4A2C0F8EC400A34CCD /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = 7B5F6A492C0F8EC400A34CCD /* OpenAI */; };
+		7B5F6A4E2C0F9F8400A34CCD /* GenerativeAI-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7B5F6A4D2C0F9F8400A34CCD /* GenerativeAI-Info.plist */; };
+		7B5F6A502C0F9FE000A34CCD /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5F6A4F2C0F9FE000A34CCD /* APIKey.swift */; };
+		7B5F6A532C0FA1F000A34CCD /* GoogleGenerativeAI in Frameworks */ = {isa = PBXBuildFile; productRef = 7B5F6A522C0FA1F000A34CCD /* GoogleGenerativeAI */; };
 		7B934ADA2C063B0A00185089 /* NutriMate_v1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B934AD92C063B0A00185089 /* NutriMate_v1App.swift */; };
 		7B934ADC2C063B0A00185089 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B934ADB2C063B0A00185089 /* ContentView.swift */; };
 		7B934ADE2C063B0C00185089 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B934ADD2C063B0C00185089 /* Assets.xcassets */; };
@@ -18,12 +32,24 @@
 		7B934AED2C06401800185089 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B934AEC2C06401800185089 /* Recipe.swift */; };
 		7B934AF52C06426C00185089 /* macOSHomepageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B934AF42C06426C00185089 /* macOSHomepageView.swift */; };
 		7B934AF82C06427B00185089 /* iOSHomepageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B934AF72C06427B00185089 /* iOSHomepageView.swift */; };
+		7BA47D8B2C0DB40C007854FB /* DetailRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA47D8A2C0DB40C007854FB /* DetailRecipe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0412C2C22C08354800E32B96 /* ListRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRecipe.swift; sourceTree = "<group>"; };
-		3FD5F0B82C08435D007B5C6A /* DetailRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRecipeView.swift; sourceTree = "<group>"; };
+		0412C2C22C08354800E32B96 /* MacListsRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacListsRecipe.swift; sourceTree = "<group>"; };
+		046C9EFF2C09702D00B2200E /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
+		046C9F012C09783F00B2200E /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		0483DC002C0851E700810FAB /* ScreenSizeDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenSizeDetector.swift; sourceTree = "<group>"; };
+		04EE86352C10363800DD182E /* RecipeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeRepository.swift; sourceTree = "<group>"; };
+		04EE86372C10379900DD182E /* ListsRecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsRecipeViewModel.swift; sourceTree = "<group>"; };
+		04EE86392C1037FD00DD182E /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		04EE863B2C10382B00DD182E /* DailyStatsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyStatsRepository.swift; sourceTree = "<group>"; };
+		04EE863F2C10530400DD182E /* ModelContainers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelContainers.swift; sourceTree = "<group>"; };
 		3FEF106C2C083B20003A5F72 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3FEF10722C083F8C003A5F72 /* ListsRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsRecipe.swift; sourceTree = "<group>"; };
+		7B5F6A432C0F501200A34CCD /* AIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIResponse.swift; sourceTree = "<group>"; };
+		7B5F6A4D2C0F9F8400A34CCD /* GenerativeAI-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GenerativeAI-Info.plist"; sourceTree = "<group>"; };
+		7B5F6A4F2C0F9FE000A34CCD /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		7B934AD62C063B0A00185089 /* NutriMate_v1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutriMate_v1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B934AD92C063B0A00185089 /* NutriMate_v1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutriMate_v1App.swift; sourceTree = "<group>"; };
 		7B934ADB2C063B0A00185089 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -34,6 +60,7 @@
 		7B934AEC2C06401800185089 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		7B934AF42C06426C00185089 /* macOSHomepageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macOSHomepageView.swift; sourceTree = "<group>"; };
 		7B934AF72C06427B00185089 /* iOSHomepageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSHomepageView.swift; sourceTree = "<group>"; };
+		7BA47D8A2C0DB40C007854FB /* DetailRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRecipe.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,12 +68,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B5F6A532C0FA1F000A34CCD /* GoogleGenerativeAI in Frameworks */,
+				7B5F6A4A2C0F8EC400A34CCD /* OpenAI in Frameworks */,
+				7B5F6A472C0F56CE00A34CCD /* OpenAISwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04544C862C0C0DEC006106DA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				04EE86352C10363800DD182E /* RecipeRepository.swift */,
+				04EE86372C10379900DD182E /* ListsRecipeViewModel.swift */,
+				04EE86392C1037FD00DD182E /* ProfileViewModel.swift */,
+				04EE863B2C10382B00DD182E /* DailyStatsRepository.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		7B934ACD2C063B0A00185089 = {
 			isa = PBXGroup;
 			children = (
@@ -66,13 +107,17 @@
 		7B934AD82C063B0A00185089 /* NutriMate_v1 */ = {
 			isa = PBXGroup;
 			children = (
-				7B934AE92C063C9D00185089 /* View */,
+				04544C862C0C0DEC006106DA /* Controller */,
 				7B934AE82C063C9500185089 /* Model */,
+				7B934AE92C063C9D00185089 /* View */,
 				7B934AD92C063B0A00185089 /* NutriMate_v1App.swift */,
 				7B934ADB2C063B0A00185089 /* ContentView.swift */,
+				0483DC002C0851E700810FAB /* ScreenSizeDetector.swift */,
 				7B934ADD2C063B0C00185089 /* Assets.xcassets */,
 				7B934ADF2C063B0C00185089 /* NutriMate_v1.entitlements */,
 				7B934AE02C063B0C00185089 /* Preview Content */,
+				7B5F6A4D2C0F9F8400A34CCD /* GenerativeAI-Info.plist */,
+				7B5F6A4F2C0F9FE000A34CCD /* APIKey.swift */,
 			);
 			path = NutriMate_v1;
 			sourceTree = "<group>";
@@ -91,6 +136,8 @@
 				7B934AEA2C063F9000185089 /* DailyStats.swift */,
 				7B934AEC2C06401800185089 /* Recipe.swift */,
 				3FEF106C2C083B20003A5F72 /* User.swift */,
+				04EE863F2C10530400DD182E /* ModelContainers.swift */,
+				7B5F6A432C0F501200A34CCD /* AIResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -100,7 +147,7 @@
 			children = (
 				7B934AEF2C06421900185089 /* iOS */,
 				7B934AEE2C06421500185089 /* macOS */,
-				0412C2C22C08354800E32B96 /* ListRecipe.swift */,
+				0412C2C22C08354800E32B96 /* MacListsRecipe.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -117,7 +164,10 @@
 			isa = PBXGroup;
 			children = (
 				7B934AF72C06427B00185089 /* iOSHomepageView.swift */,
-				3FD5F0B82C08435D007B5C6A /* DetailRecipeView.swift */,
+				3FEF10722C083F8C003A5F72 /* ListsRecipe.swift */,
+				046C9EFF2C09702D00B2200E /* SplashScreen.swift */,
+				046C9F012C09783F00B2200E /* ProfileView.swift */,
+				7BA47D8A2C0DB40C007854FB /* DetailRecipe.swift */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -138,6 +188,11 @@
 			dependencies = (
 			);
 			name = NutriMate_v1;
+			packageProductDependencies = (
+				7B5F6A462C0F56CE00A34CCD /* OpenAISwift */,
+				7B5F6A492C0F8EC400A34CCD /* OpenAI */,
+				7B5F6A522C0FA1F000A34CCD /* GoogleGenerativeAI */,
+			);
 			productName = NutriMate_v1;
 			productReference = 7B934AD62C063B0A00185089 /* NutriMate_v1.app */;
 			productType = "com.apple.product-type.application";
@@ -166,6 +221,11 @@
 				Base,
 			);
 			mainGroup = 7B934ACD2C063B0A00185089;
+			packageReferences = (
+				7B5F6A452C0F56CD00A34CCD /* XCRemoteSwiftPackageReference "OpenAISwift" */,
+				7B5F6A482C0F8EC400A34CCD /* XCRemoteSwiftPackageReference "OpenAI" */,
+				7B5F6A512C0FA1F000A34CCD /* XCRemoteSwiftPackageReference "generative-ai-swift" */,
+			);
 			productRefGroup = 7B934AD72C063B0A00185089 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -182,6 +242,7 @@
 			files = (
 				7B934AE22C063B0C00185089 /* Preview Assets.xcassets in Resources */,
 				7B934ADE2C063B0C00185089 /* Assets.xcassets in Resources */,
+				7B5F6A4E2C0F9F8400A34CCD /* GenerativeAI-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,14 +253,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0412C2C32C08354800E32B96 /* ListRecipe.swift in Sources */,
+				046C9F002C09702D00B2200E /* SplashScreen.swift in Sources */,
+				04EE86402C10530400DD182E /* ModelContainers.swift in Sources */,
+				046C9F022C09783F00B2200E /* ProfileView.swift in Sources */,
+				04EE86382C10379900DD182E /* ListsRecipeViewModel.swift in Sources */,
+				7BA47D8B2C0DB40C007854FB /* DetailRecipe.swift in Sources */,
+				04EE86362C10363800DD182E /* RecipeRepository.swift in Sources */,
+				7B5F6A442C0F501200A34CCD /* AIResponse.swift in Sources */,
+				7B5F6A502C0F9FE000A34CCD /* APIKey.swift in Sources */,
+				0412C2C32C08354800E32B96 /* MacListsRecipe.swift in Sources */,
+				0483DC012C0851E700810FAB /* ScreenSizeDetector.swift in Sources */,
 				7B934AF52C06426C00185089 /* macOSHomepageView.swift in Sources */,
 				7B934ADC2C063B0A00185089 /* ContentView.swift in Sources */,
+				04EE863C2C10382B00DD182E /* DailyStatsRepository.swift in Sources */,
 				7B934AF82C06427B00185089 /* iOSHomepageView.swift in Sources */,
 				3FEF106D2C083B20003A5F72 /* User.swift in Sources */,
 				7B934AEB2C063F9000185089 /* DailyStats.swift in Sources */,
-				3FD5F0B92C08435D007B5C6A /* DetailRecipeView.swift in Sources */,
+				3FEF10732C083F8C003A5F72 /* ListsRecipe.swift in Sources */,
 				7B934ADA2C063B0A00185089 /* NutriMate_v1App.swift in Sources */,
+				04EE863A2C1037FD00DD182E /* ProfileViewModel.swift in Sources */,
 				7B934AED2C06401800185089 /* Recipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -330,7 +402,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NutriMate_v1/Preview Content\"";
-				DEVELOPMENT_TEAM = ARZ6D36V3N;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -368,7 +440,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NutriMate_v1/Preview Content\"";
-				DEVELOPMENT_TEAM = ARZ6D36V3N;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -419,6 +491,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7B5F6A452C0F56CD00A34CCD /* XCRemoteSwiftPackageReference "OpenAISwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/adamrushy/OpenAISwift";
+			requirement = {
+				kind = exactVersion;
+				version = 1.2.0;
+			};
+		};
+		7B5F6A482C0F8EC400A34CCD /* XCRemoteSwiftPackageReference "OpenAI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MacPaw/OpenAI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.9;
+			};
+		};
+		7B5F6A512C0FA1F000A34CCD /* XCRemoteSwiftPackageReference "generative-ai-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google-gemini/generative-ai-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.5.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7B5F6A462C0F56CE00A34CCD /* OpenAISwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7B5F6A452C0F56CD00A34CCD /* XCRemoteSwiftPackageReference "OpenAISwift" */;
+			productName = OpenAISwift;
+		};
+		7B5F6A492C0F8EC400A34CCD /* OpenAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7B5F6A482C0F8EC400A34CCD /* XCRemoteSwiftPackageReference "OpenAI" */;
+			productName = OpenAI;
+		};
+		7B5F6A522C0FA1F000A34CCD /* GoogleGenerativeAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7B5F6A512C0FA1F000A34CCD /* XCRemoteSwiftPackageReference "generative-ai-swift" */;
+			productName = GoogleGenerativeAI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7B934ACE2C063B0A00185089 /* Project object */;
 }
