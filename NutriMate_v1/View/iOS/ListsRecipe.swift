@@ -40,18 +40,18 @@ struct ListsRecipe: View {
                     .padding(.horizontal)
                 
                 
-                HStack{
-                    VStack{
-                        Image(systemName: "clock")
-                            .resizable()
-                            .frame(width: isIpad ? 60 : 30, height: isIpad ? 60 : 30)
-                        Text("brodda")
-                            .font(.system(size: isIpad ? 32 : 20))
-                    }.padding(.top,0.2)
-                    //                        .padding(.bottom)
-                        .padding(.bottom, isIpad ? 10 : 0)
-                        .background(Color(.systemGray6))
-                }.padding(.horizontal)
+//                HStack{
+//                    VStack{
+//                        Image(systemName: "clock")
+//                            .resizable()
+//                            .frame(width: isIpad ? 60 : 30, height: isIpad ? 60 : 30)
+//                        Text("brodda")
+//                            .font(.system(size: isIpad ? 32 : 20))
+//                    }.padding(.top,0.2)
+//                    //                        .padding(.bottom)
+//                        .padding(.bottom, isIpad ? 10 : 0)
+//                        .background(Color(.systemGray6))
+//                }.padding(.horizontal)
                 
                 
                 

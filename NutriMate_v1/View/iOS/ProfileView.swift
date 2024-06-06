@@ -36,22 +36,15 @@ struct ProfileView: View {
     @Query var dailystats: [DailyStats]
     @Query var recipes: [Recipes]
     let isIpad = ScreenSizeDetector().screenWidth > 650
-    @State private var body_minerals: [Minerals] = [
-        .init(name: "Calcium", amount: 0.8),
-        .init(name: "Carbs", amount: 0.6),
-        .init(name: "Protein", amount: 0.4),
-        .init(name: "Sugar", amount: 0.5),
-        .init(name: "Fat", amount: 0.7),
-    ]
-    @State private var body_weight: [Weight] = [
-        .init(name: "Monday", amount: 72.5),
-        .init(name: "Tuesday", amount: 73.1),
-        .init(name: "Wednesday", amount: 73.5),
-        .init(name: "Thursday", amount: 73.4),
-        .init(name: "Friday", amount: 72.2),
-        .init(name: "Saturday", amount: 71.9),
-        .init(name: "Sunday", amount: 71.5),
-    ]
+//    @State private var body_weight: [Weight] = [
+//        .init(name: "Monday", amount: 72.5),
+//        .init(name: "Tuesday", amount: 73.1),
+//        .init(name: "Wednesday", amount: 73.5),
+//        .init(name: "Thursday", amount: 73.4),
+//        .init(name: "Friday", amount: 72.2),
+//        .init(name: "Saturday", amount: 71.9),
+//        .init(name: "Sunday", amount: 71.5),
+//    ]
     var totalCarbs: Double {
         Double(dailystats.filter { $0.isSameDay(as: Date()) }.reduce(0) { $0 + $1.carbs })
     }
@@ -67,6 +60,9 @@ struct ProfileView: View {
     var totalEaten: Double{
         Double(dailystats.filter { $0.isSameDay(as: Date()) }.reduce(0) { $0 + $1.totalCalories})
     }
+    func totalEatens(date:Date)->Double{
+        return Double(dailystats.filter { $0.isSameDay(as: date) }.reduce(0) { $0 + $1.totalCalories})
+    }
 //    @State private var products: [Product] = [
 //        .init(title: "Eaten", revenue: Double(totalCarbs)),
 //        .init(title: "Cals Left", revenue: 0.3),
@@ -77,6 +73,19 @@ struct ProfileView: View {
         .init(title: "Cals Left", revenue: calorieManager.allowedCalories-totalCarbs),
       ]
     }
+    let days = ["Monday", "Tuesday","Wednesday","Thursday", "Friday","Saturday", "Sunday"]
+
+    var body_weight: [Weight] {
+      var weights = [Weight]()
+      for day in days {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE"
+        guard let date = dateFormatter.date(from: day) else { continue }
+        weights.append(Weight(name: day, amount: totalEatens(date: date)))
+      }
+      return weights
+    }
+
 
     let data = [
         (name: "Cachapa", value: 0.0),

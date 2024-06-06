@@ -27,7 +27,7 @@ struct SidebarView: View {
                     
                     Divider()
                     
-                    NavigationLink(destination: MacDetailRecipe(), label: {
+                NavigationLink(destination: MacListsRecipe(), label: {
                         ZStack {
                             Image(systemName: "leaf")
                                 .resizable()
