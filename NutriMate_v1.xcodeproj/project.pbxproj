@@ -17,7 +17,6 @@
 		046327242C107A6B006982CF /* MacDetailRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0463270A2C1077CA006982CF /* MacDetailRecipe.swift */; };
 		046327252C107A6B006982CF /* MacSplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0463270C2C107821006982CF /* MacSplashScreen.swift */; };
 		046327272C1081CD006982CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B934ADD2C063B0C00185089 /* Assets.xcassets */; };
-		046327282C108CA8006982CF /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B934AEC2C06401800185089 /* Recipe.swift */; };
 		046C9F002C09702D00B2200E /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C9EFF2C09702D00B2200E /* SplashScreen.swift */; };
 		046C9F022C09783F00B2200E /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C9F012C09783F00B2200E /* ProfileView.swift */; };
 		046D15C02C119E8000A79179 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046D15BF2C119E8000A79179 /* SidebarView.swift */; };
@@ -337,7 +336,6 @@
 				046D15C02C119E8000A79179 /* SidebarView.swift in Sources */,
 				046327152C107A11006982CF /* MacOSApp.swift in Sources */,
 				046327212C107A67006982CF /* MacProfileView.swift in Sources */,
-				046327282C108CA8006982CF /* Recipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

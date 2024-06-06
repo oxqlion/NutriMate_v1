@@ -10,7 +10,7 @@ import SwiftData
 
 struct MacListsRecipe: View {
     @Environment(\.modelContext) var modelContexts
-    @Query var recipes: [Recipes]
+//    @Query var recipes: [Recipes]
     @State private var searchTerm = ""
     
     var body: some View {
