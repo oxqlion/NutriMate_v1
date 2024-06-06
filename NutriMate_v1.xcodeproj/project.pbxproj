@@ -7,7 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0412C2C32C08354800E32B96 /* MacListsRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0412C2C22C08354800E32B96 /* MacListsRecipe.swift */; };
+		046327152C107A11006982CF /* MacOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046327142C107A11006982CF /* MacOSApp.swift */; };
+		046327172C107A11006982CF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046327162C107A11006982CF /* ContentView.swift */; };
+		046327192C107A13006982CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 046327182C107A13006982CF /* Assets.xcassets */; };
+		0463271C2C107A13006982CF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0463271B2C107A13006982CF /* Preview Assets.xcassets */; };
+		046327212C107A67006982CF /* MacProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046327042C107754006982CF /* MacProfileView.swift */; };
+		046327222C107A6B006982CF /* MacHomepageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046327062C107769006982CF /* MacHomepageView.swift */; };
+		046327232C107A6B006982CF /* MacListsRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0412C2C22C08354800E32B96 /* MacListsRecipe.swift */; };
+		046327242C107A6B006982CF /* MacDetailRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0463270A2C1077CA006982CF /* MacDetailRecipe.swift */; };
+		046327252C107A6B006982CF /* MacSplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0463270C2C107821006982CF /* MacSplashScreen.swift */; };
+		046327272C1081CD006982CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B934ADD2C063B0C00185089 /* Assets.xcassets */; };
+		046327282C108CA8006982CF /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B934AEC2C06401800185089 /* Recipe.swift */; };
 		046C9F002C09702D00B2200E /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C9EFF2C09702D00B2200E /* SplashScreen.swift */; };
 		046C9F022C09783F00B2200E /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C9F012C09783F00B2200E /* ProfileView.swift */; };
 		0483DC012C0851E700810FAB /* ScreenSizeDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0483DC002C0851E700810FAB /* ScreenSizeDetector.swift */; };
@@ -30,13 +40,22 @@
 		7B934AE22C063B0C00185089 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B934AE12C063B0C00185089 /* Preview Assets.xcassets */; };
 		7B934AEB2C063F9000185089 /* DailyStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B934AEA2C063F9000185089 /* DailyStats.swift */; };
 		7B934AED2C06401800185089 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B934AEC2C06401800185089 /* Recipe.swift */; };
-		7B934AF52C06426C00185089 /* macOSHomepageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B934AF42C06426C00185089 /* macOSHomepageView.swift */; };
 		7B934AF82C06427B00185089 /* iOSHomepageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B934AF72C06427B00185089 /* iOSHomepageView.swift */; };
 		7BA47D8B2C0DB40C007854FB /* DetailRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA47D8A2C0DB40C007854FB /* DetailRecipe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0412C2C22C08354800E32B96 /* MacListsRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacListsRecipe.swift; sourceTree = "<group>"; };
+		046327042C107754006982CF /* MacProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacProfileView.swift; sourceTree = "<group>"; };
+		046327062C107769006982CF /* MacHomepageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacHomepageView.swift; sourceTree = "<group>"; };
+		0463270A2C1077CA006982CF /* MacDetailRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacDetailRecipe.swift; sourceTree = "<group>"; };
+		0463270C2C107821006982CF /* MacSplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacSplashScreen.swift; sourceTree = "<group>"; };
+		046327122C107A11006982CF /* MacOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		046327142C107A11006982CF /* MacOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacOSApp.swift; sourceTree = "<group>"; };
+		046327162C107A11006982CF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		046327182C107A13006982CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0463271B2C107A13006982CF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		0463271D2C107A13006982CF /* MacOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacOS.entitlements; sourceTree = "<group>"; };
 		046C9EFF2C09702D00B2200E /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		046C9F012C09783F00B2200E /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		0483DC002C0851E700810FAB /* ScreenSizeDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenSizeDetector.swift; sourceTree = "<group>"; };
@@ -58,12 +77,18 @@
 		7B934AE12C063B0C00185089 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7B934AEA2C063F9000185089 /* DailyStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyStats.swift; sourceTree = "<group>"; };
 		7B934AEC2C06401800185089 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
-		7B934AF42C06426C00185089 /* macOSHomepageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macOSHomepageView.swift; sourceTree = "<group>"; };
 		7B934AF72C06427B00185089 /* iOSHomepageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSHomepageView.swift; sourceTree = "<group>"; };
 		7BA47D8A2C0DB40C007854FB /* DetailRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRecipe.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0463270F2C107A11006982CF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7B934AD32C063B0A00185089 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -88,10 +113,36 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		046327132C107A11006982CF /* MacOS */ = {
+			isa = PBXGroup;
+			children = (
+				046327042C107754006982CF /* MacProfileView.swift */,
+				0412C2C22C08354800E32B96 /* MacListsRecipe.swift */,
+				046327062C107769006982CF /* MacHomepageView.swift */,
+				0463270A2C1077CA006982CF /* MacDetailRecipe.swift */,
+				0463270C2C107821006982CF /* MacSplashScreen.swift */,
+				046327142C107A11006982CF /* MacOSApp.swift */,
+				046327162C107A11006982CF /* ContentView.swift */,
+				046327182C107A13006982CF /* Assets.xcassets */,
+				0463271D2C107A13006982CF /* MacOS.entitlements */,
+				0463271A2C107A13006982CF /* Preview Content */,
+			);
+			path = MacOS;
+			sourceTree = "<group>";
+		};
+		0463271A2C107A13006982CF /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				0463271B2C107A13006982CF /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 		7B934ACD2C063B0A00185089 = {
 			isa = PBXGroup;
 			children = (
 				7B934AD82C063B0A00185089 /* NutriMate_v1 */,
+				046327132C107A11006982CF /* MacOS */,
 				7B934AD72C063B0A00185089 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -100,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				7B934AD62C063B0A00185089 /* NutriMate_v1.app */,
+				046327122C107A11006982CF /* MacOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -146,18 +198,8 @@
 			isa = PBXGroup;
 			children = (
 				7B934AEF2C06421900185089 /* iOS */,
-				7B934AEE2C06421500185089 /* macOS */,
-				0412C2C22C08354800E32B96 /* MacListsRecipe.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		7B934AEE2C06421500185089 /* macOS */ = {
-			isa = PBXGroup;
-			children = (
-				7B934AF42C06426C00185089 /* macOSHomepageView.swift */,
-			);
-			path = macOS;
 			sourceTree = "<group>";
 		};
 		7B934AEF2C06421900185089 /* iOS */ = {
@@ -175,6 +217,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		046327112C107A11006982CF /* MacOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0463271E2C107A13006982CF /* Build configuration list for PBXNativeTarget "MacOS" */;
+			buildPhases = (
+				0463270E2C107A11006982CF /* Sources */,
+				0463270F2C107A11006982CF /* Frameworks */,
+				046327102C107A11006982CF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MacOS;
+			productName = MacOS;
+			productReference = 046327122C107A11006982CF /* MacOS.app */;
+			productType = "com.apple.product-type.application";
+		};
 		7B934AD52C063B0A00185089 /* NutriMate_v1 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7B934AE52C063B0C00185089 /* Build configuration list for PBXNativeTarget "NutriMate_v1" */;
@@ -207,6 +266,9 @@
 				LastSwiftUpdateCheck = 1530;
 				LastUpgradeCheck = 1530;
 				TargetAttributes = {
+					046327112C107A11006982CF = {
+						CreatedOnToolsVersion = 15.3;
+					};
 					7B934AD52C063B0A00185089 = {
 						CreatedOnToolsVersion = 15.3;
 					};
@@ -231,11 +293,22 @@
 			projectRoot = "";
 			targets = (
 				7B934AD52C063B0A00185089 /* NutriMate_v1 */,
+				046327112C107A11006982CF /* MacOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		046327102C107A11006982CF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0463271C2C107A13006982CF /* Preview Assets.xcassets in Resources */,
+				046327272C1081CD006982CF /* Assets.xcassets in Resources */,
+				046327192C107A13006982CF /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7B934AD42C063B0A00185089 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -249,6 +322,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0463270E2C107A11006982CF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				046327172C107A11006982CF /* ContentView.swift in Sources */,
+				046327222C107A6B006982CF /* MacHomepageView.swift in Sources */,
+				046327232C107A6B006982CF /* MacListsRecipe.swift in Sources */,
+				046327242C107A6B006982CF /* MacDetailRecipe.swift in Sources */,
+				046327252C107A6B006982CF /* MacSplashScreen.swift in Sources */,
+				046327152C107A11006982CF /* MacOSApp.swift in Sources */,
+				046327212C107A67006982CF /* MacProfileView.swift in Sources */,
+				046327282C108CA8006982CF /* Recipe.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7B934AD22C063B0A00185089 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -261,9 +349,7 @@
 				04EE86362C10363800DD182E /* RecipeRepository.swift in Sources */,
 				7B5F6A442C0F501200A34CCD /* AIResponse.swift in Sources */,
 				7B5F6A502C0F9FE000A34CCD /* APIKey.swift in Sources */,
-				0412C2C32C08354800E32B96 /* MacListsRecipe.swift in Sources */,
 				0483DC012C0851E700810FAB /* ScreenSizeDetector.swift in Sources */,
-				7B934AF52C06426C00185089 /* macOSHomepageView.swift in Sources */,
 				7B934ADC2C063B0A00185089 /* ContentView.swift in Sources */,
 				04EE863C2C10382B00DD182E /* DailyStatsRepository.swift in Sources */,
 				7B934AF82C06427B00185089 /* iOSHomepageView.swift in Sources */,
@@ -279,6 +365,60 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		0463271F2C107A13006982CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MacOS/MacOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MacOS/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = banthony.MacOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		046327202C107A13006982CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MacOS/MacOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MacOS/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = banthony.MacOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		7B934AE32C063B0C00185089 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -472,6 +612,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0463271E2C107A13006982CF /* Build configuration list for PBXNativeTarget "MacOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0463271F2C107A13006982CF /* Debug */,
+				046327202C107A13006982CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		7B934AD12C063B0A00185089 /* Build configuration list for PBXProject "NutriMate_v1" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
