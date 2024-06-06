@@ -41,6 +41,7 @@ func parseAIResponse(response: String) -> Recipes {
     var protein = 0
     var sugar = 0
     var cookTime = 0
+    var image = ""
     var steps = [String]()
     var ingredients = [String]()
     
@@ -71,6 +72,10 @@ func parseAIResponse(response: String) -> Recipes {
             if let value = Int(line.replacingOccurrences(of: "**Meal Total Sugar:**", with: "").trimmingCharacters(in: .whitespacesAndNewlines).replacingOccurrences(of: "g", with: "")) {
                 sugar = value
             }
+        } else if line.starts(with: "**Meal Image:**") {
+            if let value = Optional(line.replacingOccurrences(of: "**Meal Image:**", with: "").trimmingCharacters(in: .whitespaces) ) {
+                image = value
+            }
         } else if line.starts(with: "**Meal Cook Time:**") {
             if let value = Int(line.replacingOccurrences(of: "**Meal Cook Time:**", with: "").trimmingCharacters(in: .whitespacesAndNewlines).replacingOccurrences(of: "minutes", with: "")) {
                 cookTime = value
@@ -82,5 +87,5 @@ func parseAIResponse(response: String) -> Recipes {
         }
     }
     
-    return Recipes(name: name, desc: desc, calories: calories, fat: fat, carbs: carbs, protein: protein, sugar: sugar, cookTime: cookTime, ingredients: ingredients, steps: steps)
+    return Recipes(name: name, desc: desc, calories: calories, fat: fat, carbs: carbs, protein: protein, sugar: sugar, cookTime: cookTime, ingredients: ingredients, steps: steps,  image: image)
 }

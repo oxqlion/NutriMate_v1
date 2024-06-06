@@ -293,10 +293,11 @@ struct SheetView: View {
                                 I want to start a diet. I want to lose \(target) kg in \(days) days.
                                 Give me a food recipe to help me on my diet. Generate it with this format:
                                 meal name: meal description: meal total calories: meal total fat:
-                                meal total carbs: meal total protein: meal total sugar: meal cook time:
+                                meal total carbs: meal total protein: meal total sugar: meal cook time:meal image:
                                 meal step by step to make, separate each step with a /:
                                 meal ingredients, separate each ingredients with a /:
                                 I prefer a meal with these ingredients: \(selectedOptions.joined(separator: ", "))
+                                where if its \(selectedOptions.joined(separator: ", ")), classified as recipe for vegetables, the meal image would be 'vegetable recipe', if its for milk its 'milk recipe', if its protein its, 'protein recipe', if its herb, its 'herb recipe'
                                 """
                     let result = try await model.generateContent(prompt)
                     responseText = result.text ?? "No response ... "
