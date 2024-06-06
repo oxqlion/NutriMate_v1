@@ -14,7 +14,7 @@ struct ContentView: View {
             macOSHomepageView()
 #elseif os(iOS)
             TabView(selection: $selectedTab) {
-                ProfileView()
+                iOSHomepageView()
                     .tabItem {
                         VStack {
                             Image(systemName: "house")

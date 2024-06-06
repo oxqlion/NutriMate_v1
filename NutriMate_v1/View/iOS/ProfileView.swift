@@ -73,11 +73,11 @@ struct ProfileView: View {
         VStack{
             ScrollView(.horizontal) {
                 LazyHStack {
-                    Text("\(totalCarbs)")
-                    Text("\(totalProtein)")
-                    Text("\(totalSugar)")
-                    Text("\(totalfat)")
-                    Text("\(totalEaten)")
+//                    Text("\(totalCarbs)")
+//                    Text("\(totalProtein)")
+//                    Text("\(totalSugar)")
+//                    Text("\(totalfat)")
+//                    Text("\(totalEaten)")
                     
                     //DONUT-CHART =================================
                     ZStack {
@@ -135,7 +135,6 @@ struct ProfileView: View {
                     }
                     
                     ZStack {
-                        
                         // LINE-CHART =================================
                         Chart {
                             ForEach(body_weight) { weight in
@@ -150,11 +149,9 @@ struct ProfileView: View {
                                height: isIpad ? ScreenSizeDetector().screenHeight/4 : ScreenSizeDetector().screenHeight/5)
                         .padding(.horizontal, isIpad ? ScreenSizeDetector().screenWidth/5.1 : ScreenSizeDetector().screenWidth/6.5)
                         // =============================================
-                                                
-                        
                     }
                 }
-                .frame(height: ScreenSizeDetector().screenHeight/3)
+                .frame(height: ScreenSizeDetector().screenHeight/4)
             }
             
             //DATE  =======================================
@@ -210,7 +207,7 @@ struct ProfileView: View {
                 .background(Color(.systemGray6))
             }.background(Color(.systemGray6))
                 .cornerRadius(16)
-                .padding(.top, 40)
+                .padding(.top, 30)
             //=============================================
             
             

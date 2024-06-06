@@ -2,7 +2,7 @@ import Foundation
 import SwiftData
 
 @Model
-class Recipers {
+class Recipes {
     var name: String
     var desc: String
     var calories: Int
@@ -82,5 +82,5 @@ func parseAIResponse(response: String) -> Recipes {
         }
     }
     
-    return Recipers(name: name, desc: desc, calories: calories, fat: fat, carbs: carbs, protein: protein, sugar: sugar, cookTime: cookTime, ingredients: ingredients, steps: steps)
+    return Recipes(name: name, desc: desc, calories: calories, fat: fat, carbs: carbs, protein: protein, sugar: sugar, cookTime: cookTime, ingredients: ingredients, steps: steps)
 }

@@ -10,19 +10,16 @@ import SwiftData
 
 struct ListsRecipe: View {
     @Environment(\.modelContext) var modelContexts
-    @Query var recipes: [Recipers]
+    @Query var recipes: [Recipes]
     @State private var searchTerm = ""
     let isIpad = ScreenSizeDetector().screenWidth > 650
-    var filteredRecipes:[Recipers]{
+    var filteredRecipes:[Recipes]{
         guard !searchTerm.isEmpty else{return recipes}
         return recipes.filter{ $0.name.localizedCaseInsensitiveContains(searchTerm)}
     }
     
     
     var body: some View {
-        
-        
-        
         NavigationView {
             VStack(alignment: .leading) {
                 
@@ -139,12 +136,12 @@ struct ListsRecipe: View {
                 .navigationBarHidden(true)
                 .edgesIgnoringSafeArea(.bottom)
                 .edgesIgnoringSafeArea(.top)
-                .onAppear {
-                    if !UserDefaults.standard.bool(forKey: "isDataSeeded") {
-                        addsamples()
-                        UserDefaults.standard.set(true, forKey: "isDataSeeded")
-                    }
-                }
+//                .onAppear {
+//                    if !UserDefaults.standard.bool(forKey: "isDataSeeded") {
+//                        addsamples()
+//                        UserDefaults.standard.set(true, forKey: "isDataSeeded")
+//                    }
+//                }
                 
             }
             .background(Color(.systemGray6))
@@ -158,9 +155,9 @@ struct ListsRecipe: View {
         }
     }
     func addsamples(){
-        let fruitsRecipe8 = Recipers(name: "Berry Parfait", desc: "A delicious and healthy berry parfait.", calories: 200, fat: 5, carbs: 30, protein: 6, sugar: 20, cookTime: 5,ingredients: ["strawberi"], steps: ["Layer Greek yogurt, mixed berries, and granola in a glass.", "Repeat the layers.", "Serve immediately."], image: "image 11")
+        let fruitsRecipe8 = Recipes(name: "Berry Parfait", desc: "A delicious and healthy berry parfait.", calories: 200, fat: 5, carbs: 30, protein: 6, sugar: 20, cookTime: 5,ingredients: ["strawberi"], steps: ["Layer Greek yogurt, mixed berries, and granola in a glass.", "Repeat the layers.", "Serve immediately."], image: "image 11")
 
-        let fruitsRecipe9 = Recipers(name: "Mango Salsa", desc: "A fresh and tangy mango salsa perfect for summer.", calories: 100, fat: 0, carbs: 25, protein: 1, sugar: 20, cookTime: 10,ingredients: ["strawberi"], steps: ["Combine diced mango, red bell pepper, red onion, and cilantro in a bowl.", "Add lime juice and salt.", "Toss gently and serve chilled."], image: "image 11")
+        let fruitsRecipe9 = Recipes(name: "Mango Salsa", desc: "A fresh and tangy mango salsa perfect for summer.", calories: 100, fat: 0, carbs: 25, protein: 1, sugar: 20, cookTime: 10,ingredients: ["strawberi"], steps: ["Combine diced mango, red bell pepper, red onion, and cilantro in a bowl.", "Add lime juice and salt.", "Toss gently and serve chilled."], image: "image 11")
         modelContexts.insert(fruitsRecipe9)
         modelContexts.insert(fruitsRecipe8)
     }
@@ -255,7 +252,7 @@ struct RecipeItem: View {
 
 struct RecipePage_Previews: PreviewProvider {
     static var previews: some View {
-        ListsRecipe().modelContainer(for: [Recipers.self, DailyStats.self])
+        ListsRecipe().modelContainer(for: [Recipes.self, DailyStats.self])
     }
 }
 

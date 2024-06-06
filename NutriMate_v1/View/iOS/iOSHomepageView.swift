@@ -5,37 +5,44 @@ import GoogleGenerativeAI
 struct iOSHomepageView: View {
     @State private var showSheet = false
     let isIpad = ScreenSizeDetector().screenWidth > 650
+    @Environment(\.modelContext) var modelContexts
+    @Query var recipes: [Recipes]
     
     var body: some View {
-        VStack {
-            Image("25")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: isIpad ? 250 : 150, height: isIpad ? 250 : 150)
-                .padding()
-            
-            Text("You haven’t set any plans yet. Start planning today!📝🍌")
-                .font(.system(size: isIpad ? 24 : 16))
-                .multilineTextAlignment(.center)
-                .padding()
-            
-            Button(action: {
-                showSheet.toggle()
-            }) {
-                Text("Set Plan")
-                    .font(.system(size: isIpad ? 20 : 16))
-                    .foregroundColor(.white)
+        
+        if recipes.isEmpty {
+            VStack {
+                Image("25")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: isIpad ? 250 : 150, height: isIpad ? 250 : 150)
                     .padding()
-                    .background(Color.black)
-                    .cornerRadius(10)
+                
+                Text("You haven’t set any plans yet. Start planning today!📝🍌")
+                    .font(.system(size: isIpad ? 24 : 16))
+                    .multilineTextAlignment(.center)
+                    .padding()
+                
+                Button(action: {
+                    showSheet.toggle()
+                }) {
+                    Text("Set Plan")
+                        .font(.system(size: isIpad ? 20 : 16))
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Color.black)
+                        .cornerRadius(10)
+                }
+                .sheet(isPresented: $showSheet) {
+                    SheetView()
+                        .presentationDragIndicator(.visible)
+                        .ignoresSafeArea()
+                }
             }
-            .sheet(isPresented: $showSheet) {
-                SheetView()
-                    .presentationDragIndicator(.visible)
-                    .ignoresSafeArea()
-            }
+            .padding()
+        } else {
+            ProfileView()
         }
-        .padding()
     }
 }
 
