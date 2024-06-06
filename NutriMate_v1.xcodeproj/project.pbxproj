@@ -20,6 +20,7 @@
 		046327282C108CA8006982CF /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B934AEC2C06401800185089 /* Recipe.swift */; };
 		046C9F002C09702D00B2200E /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C9EFF2C09702D00B2200E /* SplashScreen.swift */; };
 		046C9F022C09783F00B2200E /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C9F012C09783F00B2200E /* ProfileView.swift */; };
+		046D15C02C119E8000A79179 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046D15BF2C119E8000A79179 /* SidebarView.swift */; };
 		0483DC012C0851E700810FAB /* ScreenSizeDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0483DC002C0851E700810FAB /* ScreenSizeDetector.swift */; };
 		04EE86362C10363800DD182E /* RecipeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EE86352C10363800DD182E /* RecipeRepository.swift */; };
 		04EE86382C10379900DD182E /* ListsRecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EE86372C10379900DD182E /* ListsRecipeViewModel.swift */; };
@@ -58,6 +59,7 @@
 		0463271D2C107A13006982CF /* MacOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacOS.entitlements; sourceTree = "<group>"; };
 		046C9EFF2C09702D00B2200E /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		046C9F012C09783F00B2200E /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		046D15BF2C119E8000A79179 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
 		0483DC002C0851E700810FAB /* ScreenSizeDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenSizeDetector.swift; sourceTree = "<group>"; };
 		04EE86352C10363800DD182E /* RecipeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeRepository.swift; sourceTree = "<group>"; };
 		04EE86372C10379900DD182E /* ListsRecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsRecipeViewModel.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				0463270C2C107821006982CF /* MacSplashScreen.swift */,
 				046327142C107A11006982CF /* MacOSApp.swift */,
 				046327162C107A11006982CF /* ContentView.swift */,
+				046D15BF2C119E8000A79179 /* SidebarView.swift */,
 				046327182C107A13006982CF /* Assets.xcassets */,
 				0463271D2C107A13006982CF /* MacOS.entitlements */,
 				0463271A2C107A13006982CF /* Preview Content */,
@@ -331,6 +334,7 @@
 				046327232C107A6B006982CF /* MacListsRecipe.swift in Sources */,
 				046327242C107A6B006982CF /* MacDetailRecipe.swift in Sources */,
 				046327252C107A6B006982CF /* MacSplashScreen.swift in Sources */,
+				046D15C02C119E8000A79179 /* SidebarView.swift in Sources */,
 				046327152C107A11006982CF /* MacOSApp.swift in Sources */,
 				046327212C107A67006982CF /* MacProfileView.swift in Sources */,
 				046327282C108CA8006982CF /* Recipe.swift in Sources */,
