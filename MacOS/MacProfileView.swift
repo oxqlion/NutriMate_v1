@@ -162,7 +162,7 @@ struct MacProfileView: View {
                                 }
                                 ProgressView(value: index.amount)
                                     .accentColor(.green)
-                                    .scaleEffect(x: 1, y: 4, anchor: .center)
+                                    .scaleEffect(x: 1, y: 100000000, anchor: .center)
                                     .padding(.bottom, 10)
                             }
                         }
