@@ -74,6 +74,15 @@ struct ProfileView: View {
     var body: some View {
         NavigationView {
             VStack{
+                ScrollView(.horizontal) {
+                    LazyHStack {
+                                            Text("\(totalCarbs)")
+                                            Text("\(totalProtein)")
+                                            Text("\(totalSugar)")
+                                            Text("\(totalfat)")
+                                            Text("\(totalEaten)")
+                        
+                        //DONUT-CHART =================================
 //                ScrollView(.horizontal) {
 //                    LazyHStack {
 //                        //                    Text("\(totalCarbs)")
