@@ -30,6 +30,7 @@ struct Weight: Identifiable {
 }
 
 struct ProfileView: View {
+    @State private var showGraph: Int = 1
     @Environment(\.modelContext) var modelContexts
     @Query var dailystats: [DailyStats]
     @Query var recipes: [Recipes]
@@ -82,6 +83,91 @@ struct ProfileView: View {
                                             Text("\(totalEaten)")
                         
                         //DONUT-CHART =================================
+//                ScrollView(.horizontal) {
+//                    LazyHStack {
+//                        //                    Text("\(totalCarbs)")
+//                        //                    Text("\(totalProtein)")
+//                        //                    Text("\(totalSugar)")
+//                        //                    Text("\(totalfat)")
+//                        //                    Text("\(totalEaten)")
+//                        
+//                        //DONUT-CHART =================================
+//                        ZStack {
+//                            Chart(products) { product in
+//                                SectorMark(
+//                                    angle: .value(
+//                                        Text(verbatim: product.title),
+//                                        product.revenue
+//                                    ),
+//                                    innerRadius: .ratio(isIpad ? 0.75 : 0.8)
+//                                )
+//                                .foregroundStyle(
+//                                    by: .value(
+//                                        Text(verbatim: product.title),
+//                                        product.title
+//                                    )
+//                                )
+//                            }.frame(width: isIpad ? ScreenSizeDetector().screenWidth/2.3: ScreenSizeDetector().screenWidth/2, height: isIpad ? ScreenSizeDetector().screenHeight/2.3 : ScreenSizeDetector().screenHeight/2)
+//                                .padding(.horizontal, isIpad ? ScreenSizeDetector().screenWidth/5.1: ScreenSizeDetector().screenWidth/6.5)
+//                            
+//                            
+//                            
+//                            //TEXT ========================================
+//                            VStack {
+//                                HStack {
+//                                    Text("1350")
+//                                        .font(.system(size: isIpad ? 48 : 28))
+//                                        .fontWeight(.bold)
+//                                        .foregroundColor(.green)
+//                                    Text("/1800")
+//                                        .font(.system(size: isIpad ? 24 : 12))
+//                                }
+//                                .padding(.bottom, 15)
+//                            }
+//                            //=============================================
+//                        }
+//                        //=============================================
+//                        
+//                        
+//                        //BAR-CHART =================================
+//                        ZStack {
+//                            Chart(body_minerals) { items in
+//                                BarMark(
+//                                    x: .value(Text(verbatim: "Name"), items.name),
+//                                    y: .value(Text(verbatim: "Amount"), items.amount)
+//                                )
+//                                .foregroundStyle(by: .value(Text(verbatim: items.name), items.amount))
+//                            }
+//                            .frame(width: isIpad ? ScreenSizeDetector().screenWidth/2.3 : ScreenSizeDetector().screenWidth/2,
+//                                   height: isIpad ? ScreenSizeDetector().screenHeight/4 : ScreenSizeDetector().screenHeight/5)
+//                            .padding(.horizontal, isIpad ? ScreenSizeDetector().screenWidth/5.1 : ScreenSizeDetector().screenWidth/6.5)
+//                            //=============================================
+//                            
+//                            
+//                        }
+//                        
+//                        ZStack {
+//                            // LINE-CHART =================================
+//                            Chart {
+//                                ForEach(body_weight) { weight in
+//                                    LineMark(
+//                                        x: .value("Product", weight.name),
+//                                        y: .value("Revenue", weight.amount)
+//                                    )
+//                                }
+//                                .interpolationMethod(.catmullRom) // Optional: adds smooth curves
+//                            }
+//                            .frame(width: isIpad ? ScreenSizeDetector().screenWidth/2.3 : ScreenSizeDetector().screenWidth/2,
+//                                   height: isIpad ? ScreenSizeDetector().screenHeight/4 : ScreenSizeDetector().screenHeight/5)
+//                            .padding(.horizontal, isIpad ? ScreenSizeDetector().screenWidth/5.1 : ScreenSizeDetector().screenWidth/6.5)
+//                            // =============================================
+//                        }
+//                    }
+//                    .frame(height: ScreenSizeDetector().screenHeight/4)
+//                }
+                
+                HStack {
+                    if showGraph == 1 {
                         ZStack {
                             Chart(products) { product in
                                 SectorMark(
@@ -99,10 +185,6 @@ struct ProfileView: View {
                                 )
                             }.frame(width: isIpad ? ScreenSizeDetector().screenWidth/2.3: ScreenSizeDetector().screenWidth/2, height: isIpad ? ScreenSizeDetector().screenHeight/2.3 : ScreenSizeDetector().screenHeight/2)
                                 .padding(.horizontal, isIpad ? ScreenSizeDetector().screenWidth/5.1: ScreenSizeDetector().screenWidth/6.5)
-                            
-                            
-                            
-                            //TEXT ========================================
                             VStack {
                                 HStack {
                                     Text("1350")
@@ -114,28 +196,8 @@ struct ProfileView: View {
                                 }
                                 .padding(.bottom, 15)
                             }
-                            //=============================================
                         }
-                        //=============================================
-                        
-                        
-                        //BAR-CHART =================================
-                        ZStack {
-                            Chart(body_minerals) { items in
-                                BarMark(
-                                    x: .value(Text(verbatim: "Name"), items.name),
-                                    y: .value(Text(verbatim: "Amount"), items.amount)
-                                )
-                                .foregroundStyle(by: .value(Text(verbatim: items.name), items.amount))
-                            }
-                            .frame(width: isIpad ? ScreenSizeDetector().screenWidth/2.3 : ScreenSizeDetector().screenWidth/2,
-                                   height: isIpad ? ScreenSizeDetector().screenHeight/4 : ScreenSizeDetector().screenHeight/5)
-                            .padding(.horizontal, isIpad ? ScreenSizeDetector().screenWidth/5.1 : ScreenSizeDetector().screenWidth/6.5)
-                            //=============================================
-                            
-                            
-                        }
-                        
+                    } else {
                         ZStack {
                             // LINE-CHART =================================
                             Chart {
@@ -150,10 +212,23 @@ struct ProfileView: View {
                             .frame(width: isIpad ? ScreenSizeDetector().screenWidth/2.3 : ScreenSizeDetector().screenWidth/2,
                                    height: isIpad ? ScreenSizeDetector().screenHeight/4 : ScreenSizeDetector().screenHeight/5)
                             .padding(.horizontal, isIpad ? ScreenSizeDetector().screenWidth/5.1 : ScreenSizeDetector().screenWidth/6.5)
-                            // =============================================
                         }
                     }
-                    .frame(height: ScreenSizeDetector().screenHeight/4)
+                }
+                .frame(height: ScreenSizeDetector().screenHeight/4)
+                
+                HStack {
+                    Button {
+                        showGraph = 1
+                    } label: {
+                        Text("Today")
+                    }
+                    
+                    Button {
+                        showGraph = 2
+                    } label: {
+                        Text("Details")
+                    }
                 }
                 
                 //DATE  =======================================
