@@ -29,6 +29,7 @@
 		04EE86402C10530400DD182E /* ModelContainers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EE863F2C10530400DD182E /* ModelContainers.swift */; };
 		3FEF106D2C083B20003A5F72 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEF106C2C083B20003A5F72 /* User.swift */; };
 		3FEF10732C083F8C003A5F72 /* ListsRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEF10722C083F8C003A5F72 /* ListsRecipe.swift */; };
+		7B1E89C02C123D580069038C /* CalorieManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1E89BF2C123D580069038C /* CalorieManager.swift */; };
 		7B5F6A442C0F501200A34CCD /* AIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5F6A432C0F501200A34CCD /* AIResponse.swift */; };
 		7B5F6A472C0F56CE00A34CCD /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7B5F6A462C0F56CE00A34CCD /* OpenAISwift */; };
 		7B5F6A4A2C0F8EC400A34CCD /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = 7B5F6A492C0F8EC400A34CCD /* OpenAI */; };
@@ -68,6 +69,7 @@
 		04EE863F2C10530400DD182E /* ModelContainers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelContainers.swift; sourceTree = "<group>"; };
 		3FEF106C2C083B20003A5F72 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3FEF10722C083F8C003A5F72 /* ListsRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsRecipe.swift; sourceTree = "<group>"; };
+		7B1E89BF2C123D580069038C /* CalorieManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieManager.swift; sourceTree = "<group>"; };
 		7B5F6A432C0F501200A34CCD /* AIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIResponse.swift; sourceTree = "<group>"; };
 		7B5F6A4D2C0F9F8400A34CCD /* GenerativeAI-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GenerativeAI-Info.plist"; sourceTree = "<group>"; };
 		7B5F6A4F2C0F9FE000A34CCD /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				3FEF106C2C083B20003A5F72 /* User.swift */,
 				04EE863F2C10530400DD182E /* ModelContainers.swift */,
 				7B5F6A432C0F501200A34CCD /* AIResponse.swift */,
+				7B1E89BF2C123D580069038C /* CalorieManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				0483DC012C0851E700810FAB /* ScreenSizeDetector.swift in Sources */,
 				7B934ADC2C063B0A00185089 /* ContentView.swift in Sources */,
 				04EE863C2C10382B00DD182E /* DailyStatsRepository.swift in Sources */,
+				7B1E89C02C123D580069038C /* CalorieManager.swift in Sources */,
 				7B934AF82C06427B00185089 /* iOSHomepageView.swift in Sources */,
 				3FEF106D2C083B20003A5F72 /* User.swift in Sources */,
 				7B934AEB2C063F9000185089 /* DailyStats.swift in Sources */,

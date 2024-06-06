@@ -47,6 +47,7 @@ struct iOSHomepageView: View {
 }
 
 struct SheetView: View {
+    @StateObject var calorieManager = CalorieManager()
     @Environment(\.modelContext) var modelContexts
     //    @StateObject private var viewModel = OpenAIViewModel()
     let model = GenerativeModel(name: "gemini-pro", apiKey: APIKey.default)
@@ -66,7 +67,6 @@ struct SheetView: View {
     
     @State private var selectedOptions: [String] = ["", "", "", "", ""]
     private let options = ["🥬 Vegetables", "🍉 Fruits", "🐟 Proteins", "🥛 Milk", "🫚 Herbs"]
-    
     var body: some View {
         
         VStack {
@@ -228,6 +228,7 @@ struct SheetView: View {
                 let components = calendar.dateComponents([.day], from: today, to: selectedDate)
                 let days = components.day ?? 0
                 
+                @MainActor
                 func calculateCalories() {
                     guard let loseTargetInt = Int(target),
 //                          let totalDaysInt = days,
@@ -237,6 +238,8 @@ struct SheetView: View {
                         print("Invalid input")
                         return
                     }
+                    
+                    calorieManager.calculateAllowedCaloriesPerDay(loseTarget: loseTargetInt, totalDays: days, gender: gender, age: ageInt, weight: weightDouble, height: heightDouble, activityLevel: activityLevel)
                     
                     let allowedCalories = calculateAllowedCaloriesPerDay(
                         loseTarget: loseTargetInt,
@@ -250,6 +253,7 @@ struct SheetView: View {
                     
                     print("Allowed calories per day: \(allowedCalories)")
                 }
+                
                 
                 func calculateAllowedCaloriesPerDay(loseTarget: Int, totalDays: Int, gender: String, age: Int, weight: Double, height: Double, activityLevel: String) -> Double {
                     let caloriesPerKg = 7700.0
@@ -297,7 +301,29 @@ struct SheetView: View {
                                 meal step by step to make, separate each step with a /:
                                 meal ingredients, separate each ingredients with a /:
                                 I prefer a meal with these ingredients: \(selectedOptions.joined(separator: ", "))
-                                where if its \(selectedOptions.joined(separator: ", ")), classified as recipe for vegetables, the meal image would be 'vegetable recipe', if its for milk its 'milk recipe', if its protein its, 'protein recipe', if its herb, its 'herb recipe'
+                                where if its \(selectedOptions.joined(separator: ", ")), classified as recipe for vegetables, the meal image would be 'vegetable recipe', if its for milk its 'milk recipe', if its protein its, 'protein recipe', if its herb, its 'herb recipe', remembe the image name, just make it so that its inside. for example like this
+                                **Meal Name:** Chicken Breast with Roasted Vegetables
+                                **Meal Description:** A healthy and flavorful dish with lean protein and roasted vegetables.
+                                **Meal Total Calories:** 350
+                                **Meal Total Fat:** 10g
+                                **Meal Total Carbs:** 30g
+                                **Meal Total Protein:** 40g
+                                **Meal Total Sugar:** 5g
+                                **Meal Cook Time:** 40 minutes
+                                **Meal Image:** vegetable recipe
+                                **Meal Step-by-Step to Make:**
+                                1. Preheat oven to 400°F (200°C).
+                                2. Season chicken breast with salt, pepper, and your favorite herbs.
+                                3. Toss chopped vegetables (broccoli, carrots, potatoes) with olive oil and place on a baking sheet.
+                                4. Place chicken breast on top of the vegetables.
+                                5. Roast in the preheated oven for 30-40 minutes, or until chicken is cooked through and vegetables are tender.
+                                **Meal Ingredients:**
+                                * 1 boneless, skinless chicken breast
+                                * 1 cup broccoli florets
+                                * 1 cup chopped carrots
+                                * 1 medium potato, diced
+                                * 1 tablespoon olive oil
+                                * Salt and pepper to taste
                                 """
                     let result = try await model.generateContent(prompt)
                     responseText = result.text ?? "No response ... "
