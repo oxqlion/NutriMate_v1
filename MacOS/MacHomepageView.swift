@@ -182,7 +182,7 @@ struct SheetView: View {
                                 self.selectedOptions[0] = "Vegetables"
                             }
                         }
-
+                    
                     
                     Text("+ 🍉 Fruits")
                         .font(.headline)
@@ -221,7 +221,7 @@ struct SheetView: View {
                         }
                     Spacer()
                 }
-
+                
                 HStack {
                     Text("+ 🥛 Milk")
                         .font(.headline)
@@ -260,7 +260,7 @@ struct SheetView: View {
                         }
                     Spacer()
                 }
-
+                
             }
             .padding()
             
@@ -282,7 +282,7 @@ struct SheetView: View {
         }
         .padding()
         .frame(maxWidth: .infinity, alignment: .leading)
-
+        
     }
     
     func generateResponse() {
@@ -297,7 +297,7 @@ struct SheetView: View {
                 @MainActor
                 func calculateCalories() {
                     guard let loseTargetInt = Int(target),
-//                          let totalDaysInt = days,
+                          //                          let totalDaysInt = days,
                           let ageInt = Int(age),
                           let weightDouble = Double(weight),
                           let heightDouble = Double(height) else {

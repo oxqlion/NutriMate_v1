@@ -9,27 +9,6 @@ import SwiftUI
 import Charts
 import SwiftData
 
-struct Product: Identifiable {
-    //aa
-    let id = UUID()
-    let title: String
-    let revenue: Double
-}
-
-struct Minerals: Identifiable {
-    //aa
-    let id = UUID()
-    let name: String
-    let amount: Double
-}
-
-struct Weight: Identifiable {
-    //aa
-    let id = UUID()
-    let name: String
-    let amount: Double
-}
-
 struct MacProfileView: View {
     @State private var showGraph: Int = 1
     @Environment(\.modelContext) var modelContexts
@@ -55,6 +34,7 @@ struct MacProfileView: View {
     func totalEatens(date:Date)->Double{
         return Double(dailystats.filter { $0.isSameDay(as: date) }.reduce(0) { $0 + $1.totalCalories})
     }
+    
     var products: [Product] {
         [
             .init(title: "Eaten", revenue: totalCarbs),
@@ -171,26 +151,6 @@ struct MacProfileView: View {
                     
                     //PROGRESS-VIEW ===============================
                     VStack (alignment: .leading) {
-//                        ForEach(body_minerals) { index in
-//                            HStack {
-//                                Text(index.name)
-//                                    .fontWeight(.bold)
-//                                    .font(.system(size: 24))
-//                                Spacer()
-//                            }
-//                            ZStack(alignment: .leading) {
-//                                Rectangle()
-//                                    .foregroundColor(Color.slightGray)
-//                                    .frame(width: geometry.size.width/2.2, height: 20)
-//                                    .cornerRadius(16)
-//                                
-//                                Rectangle()
-//                                    .foregroundColor(.blueGreen)
-//                                    .frame(width: min(CGFloat(index.amount) * geometry.size.width/2.2, geometry.size.width/2.2), height: 20) // Adjust the height as needed
-//                                    .cornerRadius(16)
-//                            }
-//                        }
-                        
                         HStack {
                             Text("carbs")
                                 .fontWeight(.bold)
@@ -270,10 +230,6 @@ struct MacProfileView: View {
                                 .cornerRadius(16)
                         }
                         .padding(.bottom, 10)
-
-
-
-
                     }
                     //=============================================
                     
