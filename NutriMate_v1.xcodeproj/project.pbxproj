@@ -15,12 +15,12 @@
 		046327222C107A6B006982CF /* MacHomepageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046327062C107769006982CF /* MacHomepageView.swift */; };
 		046327232C107A6B006982CF /* MacListsRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0412C2C22C08354800E32B96 /* MacListsRecipe.swift */; };
 		046327242C107A6B006982CF /* MacDetailRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0463270A2C1077CA006982CF /* MacDetailRecipe.swift */; };
-		046327252C107A6B006982CF /* MacSplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0463270C2C107821006982CF /* MacSplashScreen.swift */; };
 		046327272C1081CD006982CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B934ADD2C063B0C00185089 /* Assets.xcassets */; };
-		046C9F002C09702D00B2200E /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C9EFF2C09702D00B2200E /* SplashScreen.swift */; };
 		046C9F022C09783F00B2200E /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C9F012C09783F00B2200E /* ProfileView.swift */; };
 		046D15C02C119E8000A79179 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046D15BF2C119E8000A79179 /* SidebarView.swift */; };
 		0483DC012C0851E700810FAB /* ScreenSizeDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0483DC002C0851E700810FAB /* ScreenSizeDetector.swift */; };
+		0497132E2C13419B00EDA501 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0497132D2C13419B00EDA501 /* Helper.swift */; };
+		0497132F2C1341AC00EDA501 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0497132D2C13419B00EDA501 /* Helper.swift */; };
 		04EE86362C10363800DD182E /* RecipeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EE86352C10363800DD182E /* RecipeRepository.swift */; };
 		04EE86382C10379900DD182E /* ListsRecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EE86372C10379900DD182E /* ListsRecipeViewModel.swift */; };
 		04EE863A2C1037FD00DD182E /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EE86392C1037FD00DD182E /* ProfileViewModel.swift */; };
@@ -70,17 +70,16 @@
 		046327042C107754006982CF /* MacProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacProfileView.swift; sourceTree = "<group>"; };
 		046327062C107769006982CF /* MacHomepageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacHomepageView.swift; sourceTree = "<group>"; };
 		0463270A2C1077CA006982CF /* MacDetailRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacDetailRecipe.swift; sourceTree = "<group>"; };
-		0463270C2C107821006982CF /* MacSplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacSplashScreen.swift; sourceTree = "<group>"; };
 		046327122C107A11006982CF /* MacOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		046327142C107A11006982CF /* MacOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacOSApp.swift; sourceTree = "<group>"; };
 		046327162C107A11006982CF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		046327182C107A13006982CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0463271B2C107A13006982CF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0463271D2C107A13006982CF /* MacOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacOS.entitlements; sourceTree = "<group>"; };
-		046C9EFF2C09702D00B2200E /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		046C9F012C09783F00B2200E /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		046D15BF2C119E8000A79179 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
 		0483DC002C0851E700810FAB /* ScreenSizeDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenSizeDetector.swift; sourceTree = "<group>"; };
+		0497132D2C13419B00EDA501 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		04EE86352C10363800DD182E /* RecipeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeRepository.swift; sourceTree = "<group>"; };
 		04EE86372C10379900DD182E /* ListsRecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsRecipeViewModel.swift; sourceTree = "<group>"; };
 		04EE86392C1037FD00DD182E /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
@@ -146,11 +145,10 @@
 		046327132C107A11006982CF /* MacOS */ = {
 			isa = PBXGroup;
 			children = (
-				046327042C107754006982CF /* MacProfileView.swift */,
 				0412C2C22C08354800E32B96 /* MacListsRecipe.swift */,
+				046327042C107754006982CF /* MacProfileView.swift */,
 				046327062C107769006982CF /* MacHomepageView.swift */,
 				0463270A2C1077CA006982CF /* MacDetailRecipe.swift */,
-				0463270C2C107821006982CF /* MacSplashScreen.swift */,
 				046327142C107A11006982CF /* MacOSApp.swift */,
 				046327162C107A11006982CF /* ContentView.swift */,
 				046D15BF2C119E8000A79179 /* SidebarView.swift */,
@@ -204,6 +202,7 @@
 				04544C862C0C0DEC006106DA /* Controller */,
 				7B934AE82C063C9500185089 /* Model */,
 				7B934AE92C063C9D00185089 /* View */,
+				0497132D2C13419B00EDA501 /* Helper.swift */,
 				7B934AD92C063B0A00185089 /* NutriMate_v1App.swift */,
 				7B934ADB2C063B0A00185089 /* ContentView.swift */,
 				0483DC002C0851E700810FAB /* ScreenSizeDetector.swift */,
@@ -251,7 +250,6 @@
 				046C9F012C09783F00B2200E /* ProfileView.swift */,
 				7B934AF72C06427B00185089 /* iOSHomepageView.swift */,
 				3FEF10722C083F8C003A5F72 /* ListsRecipe.swift */,
-				046C9EFF2C09702D00B2200E /* SplashScreen.swift */,
 				7BA47D8A2C0DB40C007854FB /* DetailRecipe.swift */,
 				7B3AB8A62C12F413005E4D81 /* DietPlanBenefitsView.swift */,
 			);
@@ -385,6 +383,7 @@
 				046327222C107A6B006982CF /* MacHomepageView.swift in Sources */,
 				7B3AB89E2C12B82F005E4D81 /* APIKey.swift in Sources */,
 				046327232C107A6B006982CF /* MacListsRecipe.swift in Sources */,
+				0497132F2C1341AC00EDA501 /* Helper.swift in Sources */,
 				7B3AB8A82C1304E2005E4D81 /* DailyStats.swift in Sources */,
 				7B3AB8A92C1304E2005E4D81 /* User.swift in Sources */,
 				7B3AB8AA2C1304E2005E4D81 /* ModelContainers.swift in Sources */,
@@ -394,7 +393,6 @@
 				7B3AB8B42C1340C8005E4D81 /* MacOSAPIKey.swift in Sources */,
 				046327242C107A6B006982CF /* MacDetailRecipe.swift in Sources */,
 				7B3AB8B22C130CE2005E4D81 /* DietPlanBenefitsView.swift in Sources */,
-				046327252C107A6B006982CF /* MacSplashScreen.swift in Sources */,
 				046D15C02C119E8000A79179 /* SidebarView.swift in Sources */,
 				046327152C107A11006982CF /* MacOSApp.swift in Sources */,
 				046327212C107A67006982CF /* MacProfileView.swift in Sources */,
@@ -406,7 +404,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				046C9F002C09702D00B2200E /* SplashScreen.swift in Sources */,
 				04EE86402C10530400DD182E /* ModelContainers.swift in Sources */,
 				046C9F022C09783F00B2200E /* ProfileView.swift in Sources */,
 				04EE86382C10379900DD182E /* ListsRecipeViewModel.swift in Sources */,
@@ -414,6 +411,7 @@
 				04EE86362C10363800DD182E /* RecipeRepository.swift in Sources */,
 				7B5F6A442C0F501200A34CCD /* AIResponse.swift in Sources */,
 				7B5F6A502C0F9FE000A34CCD /* APIKey.swift in Sources */,
+				0497132E2C13419B00EDA501 /* Helper.swift in Sources */,
 				0483DC012C0851E700810FAB /* ScreenSizeDetector.swift in Sources */,
 				7B934ADC2C063B0A00185089 /* ContentView.swift in Sources */,
 				04EE863C2C10382B00DD182E /* DailyStatsRepository.swift in Sources */,
