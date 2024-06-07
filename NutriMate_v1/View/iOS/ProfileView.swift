@@ -58,7 +58,7 @@ struct ProfileView: View {
     var products: [Product] {
       [
         .init(title: "Eaten", revenue: totalCarbs),
-        .init(title: "Cals Left", revenue: calorieManager.allowedCalories-totalCarbs),
+        .init(title: "Cals Left", revenue: 1600-totalCarbs),
       ]
     }
     let days = ["Monday", "Tuesday","Wednesday","Thursday", "Friday","Saturday", "Sunday"]
@@ -108,7 +108,7 @@ struct ProfileView: View {
                                                 .font(.system(size: isIpad ? 48 : 28))
                                                 .fontWeight(.bold)
                                                 .foregroundColor(.green)
-                                            Text("/\(calorieManager.allowedCalories)")
+                                            Text("/1600")
                                                 .font(.system(size: isIpad ? 24 : 12))
                                         }
                                         .padding(.bottom, 15)

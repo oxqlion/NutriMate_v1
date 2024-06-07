@@ -43,8 +43,7 @@ struct DietPlanBenefitsView: View {
                     .cornerRadius(8)
             }
         }
-        .padding(.horizontal, 10)
-        .padding(.vertical, 10)
+        .padding()
     }
     
     func deleteDietPlan() {
