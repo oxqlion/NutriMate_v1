@@ -37,9 +37,9 @@ struct ProfileView: View {
     @Query var recipes: [Recipes]
     let isIpad = ScreenSizeDetector().screenWidth > 650
 
-    var totalCarbs: Double {
-        Double(dailystats.filter { $0.isSameDay(as: Date()) }.reduce(0) { $0 + $1.carbs })
-    }
+//    var totalCarbs: Double {
+//        Double(dailystats.filter { $0.isSameDay(as: Date()) }.reduce(0) { $0 + $1.carbs })
+//    }
     var totalProtein: Double {
         Double(dailystats.filter { $0.isSameDay(as: Date()) }.reduce(0) { $0 + $1.protein})
     }
@@ -197,6 +197,7 @@ struct ProfileView: View {
                         .accentColor(.green)
                         .scaleEffect(x: 1, y: isIpad ? 4 : 2.5, anchor: .center)
                         .padding(.bottom, isIpad ? 10 : 0)
+                    
                     HStack {
                         Text("protein")
                             .fontWeight(isIpad ? .bold : .medium)
@@ -214,7 +215,7 @@ struct ProfileView: View {
                         //CONSUMED-MEAL ===============================
                         VStack() {
                             List(recipes) { item in
-                                NavigationLink(destination: DetailRecipe(recipe: item)) {
+                                NavigationLink(destination: MacDetailRecipe(recipe: item)) {
                                     Text(item.name)
                                 }
                             }

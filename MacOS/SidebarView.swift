@@ -17,7 +17,6 @@ struct SidebarView: View {
                     navigateToProfile = true
                 }) {
                     VStack {
-                        Spacer()
                         ZStack {
                             Image(systemName: "house")
                                 .resizable()
@@ -37,7 +36,6 @@ struct SidebarView: View {
                     navigateToDetailRecipe = true
                 }) {
                     VStack {
-                        Spacer()
                         ZStack {
                             Image(systemName: "leaf")
                                 .resizable()

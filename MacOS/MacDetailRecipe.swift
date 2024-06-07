@@ -219,8 +219,12 @@
 ////                              image: "sample_image"))
 ////}
 import SwiftUI
+import SwiftData
 
 struct MacDetailRecipe: View {
+    let recipe: Recipes
+    @Environment(\.modelContext) var modelContexts
+    @Query var dailystats: [DailyStats]
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }

@@ -56,22 +56,24 @@ struct MacListsRecipe: View {
                             ], spacing: 1) {
                                 List {
                                     ForEach(recipes) { recipe in
-                                        MacRecipeItem(recipe: recipe, ScreenSize: geometry.size)
-                                            .frame(maxHeight: geometry.size.height - geometry.size.height/10)
-                                            .padding(.vertical, 65)
+                                        NavigationLink(destination: MacDetailRecipe(recipe: recipe)) {
+                                            MacRecipeItem(recipe: recipe, ScreenSize: geometry.size)
+                                                .frame(maxHeight: geometry.size.height - geometry.size.height/10)
+                                                .padding(.vertical, 65)
+                                        }
                                     }
                                 }
                             }
                             Spacer()
                         }
                     }
-                    .background(Color(.systemGray))
+                    .background(Color(.clear))
                     .cornerRadius(20)
                     .frame(maxWidth: geometry.size.width - geometry.size.width/55, maxHeight: .infinity)
                 }
                 .background(Color(.clear))
                 .cornerRadius(20)
-                .frame(maxWidth: geometry.size.width - geometry.size.width/55, maxHeight: .infinity)
+                .frame(maxWidth: geometry.size.width, maxHeight: .infinity)
             }
             .background(Color(.slightGray))
             
@@ -116,69 +118,67 @@ struct MacRecipeItem: View {
     let recipe: Recipes
     var ScreenSize: CGSize
     var body: some View {
-        NavigationLink(destination: MacDetailRecipe()) {
-            RoundedRectangle(cornerRadius: 20)
-                .fill(Color.white)
-                .frame(width: ScreenSize.width/3.1, height: ScreenSize.height/2)
-                .overlay(
-                    VStack(spacing: 20) {
-                        ZStack(alignment: .topTrailing) {
-                            Image(recipe.image)
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .cornerRadius(20)
-                            
-                            HStack {
-                                Image(systemName: "star.fill")
-                                
-                                Text("5.0")
-                                    .font(.system(size: 24))
-                            }
-                            .padding(10)
-                            .background(Color.yellow)
-                            .clipShape(RoundedRectangle(cornerRadius: 6))
-                            .offset(x: -10, y: 10)
-                        }
+        RoundedRectangle(cornerRadius: 20)
+            .fill(Color.white)
+            .frame(width: ScreenSize.width/3.1, height: ScreenSize.height/2)
+            .overlay(
+                VStack(spacing: 20) {
+                    ZStack(alignment: .topTrailing) {
+                        Image(recipe.image)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .cornerRadius(20)
                         
-                        VStack(){
-                            VStack{
-                                HStack{
-                                    Image(systemName: "clock")
-                                        .resizable()
-                                        .frame(width: 30, height: 30)
-                                        .foregroundStyle(.green)
-                                    
-                                    Text("\(recipe.cookTime) minutes")
-                                        .foregroundStyle(.green)
-                                        .font(.system(size: 24))
-                                        .padding(.trailing, 10)
-                                    
-                                    Image(systemName: "flame")
-                                        .resizable()
-                                        .frame(width: 30, height: 30)
-                                        .foregroundStyle(.red)
-                                    
-                                    Text("\(recipe.calories) kcal")
-                                        .font(.system(size: 24))
-                                        .foregroundStyle(.red)
-                                }
-                            }.frame(maxWidth: .infinity, alignment: .leading)
-                            VStack(alignment:.leading){
-                                Text(recipe.name)
-                                    .font(.system(size: 30))
-                                    .fontWeight(.semibold)
-                                    .foregroundColor(.black)
-                                Text(recipe.desc)
-                                    .font(.system(size: 16))
-                                    .foregroundStyle(.gray)
-                            }
-                            .frame(maxWidth: .infinity, alignment: .leading)
+                        HStack {
+                            Image(systemName: "star.fill")
+                            
+                            Text("5.0")
+                                .font(.system(size: 24))
                         }
+                        .padding(10)
+                        .background(Color.yellow)
+                        .clipShape(RoundedRectangle(cornerRadius: 6))
+                        .offset(x: -10, y: 10)
                     }
-                        .padding(.vertical, 10)
-                        .padding(.horizontal, 10)
-                )
-        }
+                    
+                    VStack(){
+                        VStack{
+                            HStack{
+                                Image(systemName: "clock")
+                                    .resizable()
+                                    .frame(width: 30, height: 30)
+                                    .foregroundStyle(.green)
+                                
+                                Text("\(recipe.cookTime) minutes")
+                                    .foregroundStyle(.green)
+                                    .font(.system(size: 24))
+                                    .padding(.trailing, 10)
+                                
+                                Image(systemName: "flame")
+                                    .resizable()
+                                    .frame(width: 30, height: 30)
+                                    .foregroundStyle(.red)
+                                
+                                Text("\(recipe.calories) kcal")
+                                    .font(.system(size: 24))
+                                    .foregroundStyle(.red)
+                            }
+                        }.frame(maxWidth: .infinity, alignment: .leading)
+                        VStack(alignment:.leading){
+                            Text(recipe.name)
+                                .font(.system(size: 30))
+                                .fontWeight(.semibold)
+                                .foregroundColor(.black)
+                            Text(recipe.desc)
+                                .font(.system(size: 16))
+                                .foregroundStyle(.slightGray)
+                        }
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    }
+                }
+                    .padding(.vertical, 10)
+                    .padding(.horizontal, 10)
+            )
     }
 }
 
