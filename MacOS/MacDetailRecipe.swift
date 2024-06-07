@@ -182,37 +182,51 @@ struct MacDetailRecipe: View {
 //        let newDailyStats = DailyStats(carbs: 0, protein: 0, fat: 0, sugar: 0, totalCalories: 0, date: Date())
 //        modelContexts.insert(newDailyStats)
 //    }
-}
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        let sampleRecipe = Recipes(name: "Sample Recipe",
-//                                   desc: "This is a sample recipe description.",
-//                                   calories: 200,
-//                                   fat: 5,
-//                                   carbs: 30,
-//                                   protein: 6,
-//                                   sugar: 20,
-//                                   cookTime: 15,
-//                                   ingredients: ["Ingredient 1", "Ingredient 2", "Ingredient 3"],
-//                                   steps: ["Step 1", "Step 2", "Step 3"],
-//                                   image: "sample_image")
-////        MacDetailRecipe(recipe: sampleRecipe)
-//        MacDetailRecipe()
-//    }
 //}
+//func addsampless(){
+//    let newDailyStats = DailyStats(carbs: 0, protein: 0, fat: 0, sugar: 0, totalCalories: 0, date: Date())
+//    modelContexts.insert(newDailyStats)
+//}
+//}
+//struct ContentView_Previews: PreviewProvider {
+//static var previews: some View {
+//    let sampleRecipe = Recipes(name: "Sample Recipe",
+//                                desc: "This is a sample recipe description.",
+//                                calories: 200,
+//                                fat: 5,
+//                                carbs: 30,
+//                                protein: 6,
+//                                sugar: 20,
+//                                cookTime: 15,
+//                                ingredients: ["Ingredient 1", "Ingredient 2", "Ingredient 3"],
+//                                steps: ["Step 1", "Step 2", "Step 3"],
+//                                image: "sample_image")
+//    DetailRecipe(recipe: sampleRecipe)
+//}
+//}
+//
+//#Preview {
+//DetailRecipe(recipe: Recipes(name: "Sample Recipe",
+//                              desc: "This is a sample recipe description.",
+//                              calories: 200,
+//                              fat: 5,
+//                              carbs: 30,
+//                              protein: 6,
+//                              sugar: 20,
+//                              cookTime: 15,
+//                              ingredients: ["Ingredient 1", "Ingredient 2", "Ingredient 3"],
+//                              steps: ["Step 1", "Step 2", "Step 3"],
+//                              image: "sample_image"))
+//}
+import SwiftUI
+
+struct MacDetailRecipe: View {
+    var body: some View {
+        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    }
+}
 
 #Preview {
-//    MacDetailRecipe(recipe: Recipes(name: "Sample Recipe",
-//                                    desc: "This is a sample recipe description.",
-//                                    calories: 200,
-//                                    fat: 5,
-//                                    carbs: 30,
-//                                    protein: 6,
-//                                    sugar: 20,
-//                                    cookTime: 15,
-//                                    ingredients: ["Ingredient 1", "Ingredient 2", "Ingredient 3"],
-//                                    steps: ["Step 1", "Step 2", "Step 3"],
-//                                    image: "sample_image"))
-    MacDetailRecipe()
+    MacDetailsRecipe()
 }
 

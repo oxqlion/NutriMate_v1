@@ -17,6 +17,7 @@ struct ListsRecipe: View {
         guard !searchTerm.isEmpty else{return recipes}
         return recipes.filter{ $0.name.localizedCaseInsensitiveContains(searchTerm)}
     }
+    @StateObject var calorieManager = CalorieManager()
     
     
     var body: some View {
@@ -35,25 +36,22 @@ struct ListsRecipe: View {
                         .resizable()
                         .frame(width: isIpad ? 50 : 30, height: isIpad ? 50 : 30)
                         .clipShape(Circle())
-                    Button("Add Samples", action: addsamples)
-                        .font(.system(size: isIpad ? 32 : 20))
-                        .fontWeight(isIpad ? .semibold : .medium)
                 } .padding(.top,50)
                     .padding(.horizontal)
                 
                 
-                HStack{
-                    VStack{
-                        Image(systemName: "clock")
-                            .resizable()
-                            .frame(width: isIpad ? 60 : 30, height: isIpad ? 60 : 30)
-                        Text("brodda")
-                            .font(.system(size: isIpad ? 32 : 20))
-                    }.padding(.top,0.2)
-                    //                        .padding(.bottom)
-                        .padding(.bottom, isIpad ? 10 : 0)
-                        .background(Color(.systemGray6))
-                }.padding(.horizontal)
+//                HStack{
+//                    VStack{
+//                        Image(systemName: "clock")
+//                            .resizable()
+//                            .frame(width: isIpad ? 60 : 30, height: isIpad ? 60 : 30)
+//                        Text("brodda")
+//                            .font(.system(size: isIpad ? 32 : 20))
+//                    }.padding(.top,0.2)
+//                    //                        .padding(.bottom)
+//                        .padding(.bottom, isIpad ? 10 : 0)
+//                        .background(Color(.systemGray6))
+//                }.padding(.horizontal)
                 
                 
                 
@@ -90,7 +88,6 @@ struct ListsRecipe: View {
                                     .clipShape(RoundedRectangle(cornerRadius: 6))
                                     .offset(x: isIpad ? -10 : 8, y: isIpad ? 10 : 8)
                                 }
-                                
                                 VStack(){
                                     VStack{
                                         HStack{

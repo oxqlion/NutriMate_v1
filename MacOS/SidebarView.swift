@@ -26,20 +26,14 @@ struct SidebarView: View {
                                 .frame(width: 50, height: 50)
                                 .foregroundColor(.white)
                         }
-                        Spacer()
-                    }
-                    .frame(maxWidth: .infinity, minHeight: 100)
-                    .background(Color.blueGreen)
-                }
-                .buttonStyle(PlainButtonStyle())
-                
-                Divider()
-                
-                Button(action: {
-                    navigateToDetailRecipe = true
-                }) {
-                    VStack {
-                        Spacer()
+                    })
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 40)
+                    .buttonStyle(PlainButtonStyle())
+                    
+                    Divider()
+                    
+                NavigationLink(destination: MacListsRecipe(), label: {
                         ZStack {
                             Image(systemName: "leaf")
                                 .resizable()
