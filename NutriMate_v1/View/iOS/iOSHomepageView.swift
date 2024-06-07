@@ -49,7 +49,6 @@ struct iOSHomepageView: View {
 struct SheetView: View {
     @StateObject var calorieManager = CalorieManager()
     @Environment(\.modelContext) var modelContexts
-    //    @StateObject private var viewModel = OpenAIViewModel()
     let model = GenerativeModel(name: "gemini-pro", apiKey: APIKey.default)
     @State private var target: String = ""
     @State private var responseText: String = ""
@@ -343,16 +342,4 @@ struct SheetView: View {
 
 #Preview {
     iOSHomepageView()
-}
-
-extension Color {
-    init(hex: Int, opacity: Double = 1) {
-        self.init(
-            .sRGB,
-            red: Double((hex >> 16) & 0xff) / 255,
-            green: Double((hex >> 08) & 0xff) / 255,
-            blue: Double((hex >> 00) & 0xff) / 255,
-            opacity: opacity
-        )
-    }
 }
