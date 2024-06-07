@@ -57,8 +57,8 @@ struct MacProfileView: View {
     }
     var products: [Product] {
         [
-            .init(title: "Eaten", revenue: totalCarbs),
-            .init(title: "Cals Left", revenue: calorieManager.allowedCalories-totalCarbs),
+            .init(title: "Eaten", revenue: 0.75),
+            .init(title: "Cals Left", revenue: 0.25),
         ]
     }
     
@@ -137,6 +137,23 @@ struct MacProfileView: View {
                         .padding(.horizontal, 30)
                     }
                     .padding(.horizontal, 60)
+                    
+                    Button(action: {
+                        do {
+                            try modelContexts.delete(model: Recipes.self)
+                        } catch {
+                            print("Failed to delete diet plan.")
+                        }
+                    }) {
+                        Text("Delete Profile")
+                            .font(Font.custom("YourFontName", size: 16)) // Change "YourFontName" to the font you want to use
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(Color.red) // Change the color according to your UI design
+                            .cornerRadius(10) // Adjust as needed for your design
+                    }.buttonStyle(PlainButtonStyle())
+                    
                 }
                 .frame(height: geometry.size.height/3)
                 // ============================================
@@ -205,7 +222,7 @@ struct MacProfileView: View {
                                 .cornerRadius(16)
                             
                             Rectangle()
-                                .foregroundColor(.green)
+                                .foregroundColor(.blueGreen)
                                 .frame(width: min(CGFloat(totalCarbs) * geometry.size.width / (2.2 * totalEaten), geometry.size.width / 2.2), height: 20)
                                 .cornerRadius(16)
                         }
@@ -225,7 +242,7 @@ struct MacProfileView: View {
                                 .cornerRadius(16)
                             
                             Rectangle()
-                                .foregroundColor(.green)
+                                .foregroundColor(.blueGreen)
                                 .frame(width: min(CGFloat(totalfat) * geometry.size.width / (2.2 * totalEaten), geometry.size.width / 2.2), height: 20)
                                 .cornerRadius(16)
                         }
@@ -245,7 +262,7 @@ struct MacProfileView: View {
                                 .cornerRadius(16)
                             
                             Rectangle()
-                                .foregroundColor(.green)
+                                .foregroundColor(.blueGreen)
                                 .frame(width: min(CGFloat(totalSugar) * geometry.size.width / (2.2 * totalEaten), geometry.size.width / 2.2), height: 20)
                                 .cornerRadius(16)
                         }
@@ -265,7 +282,7 @@ struct MacProfileView: View {
                                 .cornerRadius(16)
                             
                             Rectangle()
-                                .foregroundColor(.green)
+                                .foregroundColor(.blueGreen)
                                 .frame(width: min(CGFloat(totalProtein) * geometry.size.width / (2.2 * totalEaten), geometry.size.width / 2.2), height: 20)
                                 .cornerRadius(16)
                         }
