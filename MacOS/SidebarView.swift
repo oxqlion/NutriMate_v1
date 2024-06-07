@@ -54,19 +54,23 @@ struct SidebarView: View {
                 }
                 .hidden()
                 
-                NavigationLink(destination: MacListsRecipe(), isActive: $navigateToDetailRecipe) {
+                NavigationLink(
+                    destination: MacListsRecipe(),
+                    isActive: $navigateToDetailRecipe
+                ) {
                     EmptyView()
                 }
                 .hidden()
+
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
             .background(Color.blueGreen)
         }
     }
 }
-    struct SidebarView_Previews: PreviewProvider {
-        static var previews: some View {
-            SidebarView()
-        }
+struct SidebarView_Previews: PreviewProvider {
+    static var previews: some View {
+        SidebarView()
     }
+}
 

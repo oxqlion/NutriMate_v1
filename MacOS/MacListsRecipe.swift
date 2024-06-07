@@ -10,11 +10,16 @@ import SwiftData
 
 struct MacListsRecipe: View {
     @Environment(\.modelContext) var modelContexts
-    @Query var recipes: [Recipes]
+    @Query var recipess: [Recipes]
     @State private var searchTerm = ""
     
     var body: some View {
         NavigationStack {
+            Button{
+                addsampless()
+            }label: {
+                Text("add")
+            }
             GeometryReader { geometry in
                 VStack(alignment: .center) {
                     HStack {
@@ -55,7 +60,7 @@ struct MacListsRecipe: View {
                                 GridItem(.flexible())
                             ], spacing: 1) {
                                 List {
-                                    ForEach(recipes) { recipe in
+                                    ForEach(recipess) { recipe in
                                         NavigationLink(destination: MacDetailRecipe(recipe: recipe)) {
                                             MacRecipeItem(recipe: recipe, ScreenSize: geometry.size)
                                                 .frame(maxHeight: geometry.size.height - geometry.size.height/10)
@@ -74,20 +79,23 @@ struct MacListsRecipe: View {
                 .background(Color(.clear))
                 .cornerRadius(20)
                 .frame(maxWidth: geometry.size.width, maxHeight: .infinity)
+                .onAppear {
+                    addsampless()
+                                    if !UserDefaults.standard.bool(forKey: "isDataSeeded") {
+                                        addsampless()
+                                        UserDefaults.standard.set(true, forKey: "isDataSeeded")
+                                    }
+                                }
             }
             .background(Color(.slightGray))
-            
         }
-
+    }
+    func addsampless(){
+        let fruitsRecipe8 = Recipes(name: "Berry Parfait", desc: "A delicious and healthy berry parfait.", calories: 200, fat: 5, carbs: 30, protein: 6, sugar: 20, cookTime: 5,ingredients: ["strawberi"], steps: ["Layer Greek yogurt, mixed berries, and granola in a glass.", "Repeat the layers.", "Serve immediately."], image: "image 11")
         
-        //        func addsamples(){
-        //            let fruitsRecipe8 = Recipers(name: "Berry Parfait", desc: "A delicious and healthy berry parfait.", calories: 200, fat: 5, carbs: 30, protein: 6, sugar: 20, cookTime: 5,ingredients: ["strawberi"], steps: ["Layer Greek yogurt, mixed berries, and granola in a glass.", "Repeat the layers.", "Serve immediately."], image: "image 11")
-        //
-        //            let fruitsRecipe9 = Recipers(name: "Mango Salsa", desc: "A fresh and tangy mango salsa perfect for summer.", calories: 100, fat: 0, carbs: 25, protein: 1, sugar: 20, cookTime: 10,ingredients: ["strawberi"], steps: ["Combine diced mango, red bell pepper, red onion, and cilantro in a bowl.", "Add lime juice and salt.", "Toss gently and serve chilled."], image: "image 11")
-        //            modelContexts.insert(fruitsRecipe9)
-        //            modelContexts.insert(fruitsRecipe8)
-        //        }
-        
+        let fruitsRecipe9 = Recipes(name: "Mango Salsa", desc: "A fresh and tangy mango salsa perfect for summer.", calories: 100, fat: 0, carbs: 25, protein: 1, sugar: 20, cookTime: 10,ingredients: ["strawberi"], steps: ["Combine diced mango, red bell pepper, red onion, and cilantro in a bowl.", "Add lime juice and salt.", "Toss gently and serve chilled."], image: "image 11")
+        modelContexts.insert(fruitsRecipe9)
+        modelContexts.insert(fruitsRecipe8)
     }
 }
 
