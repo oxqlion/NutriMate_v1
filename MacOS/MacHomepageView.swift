@@ -29,6 +29,16 @@ struct MacHomepageView: View {
                             .padding()
                         Spacer()
                     }
+                    NavigationLink(destination: SheetView()) {
+                                            Text("Set Plan")
+                                                .font(.system(size: 20))
+                                                .foregroundColor(.white)
+                                                .padding()
+                                                .background(Color.black)
+                                                .cornerRadius(10)
+                                        }
+                                        .buttonStyle(PlainButtonStyle())
+                                        Spacer()
                     
                     Button(action: {
                         showSheet.toggle()
@@ -60,10 +70,10 @@ struct MacHomepageView: View {
 }
 
 struct SheetView: View {
-    @StateObject var calorieManager = CalorieManager()
+//    @StateObject var calorieManager = CalorieManager()
     @Environment(\.modelContext) var modelContexts
     //    @StateObject private var viewModel = OpenAIViewModel()
-    let model = GenerativeModel(name: "gemini-pro", apiKey: APIKey.default)
+    let model = GenerativeModel(name: "gemini-pro", apiKey: MacOSAPIKey.default)
     @State private var target: String = ""
     @State private var responseText: String = ""
     @State private var selectedDate = Date()
@@ -267,6 +277,7 @@ struct SheetView: View {
             Text(responseText)
             
             Button(action: {
+                print("set plan mac os button clicked")
                 generateResponse()
             }) {
                 Text("Done")
@@ -286,13 +297,16 @@ struct SheetView: View {
     }
     
     func generateResponse() {
+        print("masuk ke generateResponse function")
         Task {
+            print("masuk ke task")
             do {
+                print("masuk ke do")
                 let calendar = Calendar.current
                 let today = Date()
                 let components = calendar.dateComponents([.day], from: today, to: selectedDate)
                 let days = components.day ?? 0
-                calculateCalories()
+//                calculateCalories()
                 
                 @MainActor
                 func calculateCalories() {
@@ -305,7 +319,7 @@ struct SheetView: View {
                         return
                     }
                     
-                    calorieManager.calculateAllowedCaloriesPerDay(loseTarget: loseTargetInt, totalDays: days, gender: gender, age: ageInt, weight: weightDouble, height: heightDouble, activityLevel: activityLevel)
+//                    calorieManager.calculateAllowedCaloriesPerDay(loseTarget: loseTargetInt, totalDays: days, gender: gender, age: ageInt, weight: weightDouble, height: heightDouble, activityLevel: activityLevel)
                     
                     let allowedCalories = calculateAllowedCaloriesPerDay(
                         loseTarget: loseTargetInt,
@@ -322,6 +336,9 @@ struct SheetView: View {
                 
                 
                 func calculateAllowedCaloriesPerDay(loseTarget: Int, totalDays: Int, gender: String, age: Int, weight: Double, height: Double, activityLevel: String) -> Double {
+                    
+                    print("Masuk calculateAllowedCaloriesPerDay")
+                    
                     let caloriesPerKg = 7700.0
                     let totalCaloricDeficit = Double(loseTarget) * caloriesPerKg
                     let dailyCaloricDeficit = totalCaloricDeficit / Double(totalDays)
@@ -358,6 +375,8 @@ struct SheetView: View {
                 }
                 
                 for _ in 1...5 {
+                    
+                    print("Masuk ke loop")
                     
                     let prompt = """
                                 I want to start a diet. I want to lose \(target) kg in \(days) days.

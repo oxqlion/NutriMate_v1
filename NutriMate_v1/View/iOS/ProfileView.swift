@@ -36,10 +36,10 @@ struct ProfileView: View {
         return Double(dailystats.filter { $0.isSameDay(as: date) }.reduce(0) { $0 + $1.totalCalories})
     }
     var products: [Product] {
-        [
-            .init(title: "Eaten", revenue: totalCarbs),
-            .init(title: "Cals Left", revenue: calorieManager.allowedCalories-totalCarbs),
-        ]
+      [
+        .init(title: "Eaten", revenue: totalCarbs),
+        .init(title: "Cals Left", revenue: 1600-totalCarbs),
+      ]
     }
     let days = ["Monday", "Tuesday","Wednesday","Thursday", "Friday","Saturday", "Sunday"]
     
@@ -86,7 +86,6 @@ struct ProfileView: View {
                                             .foregroundColor(.green)
                                         Text("/\(calorieManager.allowedCalories)")
                                             .font(.system(size: isIpad ? 24 : 12))
-                                    }
                                     .padding(.bottom, 15)
                                 }
                             }
