@@ -186,3 +186,14 @@
 //                              steps: ["Step 1", "Step 2", "Step 3"],
 //                              image: "sample_image"))
 //}
+import SwiftUI
+
+struct MacDetailRecipe: View {
+    var body: some View {
+        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    }
+}
+
+#Preview {
+    MacDetailsRecipe()
+}

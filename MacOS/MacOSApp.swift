@@ -11,7 +11,7 @@ import SwiftUI
 struct MacOSApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
-        }
+            MacListsRecipe()
+        }.modelContainer(for: [Recipes.self,DailyStats.self])
     }
 }
