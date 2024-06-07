@@ -17,17 +17,17 @@ struct Product: Identifiable {
 }
 
 struct Minerals: Identifiable {
-        //aa
-        let id = UUID()
-        let name: String
-        let amount: Double
+    //aa
+    let id = UUID()
+    let name: String
+    let amount: Double
 }
 
 struct Weight: Identifiable {
-            //aa
-            let id = UUID()
-            let name: String
-            let amount: Double
+    //aa
+    let id = UUID()
+    let name: String
+    let amount: Double
 }
 
 struct MacProfileView: View {
@@ -51,6 +51,12 @@ struct MacProfileView: View {
         .init(name: "Saturday", amount: 71.9),
         .init(name: "Sunday", amount: 71.5),
     ]
+    
+    let productColors: [String: Color] = [
+        "Product A": .blueGreen,
+        "Product B": .gray,
+    ]
+    
     var body: some View {
         
         GeometryReader { geometry in
@@ -68,14 +74,10 @@ struct MacProfileView: View {
                                 ),
                                 innerRadius: .ratio(0.8)
                             )
-                            .foregroundStyle(
-                                by: .value(
-                                    Text(verbatim: product.title),
-                                    product.title
-                                )
-                            )
-                        }.frame(width: geometry.size.height/3.2, height: geometry.size.height/3.2)
-                            .padding(.horizontal, 30)
+                            .foregroundStyle(productColors[product.title] ?? .gray)
+                        }
+                        .frame(width: geometry.size.height/3.2, height: geometry.size.height/3.2)
+                        .padding(.horizontal, 30)
                         VStack {
                             HStack {
                                 Text("1350")
@@ -177,7 +179,7 @@ struct MacProfileView: View {
                     
                     //CONSUMED-MEAL ===============================
                     VStack(alignment: .trailing) {
-                        Form {
+                        List {
                             Section(header: Text("Consumed Meal").font(.system(size: 18))) {
                                 ForEach(1..<5) {index in
                                     HStack{
@@ -193,9 +195,9 @@ struct MacProfileView: View {
                             }
                             .padding()
                         }
-                        .background(Color(.systemGray))
                     }
                     .cornerRadius(16)
+                    .shadow(radius: 5)
                     //                        .padding(.top, 40)
                     //                            .padding(.horizontal, 40)
                     //=============================================

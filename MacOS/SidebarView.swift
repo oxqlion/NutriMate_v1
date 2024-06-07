@@ -8,44 +8,62 @@
 import SwiftUI
 
 struct SidebarView: View {
+    @State private var navigateToProfile = false
+    @State private var navigateToDetailRecipe = false
     var body: some View {
+        
         NavigationView {
-            //            GeometryReader {
-            VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/) {
-                NavigationLink(destination: MacProfileView(), label: {
-                    ZStack {
-                        Image(systemName: "house")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 50, height: 50)
-                            .foregroundColor(.green)
+            VStack(alignment: .center) {
+                Button(action: {
+                    navigateToProfile = true
+                }) {
+                    VStack {
+                        Spacer()
+                        ZStack {
+                            Image(systemName: "house")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 50, height: 50)
+                                .foregroundColor(.white)
+                        }
+                        Spacer()
                     }
-                })
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 40)
+                    .frame(maxWidth: .infinity, minHeight: 100)
+                    .background(Color.blueGreen)
+                }
                 .buttonStyle(PlainButtonStyle())
                 
                 Divider()
                 
-                NavigationLink(destination: MacDetailRecipe(), label: {
-                    ZStack {
-                        Image(systemName: "leaf")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 50, height: 50)
-                            .foregroundColor(.green)
+                Button(action: {
+                    navigateToDetailRecipe = true
+                }) {
+                    VStack {
+                        Spacer()
+                        ZStack {
+                            Image(systemName: "leaf")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 50, height: 50)
+                                .foregroundColor(.white)
+                        }
+                        Spacer()
                     }
-                })
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 40)
+                    .frame(maxWidth: .infinity, minHeight: 100)
+                    .background(Color.blueGreen)
+                }
                 .buttonStyle(PlainButtonStyle())
+                
+                NavigationLink(destination: MacProfileView(), isActive: $navigateToProfile) {
+                    EmptyView()
+                }
+                NavigationLink(destination: MacListsRecipe(), isActive: $navigateToDetailRecipe) {
+                    EmptyView()
+                }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-            .background(Color.white )
-            //            }
+            .background(Color.blueGreen)
         }
-        
-        
     }
 }
 

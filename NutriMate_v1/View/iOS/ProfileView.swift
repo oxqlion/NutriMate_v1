@@ -71,6 +71,11 @@ struct ProfileView: View {
         dailystats.filter { $0.isSameDay(as: Date()) }.reduce(0) { $0 + $1.totalCalories}
     }
     
+    let productColors: [String: Color] = [
+            "Product A": .blueGreen,
+            "Product B": .gray,
+        ]
+    
     var body: some View {
         NavigationView {
             VStack{
