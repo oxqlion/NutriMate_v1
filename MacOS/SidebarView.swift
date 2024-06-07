@@ -10,6 +10,7 @@ import SwiftUI
 struct SidebarView: View {
     @State private var navigateToProfile = false
     @State private var navigateToDetailRecipe = false
+    @State private var navigateToDelete = false
     var body: some View {
         NavigationView {
             VStack(alignment: .center) {
@@ -49,6 +50,25 @@ struct SidebarView: View {
                 .padding(.vertical, 40)
                 .buttonStyle(PlainButtonStyle())
                 
+                Divider()
+                
+                Button(action: {
+                    navigateToDelete     = true
+                }) {
+                    VStack {
+                        ZStack {
+                            Image(systemName: "person")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 50, height: 50)
+                                .foregroundColor(.white)
+                        }
+                    }
+                }
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 40)
+                .buttonStyle(PlainButtonStyle())
+                
                 NavigationLink(destination: MacHomepageView(), isActive: $navigateToProfile) {
                     EmptyView()
                 }
@@ -58,6 +78,11 @@ struct SidebarView: View {
                     destination: MacListsRecipe(),
                     isActive: $navigateToDetailRecipe
                 ) {
+                    EmptyView()
+                }
+                .hidden()
+                
+                NavigationLink(destination: DietPlanBenefitsView(), isActive: $navigateToDelete) {
                     EmptyView()
                 }
                 .hidden()
