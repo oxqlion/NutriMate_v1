@@ -19,8 +19,7 @@
 		046C9F022C09783F00B2200E /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C9F012C09783F00B2200E /* ProfileView.swift */; };
 		046D15C02C119E8000A79179 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046D15BF2C119E8000A79179 /* SidebarView.swift */; };
 		0483DC012C0851E700810FAB /* ScreenSizeDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0483DC002C0851E700810FAB /* ScreenSizeDetector.swift */; };
-		0497132E2C13419B00EDA501 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0497132D2C13419B00EDA501 /* Helper.swift */; };
-		0497132F2C1341AC00EDA501 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0497132D2C13419B00EDA501 /* Helper.swift */; };
+		04D2B9282C13616B0099ADCF /* MacDietPlanBenefitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D2B9272C13616B0099ADCF /* MacDietPlanBenefitsView.swift */; };
 		04EE86362C10363800DD182E /* RecipeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EE86352C10363800DD182E /* RecipeRepository.swift */; };
 		04EE86382C10379900DD182E /* ListsRecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EE86372C10379900DD182E /* ListsRecipeViewModel.swift */; };
 		04EE863A2C1037FD00DD182E /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EE86392C1037FD00DD182E /* ProfileViewModel.swift */; };
@@ -79,7 +78,7 @@
 		046C9F012C09783F00B2200E /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		046D15BF2C119E8000A79179 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
 		0483DC002C0851E700810FAB /* ScreenSizeDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenSizeDetector.swift; sourceTree = "<group>"; };
-		0497132D2C13419B00EDA501 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		04D2B9272C13616B0099ADCF /* MacDietPlanBenefitsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacDietPlanBenefitsView.swift; sourceTree = "<group>"; };
 		04EE86352C10363800DD182E /* RecipeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeRepository.swift; sourceTree = "<group>"; };
 		04EE86372C10379900DD182E /* ListsRecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsRecipeViewModel.swift; sourceTree = "<group>"; };
 		04EE86392C1037FD00DD182E /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
@@ -145,6 +144,8 @@
 		046327132C107A11006982CF /* MacOS */ = {
 			isa = PBXGroup;
 			children = (
+				04D2B9272C13616B0099ADCF /* MacDietPlanBenefitsView.swift */,
+				046327042C107754006982CF /* MacProfileView.swift */,
 				0412C2C22C08354800E32B96 /* MacListsRecipe.swift */,
 				046327042C107754006982CF /* MacProfileView.swift */,
 				046327062C107769006982CF /* MacHomepageView.swift */,
@@ -389,6 +390,7 @@
 				7B3AB8AA2C1304E2005E4D81 /* ModelContainers.swift in Sources */,
 				7B3AB8AB2C1304E2005E4D81 /* Recipe.swift in Sources */,
 				7B3AB8AC2C1304E2005E4D81 /* AIResponse.swift in Sources */,
+				04D2B9282C13616B0099ADCF /* MacDietPlanBenefitsView.swift in Sources */,
 				7B3AB8AD2C1304E2005E4D81 /* CalorieManager.swift in Sources */,
 				7B3AB8B42C1340C8005E4D81 /* MacOSAPIKey.swift in Sources */,
 				046327242C107A6B006982CF /* MacDetailRecipe.swift in Sources */,

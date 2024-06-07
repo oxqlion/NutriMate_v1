@@ -94,10 +94,10 @@ struct ListsRecipe: View {
                                             Image(systemName: "clock")
                                                 .resizable()
                                                 .frame(width: isIpad ? 30 : 20, height: isIpad ? 30 : 20)
-                                                .foregroundStyle(.green)
+                                                .foregroundStyle(.blueGreen)
                                             
                                             Text("\(recipe.cookTime) minutes")
-                                                .foregroundStyle(.green)
+                                                .foregroundStyle(.blueGreen)
                                                 .font(.system(size: isIpad ? 24 : 16))
                                                 .padding(.trailing, isIpad ? 15 : 0)
                                             
@@ -200,10 +200,10 @@ struct RecipeItem: View {
                         Image(systemName: "clock")
                             .resizable()
                             .frame(width: isIpad ? 30 : 20, height: isIpad ? 30 : 20)
-                            .foregroundStyle(.green)
+                            .foregroundStyle(.blueGreen)
 
                         Text("25 minutes")
-                            .foregroundStyle(.green)
+                            .foregroundStyle(.blueGreen)
                             .font(.system(size: isIpad ? 24 : 16))
                             .padding(.trailing, isIpad ? 15 : 0)
 
