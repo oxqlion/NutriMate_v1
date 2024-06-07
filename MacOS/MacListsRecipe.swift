@@ -43,24 +43,6 @@ struct MacListsRecipe: View {
                 .background(Color(.white))
                 .frame(height: geometry.size.height/10)
                 
-                
-                //                HStack{
-                ////                    VStack{
-                ////                        Image(systemName: "clock")
-                ////                            .resizable()
-                ////                            .frame(width: geometry.size.width/3, height: geometry.size.height/3)
-                ////                        Text("brodda")
-                ////                            .font(.system(size: geometry.size.height/10))
-                ////                    }.padding(.top,0.2)
-                //                    //                        .padding(.bottom)
-                ////                        .padding(.bottom, geometry.size.height/20)
-                ////                        .background(Color(.systemGray))
-                //                }.padding(.horizontal)
-                
-                
-                
-                
-                
                 Text("Recommended for you")
                     .font(.system(size: 40))
                     .fontWeight(.semibold)
@@ -161,16 +143,14 @@ struct MacListsRecipe: View {
                     }
                     
                 }
-                .background(Color(.systemGray))
+                .background(Color(.clear))
                 .cornerRadius(20)
-                //            .navigationBarHidden(true)
-                //            .edgesIgnoringSafeArea(.bottom)
-                //            .edgesIgnoringSafeArea(.top)
                 .frame(maxWidth: geometry.size.width - geometry.size.width/55, maxHeight: .infinity)
             }
-            .background(Color(.systemGray))
+            .background(Color(.slightGray))
             
         }
+
         
         //        func addsamples(){
         //            let fruitsRecipe8 = Recipers(name: "Berry Parfait", desc: "A delicious and healthy berry parfait.", calories: 200, fat: 5, carbs: 30, protein: 6, sugar: 20, cookTime: 5,ingredients: ["strawberi"], steps: ["Layer Greek yogurt, mixed berries, and granola in a glass.", "Repeat the layers.", "Serve immediately."], image: "image 11")

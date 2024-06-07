@@ -26,6 +26,15 @@
 		04EE863A2C1037FD00DD182E /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EE86392C1037FD00DD182E /* ProfileViewModel.swift */; };
 		04EE863C2C10382B00DD182E /* DailyStatsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EE863B2C10382B00DD182E /* DailyStatsRepository.swift */; };
 		04EE86402C10530400DD182E /* ModelContainers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EE863F2C10530400DD182E /* ModelContainers.swift */; };
+		3F85D9562C12A3DF001C66FF /* ListsRecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EE86372C10379900DD182E /* ListsRecipeViewModel.swift */; };
+		3F85D9572C12A3DF001C66FF /* DailyStatsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EE863B2C10382B00DD182E /* DailyStatsRepository.swift */; };
+		3F85D9582C12A3DF001C66FF /* RecipeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EE86352C10363800DD182E /* RecipeRepository.swift */; };
+		3F85D9592C12A3DF001C66FF /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EE86392C1037FD00DD182E /* ProfileViewModel.swift */; };
+		3F85D95A2C12A3E3001C66FF /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B934AEC2C06401800185089 /* Recipe.swift */; };
+		3F85D95B2C12A3E3001C66FF /* DailyStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B934AEA2C063F9000185089 /* DailyStats.swift */; };
+		3F85D95C2C12A3E3001C66FF /* ModelContainers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EE863F2C10530400DD182E /* ModelContainers.swift */; };
+		3F85D95D2C12A3E3001C66FF /* AIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5F6A432C0F501200A34CCD /* AIResponse.swift */; };
+		3F85D95E2C12A3E3001C66FF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEF106C2C083B20003A5F72 /* User.swift */; };
 		3FEF106D2C083B20003A5F72 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEF106C2C083B20003A5F72 /* User.swift */; };
 		3FEF10732C083F8C003A5F72 /* ListsRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEF10722C083F8C003A5F72 /* ListsRecipe.swift */; };
 		7B5F6A442C0F501200A34CCD /* AIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5F6A432C0F501200A34CCD /* AIResponse.swift */; };
@@ -330,6 +339,15 @@
 			files = (
 				046327172C107A11006982CF /* ContentView.swift in Sources */,
 				046327222C107A6B006982CF /* MacHomepageView.swift in Sources */,
+				3F85D95A2C12A3E3001C66FF /* Recipe.swift in Sources */,
+				3F85D95B2C12A3E3001C66FF /* DailyStats.swift in Sources */,
+				3F85D95C2C12A3E3001C66FF /* ModelContainers.swift in Sources */,
+				3F85D95D2C12A3E3001C66FF /* AIResponse.swift in Sources */,
+				3F85D95E2C12A3E3001C66FF /* User.swift in Sources */,
+				3F85D9562C12A3DF001C66FF /* ListsRecipeViewModel.swift in Sources */,
+				3F85D9572C12A3DF001C66FF /* DailyStatsRepository.swift in Sources */,
+				3F85D9582C12A3DF001C66FF /* RecipeRepository.swift in Sources */,
+				3F85D9592C12A3DF001C66FF /* ProfileViewModel.swift in Sources */,
 				046327232C107A6B006982CF /* MacListsRecipe.swift in Sources */,
 				046327242C107A6B006982CF /* MacDetailRecipe.swift in Sources */,
 				046327252C107A6B006982CF /* MacSplashScreen.swift in Sources */,

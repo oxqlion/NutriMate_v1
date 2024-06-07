@@ -36,7 +36,6 @@ struct MacProfileView: View {
         .init(title: "Cals Left", revenue: 0.3),
     ]
     @State private var body_minerals: [Minerals] = [
-        .init(name: "Calcium", amount: 0.8),
         .init(name: "Carbs", amount: 0.6),
         .init(name: "Protein", amount: 0.4),
         .init(name: "Sugar", amount: 0.5),
@@ -53,8 +52,8 @@ struct MacProfileView: View {
     ]
     
     let productColors: [String: Color] = [
-        "Product A": .blueGreen,
-        "Product B": .gray,
+        "Eaten": .blueGreen,
+        "Cals Left": .slightGray,
     ]
     
     var body: some View {
@@ -83,7 +82,7 @@ struct MacProfileView: View {
                                 Text("1350")
                                     .font(.system(size: 48))
                                     .fontWeight(.bold)
-                                    .foregroundColor(.green)
+                                    .foregroundColor(.blueGreen)
                                 Text("/1800")
                                     .font(.system(size: 24))
                             }
@@ -133,9 +132,7 @@ struct MacProfileView: View {
                 }
                 //=============================================
                 
-                
-                //                HStack {
-                //                    Spacer()
+
                 HStack {
                     
                     Spacer()
@@ -154,18 +151,17 @@ struct MacProfileView: View {
                             }
                             ZStack(alignment: .leading) {
                                 Rectangle()
-                                    .foregroundColor(Color.gray.opacity(0.3)) // Background color
-                                    .frame(width: geometry.size.width/2.2, height: 20) // Adjust the height as needed
+                                    .foregroundColor(Color.slightGray)
+                                    .frame(width: geometry.size.width/2.2, height: 20)
                                     .cornerRadius(16)
                                 
                                 Rectangle()
-                                    .foregroundColor(.green) // Progress color
+                                    .foregroundColor(.blueGreen)
                                     .frame(width: min(CGFloat(index.amount) * geometry.size.width/2.2, geometry.size.width/2.2), height: 20) // Adjust the height as needed
                                     .cornerRadius(16)
                             }
                         }
                     }
-                    //                        .padding(.horizontal, 40)
                     //=============================================
                     
                     Spacer()
@@ -190,16 +186,14 @@ struct MacProfileView: View {
                                             .font(.system(size: 24))
                                         Spacer()
                                     }
-                                    .padding(.vertical, 5)
+                                    .padding(.vertical, 10)
                                 }
                             }
-                            .padding()
+//                            .padding()
                         }
                     }
                     .cornerRadius(16)
-                    .shadow(radius: 5)
-                    //                        .padding(.top, 40)
-                    //                            .padding(.horizontal, 40)
+                    .shadow(radius: 1)
                     //=============================================
                     
                     Spacer()
@@ -209,10 +203,6 @@ struct MacProfileView: View {
                     
                 }
                 .frame(width: geometry.size.width, height: geometry.size.height/2)
-                //                    Spacer()
-                //                }
-                //                .frame(width: geometry.size.width - geometry.size.width/10, height: geometry.size.height/2)
-                
                 
             }
             .frame(maxWidth: geometry.size.width - geometry.size.width/73)

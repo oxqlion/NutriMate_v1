@@ -72,8 +72,8 @@ struct ProfileView: View {
     }
     
     let productColors: [String: Color] = [
-            "Product A": .blueGreen,
-            "Product B": .gray,
+            "Eaten": .blueGreen,
+            "Cals Left": .systemGray6,
         ]
     
     var body: some View {
@@ -123,7 +123,7 @@ struct ProfileView: View {
                         //                                    Text("1350")
                         //                                        .font(.system(size: isIpad ? 48 : 28))
                         //                                        .fontWeight(.bold)
-                        //                                        .foregroundColor(.green)
+                        //                                        .foregroundColor(.blueGreen)
                         //                                    Text("/1800")
                         //                                        .font(.system(size: isIpad ? 24 : 12))
                         //                                }
@@ -183,12 +183,7 @@ struct ProfileView: View {
                                             ),
                                             innerRadius: .ratio(isIpad ? 0.75 : 0.8)
                                         )
-                                        .foregroundStyle(
-                                            by: .value(
-                                                Text(verbatim: product.title),
-                                                product.title
-                                            )
-                                        )
+                                        .foregroundStyle(productColors[product.title] ?? .gray)
                                     }.frame(width: isIpad ? ScreenSizeDetector().screenWidth/2.3: ScreenSizeDetector().screenWidth/2, height: isIpad ? ScreenSizeDetector().screenHeight/2.3 : ScreenSizeDetector().screenHeight/2)
                                         .padding(.horizontal, isIpad ? ScreenSizeDetector().screenWidth/5.1: ScreenSizeDetector().screenWidth/6.5)
                                     VStack {
@@ -196,7 +191,7 @@ struct ProfileView: View {
                                             Text("1350")
                                                 .font(.system(size: isIpad ? 48 : 28))
                                                 .fontWeight(.bold)
-                                                .foregroundColor(.green)
+                                                .foregroundColor(.blueGreen)
                                             Text("/1800")
                                                 .font(.system(size: isIpad ? 24 : 12))
                                         }
@@ -262,7 +257,7 @@ struct ProfileView: View {
                                 Spacer()
                             }
                             ProgressView(value: index.amount)
-                                .accentColor(.green)
+                                .accentColor(.blueGreen)
                                 .scaleEffect(x: 1, y: isIpad ? 4 : 2.5, anchor: .center)
                                 .padding(.bottom, isIpad ? 10 : 0)
                         }

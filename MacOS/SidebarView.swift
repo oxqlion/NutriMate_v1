@@ -54,12 +54,10 @@ struct SidebarView: View {
                 }
                 .buttonStyle(PlainButtonStyle())
                 
-                NavigationLink(destination: MacProfileView(), isActive: $navigateToProfile) {
-                    EmptyView()
-                }
-                NavigationLink(destination: MacListsRecipe(), isActive: $navigateToDetailRecipe) {
-                    EmptyView()
-                }
+                NavigationLink(destination: MacHomepageView(), isActive: $navigateToProfile){EmptyView()}
+                    .hidden()
+                NavigationLink(destination: MacListsRecipe(), isActive: $navigateToDetailRecipe){EmptyView()}
+                    .hidden()
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
             .background(Color.blueGreen)
