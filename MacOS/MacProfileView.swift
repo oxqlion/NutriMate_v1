@@ -17,40 +17,69 @@ struct Product: Identifiable {
 }
 
 struct Minerals: Identifiable {
-        //aa
-        let id = UUID()
-        let name: String
-        let amount: Double
+    //aa
+    let id = UUID()
+    let name: String
+    let amount: Double
 }
 
 struct Weight: Identifiable {
-            //aa
-            let id = UUID()
-            let name: String
-            let amount: Double
+    //aa
+    let id = UUID()
+    let name: String
+    let amount: Double
 }
 
 struct MacProfileView: View {
-    @State private var products: [Product] = [
-        .init(title: "Eaten", revenue: 0.9),
-        .init(title: "Cals Left", revenue: 0.3),
+    @State private var showGraph: Int = 1
+    @Environment(\.modelContext) var modelContexts
+    @StateObject var calorieManager = CalorieManager()
+    @Query var dailystats: [DailyStats]
+    @Query var recipes: [Recipes]
+    
+    var totalCarbs: Double {
+        Double(dailystats.filter { $0.isSameDay(as: Date()) }.reduce(0) { $0 + $1.carbs })
+    }
+    var totalProtein: Double {
+        Double(dailystats.filter { $0.isSameDay(as: Date()) }.reduce(0) { $0 + $1.protein})
+    }
+    var totalSugar: Double{
+        Double(dailystats.filter { $0.isSameDay(as: Date()) }.reduce(0) { $0 + $1.sugar})
+    }
+    var totalfat: Double{
+        Double(dailystats.filter { $0.isSameDay(as: Date()) }.reduce(0) { $0 + $1.fat})
+    }
+    var totalEaten: Double{
+        Double(dailystats.filter { $0.isSameDay(as: Date()) }.reduce(0) { $0 + $1.totalCalories})
+    }
+    func totalEatens(date:Date)->Double{
+        return Double(dailystats.filter { $0.isSameDay(as: date) }.reduce(0) { $0 + $1.totalCalories})
+    }
+    var products: [Product] {
+        [
+            .init(title: "Eaten", revenue: totalCarbs),
+            .init(title: "Cals Left", revenue: calorieManager.allowedCalories-totalCarbs),
+        ]
+    }
+    
+    let days = ["Monday", "Tuesday","Wednesday","Thursday", "Friday","Saturday", "Sunday"]
+
+    var body_weight: [Weight] {
+      var weights = [Weight]()
+      for day in days {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE"
+        guard let date = dateFormatter.date(from: day) else { continue }
+        weights.append(Weight(name: day, amount: totalEatens(date: date)))
+      }
+      return weights
+    }
+
+
+    let data = [
+        (name: "Cachapa", value: 0.0),
     ]
-    @State private var body_minerals: [Minerals] = [
-        .init(name: "Calcium", amount: 0.8),
-        .init(name: "Carbs", amount: 0.6),
-        .init(name: "Protein", amount: 0.4),
-        .init(name: "Sugar", amount: 0.5),
-        .init(name: "Fat", amount: 0.7),
-    ]
-    @State private var body_weight: [Weight] = [
-        .init(name: "Monday", amount: 72.5),
-        .init(name: "Tuesday", amount: 73.1),
-        .init(name: "Wednesday", amount: 73.5),
-        .init(name: "Thursday", amount: 73.4),
-        .init(name: "Friday", amount: 72.2),
-        .init(name: "Saturday", amount: 71.9),
-        .init(name: "Sunday", amount: 71.5),
-    ]
+    
     var body: some View {
         
         GeometryReader { geometry in
@@ -74,14 +103,15 @@ struct MacProfileView: View {
                                     product.title
                                 )
                             )
-                        }.frame(width: geometry.size.height/3.2, height: geometry.size.height/3.2)
-                            .padding(.horizontal, 30)
+                        }
+                        .frame(width: geometry.size.height/3.2, height: geometry.size.height/3.2)
+                        .padding(.horizontal, 30)
                         VStack {
                             HStack {
                                 Text("1350")
                                     .font(.system(size: 48))
                                     .fontWeight(.bold)
-                                    .foregroundColor(.green)
+                                    .foregroundColor(.blueGreen)
                                 Text("/1800")
                                     .font(.system(size: 24))
                             }
@@ -132,8 +162,6 @@ struct MacProfileView: View {
                 //=============================================
                 
                 
-                //                HStack {
-                //                    Spacer()
                 HStack {
                     
                     Spacer()
@@ -143,27 +171,110 @@ struct MacProfileView: View {
                     
                     //PROGRESS-VIEW ===============================
                     VStack (alignment: .leading) {
-                        ForEach(body_minerals) { index in
-                            HStack {
-                                Text(index.name)
-                                    .fontWeight(.bold)
-                                    .font(.system(size: 24))
-                                Spacer()
-                            }
-                            ZStack(alignment: .leading) {
-                                Rectangle()
-                                    .foregroundColor(Color.gray.opacity(0.3)) // Background color
-                                    .frame(width: geometry.size.width/2.2, height: 20) // Adjust the height as needed
-                                    .cornerRadius(16)
-                                
-                                Rectangle()
-                                    .foregroundColor(.green) // Progress color
-                                    .frame(width: min(CGFloat(index.amount) * geometry.size.width/2.2, geometry.size.width/2.2), height: 20) // Adjust the height as needed
-                                    .cornerRadius(16)
-                            }
+//                        ForEach(body_minerals) { index in
+//                            HStack {
+//                                Text(index.name)
+//                                    .fontWeight(.bold)
+//                                    .font(.system(size: 24))
+//                                Spacer()
+//                            }
+//                            ZStack(alignment: .leading) {
+//                                Rectangle()
+//                                    .foregroundColor(Color.slightGray)
+//                                    .frame(width: geometry.size.width/2.2, height: 20)
+//                                    .cornerRadius(16)
+//                                
+//                                Rectangle()
+//                                    .foregroundColor(.blueGreen)
+//                                    .frame(width: min(CGFloat(index.amount) * geometry.size.width/2.2, geometry.size.width/2.2), height: 20) // Adjust the height as needed
+//                                    .cornerRadius(16)
+//                            }
+//                        }
+                        
+                        HStack {
+                            Text("carbs")
+                                .fontWeight(.bold)
+                                .font(.system(size: 32))
+                            Spacer()
                         }
+
+                        ZStack(alignment: .leading) {
+                            Rectangle()
+                                .foregroundColor(Color.gray.opacity(0.5))
+                                .frame(width: geometry.size.width / 2.2, height: 20)
+                                .cornerRadius(16)
+                            
+                            Rectangle()
+                                .foregroundColor(.green)
+                                .frame(width: min(CGFloat(totalCarbs) * geometry.size.width / (2.2 * totalEaten), geometry.size.width / 2.2), height: 20)
+                                .cornerRadius(16)
+                        }
+                        .padding(.bottom, 10)
+                        
+                        HStack {
+                            Text("fats")
+                                .fontWeight(.bold)
+                                .font(.system(size: 32))
+                            Spacer()
+                        }
+
+                        ZStack(alignment: .leading) {
+                            Rectangle()
+                                .foregroundColor(Color.gray.opacity(0.5))
+                                .frame(width: geometry.size.width / 2.2, height: 20)
+                                .cornerRadius(16)
+                            
+                            Rectangle()
+                                .foregroundColor(.green)
+                                .frame(width: min(CGFloat(totalfat) * geometry.size.width / (2.2 * totalEaten), geometry.size.width / 2.2), height: 20)
+                                .cornerRadius(16)
+                        }
+                        .padding(.bottom, 10)
+                        
+                        HStack {
+                            Text("sugar")
+                                .fontWeight(.bold)
+                                .font(.system(size: 32))
+                            Spacer()
+                        }
+
+                        ZStack(alignment: .leading) {
+                            Rectangle()
+                                .foregroundColor(Color.gray.opacity(0.5))
+                                .frame(width: geometry.size.width / 2.2, height: 20)
+                                .cornerRadius(16)
+                            
+                            Rectangle()
+                                .foregroundColor(.green)
+                                .frame(width: min(CGFloat(totalSugar) * geometry.size.width / (2.2 * totalEaten), geometry.size.width / 2.2), height: 20)
+                                .cornerRadius(16)
+                        }
+                        .padding(.bottom, 10)
+                        
+                        HStack {
+                            Text("protein")
+                                .fontWeight(.bold)
+                                .font(.system(size: 32))
+                            Spacer()
+                        }
+
+                        ZStack(alignment: .leading) {
+                            Rectangle()
+                                .foregroundColor(Color.gray.opacity(0.5))
+                                .frame(width: geometry.size.width / 2.2, height: 20)
+                                .cornerRadius(16)
+                            
+                            Rectangle()
+                                .foregroundColor(.green)
+                                .frame(width: min(CGFloat(totalProtein) * geometry.size.width / (2.2 * totalEaten), geometry.size.width / 2.2), height: 20)
+                                .cornerRadius(16)
+                        }
+                        .padding(.bottom, 10)
+
+
+
+
                     }
-                    //                        .padding(.horizontal, 40)
                     //=============================================
                     
                     Spacer()
@@ -177,27 +288,14 @@ struct MacProfileView: View {
                     
                     //CONSUMED-MEAL ===============================
                     VStack(alignment: .trailing) {
-                        Form {
-                            Section(header: Text("Consumed Meal").font(.system(size: 18))) {
-                                ForEach(1..<5) {index in
-                                    HStack{
-                                        Circle()
-                                            .frame(width: 20)
-                                        Text("PLACEHOLDER")
-                                            .padding(.horizontal, 20)
-                                            .font(.system(size: 24))
-                                        Spacer()
-                                    }
-                                    .padding(.vertical, 5)
-                                }
+                        List(recipes) { item in
+                            NavigationLink(destination: MacDetailRecipe(recipe: item)) {
+                                Text(item.name)
                             }
-                            .padding()
                         }
-                        .background(Color(.systemGray))
                     }
                     .cornerRadius(16)
-                    //                        .padding(.top, 40)
-                    //                            .padding(.horizontal, 40)
+                    .shadow(radius: 1)
                     //=============================================
                     
                     Spacer()
@@ -207,10 +305,6 @@ struct MacProfileView: View {
                     
                 }
                 .frame(width: geometry.size.width, height: geometry.size.height/2)
-                //                    Spacer()
-                //                }
-                //                .frame(width: geometry.size.width - geometry.size.width/10, height: geometry.size.height/2)
-                
                 
             }
             .frame(maxWidth: geometry.size.width - geometry.size.width/73)
