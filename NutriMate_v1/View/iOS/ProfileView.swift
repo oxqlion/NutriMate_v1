@@ -16,7 +16,9 @@ struct ProfileView: View {
     @Query var dailystats: [DailyStats]
     @Query var recipes: [Recipes]
     let isIpad = ScreenSizeDetector().screenWidth > 650
-    
+    var totalAllowedCalories: Double {
+        Double(dailystats.filter { $0.isSameDay(as: Date()) }.reduce(0) { $0 + $1.allowedCalories })
+    }
     var totalCarbs: Double {
         Double(dailystats.filter { $0.isSameDay(as: Date()) }.reduce(0) { $0 + $1.carbs })
     }
@@ -75,18 +77,19 @@ struct ProfileView: View {
                                             Text(verbatim: product.title),
                                             product.title
                                         )
-                                    )
-                                }.frame(width: isIpad ? ScreenSizeDetector().screenWidth/2.3: ScreenSizeDetector().screenWidth/2, height: isIpad ? ScreenSizeDetector().screenHeight/2.3 : ScreenSizeDetector().screenHeight/2)
-                                    .padding(.horizontal, isIpad ? ScreenSizeDetector().screenWidth/5.1: ScreenSizeDetector().screenWidth/6.5)
-                                VStack {
-                                    HStack {
-                                        Text("\(Int(totalEaten))")
-                                            .font(.system(size: isIpad ? 48 : 28))
-                                            .fontWeight(.bold)
-                                            .foregroundColor(.green)
-                                        Text("/\(calorieManager.allowedCalories)")
-                                            .font(.system(size: isIpad ? 24 : 12))
-                                    .padding(.bottom, 15)
+                                    }.frame(width: isIpad ? ScreenSizeDetector().screenWidth/2.3: ScreenSizeDetector().screenWidth/2, height: isIpad ? ScreenSizeDetector().screenHeight/2.3 : ScreenSizeDetector().screenHeight/2)
+                                        .padding(.horizontal, isIpad ? ScreenSizeDetector().screenWidth/5.1: ScreenSizeDetector().screenWidth/6.5)
+                                    VStack {
+                                        HStack {
+                                            Text("\(Int(totalEaten))")
+                                                .font(.system(size: isIpad ? 48 : 28))
+                                                .fontWeight(.bold)
+                                                .foregroundColor(.green)
+                                            Text("\(Int(totalAllowedCalories))")
+                                                .font(.system(size: isIpad ? 24 : 12))
+                                        }
+                                        .padding(.bottom, 15)
+                                    }
                                 }
                             }
                         } else {

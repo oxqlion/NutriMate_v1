@@ -49,6 +49,7 @@ struct DietPlanBenefitsView: View {
     func deleteDietPlan() {
         do {
             try modelContexts.delete(model: Recipes.self)
+            try modelContexts.delete(model: DailyStats.self)
         } catch {
             print("Failed to delete diet plan.")
         }
