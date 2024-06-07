@@ -38,6 +38,11 @@
 		3FEF106D2C083B20003A5F72 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEF106C2C083B20003A5F72 /* User.swift */; };
 		3FEF10732C083F8C003A5F72 /* ListsRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEF10722C083F8C003A5F72 /* ListsRecipe.swift */; };
 		7B1E89C02C123D580069038C /* CalorieManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1E89BF2C123D580069038C /* CalorieManager.swift */; };
+		7B3AB89D2C12B82C005E4D81 /* GenerativeAI-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7B5F6A4D2C0F9F8400A34CCD /* GenerativeAI-Info.plist */; };
+		7B3AB89E2C12B82F005E4D81 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5F6A4F2C0F9FE000A34CCD /* APIKey.swift */; };
+		7B3AB8A12C12B9CE005E4D81 /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7B3AB8A02C12B9CE005E4D81 /* OpenAISwift */; };
+		7B3AB8A32C12B9CE005E4D81 /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = 7B3AB8A22C12B9CE005E4D81 /* OpenAI */; };
+		7B3AB8A52C12B9CE005E4D81 /* GoogleGenerativeAI in Frameworks */ = {isa = PBXBuildFile; productRef = 7B3AB8A42C12B9CE005E4D81 /* GoogleGenerativeAI */; };
 		7B5F6A442C0F501200A34CCD /* AIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5F6A432C0F501200A34CCD /* AIResponse.swift */; };
 		7B5F6A472C0F56CE00A34CCD /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7B5F6A462C0F56CE00A34CCD /* OpenAISwift */; };
 		7B5F6A4A2C0F8EC400A34CCD /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = 7B5F6A492C0F8EC400A34CCD /* OpenAI */; };
@@ -105,6 +110,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B3AB8A52C12B9CE005E4D81 /* GoogleGenerativeAI in Frameworks */,
+				7B3AB8A32C12B9CE005E4D81 /* OpenAI in Frameworks */,
+				7B3AB8A12C12B9CE005E4D81 /* OpenAISwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,12 +167,20 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		7B3AB89F2C12B9CE005E4D81 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7B934ACD2C063B0A00185089 = {
 			isa = PBXGroup;
 			children = (
 				7B934AD82C063B0A00185089 /* NutriMate_v1 */,
 				046327132C107A11006982CF /* MacOS */,
 				7B934AD72C063B0A00185089 /* Products */,
+				7B3AB89F2C12B9CE005E4D81 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -252,6 +268,11 @@
 			dependencies = (
 			);
 			name = MacOS;
+			packageProductDependencies = (
+				7B3AB8A02C12B9CE005E4D81 /* OpenAISwift */,
+				7B3AB8A22C12B9CE005E4D81 /* OpenAI */,
+				7B3AB8A42C12B9CE005E4D81 /* GoogleGenerativeAI */,
+			);
 			productName = MacOS;
 			productReference = 046327122C107A11006982CF /* MacOS.app */;
 			productType = "com.apple.product-type.application";
@@ -327,6 +348,7 @@
 			files = (
 				0463271C2C107A13006982CF /* Preview Assets.xcassets in Resources */,
 				046327272C1081CD006982CF /* Assets.xcassets in Resources */,
+				7B3AB89D2C12B82C005E4D81 /* GenerativeAI-Info.plist in Resources */,
 				046327192C107A13006982CF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,6 +380,7 @@
 				3F85D9562C12A3DF001C66FF /* ListsRecipeViewModel.swift in Sources */,
 				3F85D9572C12A3DF001C66FF /* DailyStatsRepository.swift in Sources */,
 				3F85D9582C12A3DF001C66FF /* RecipeRepository.swift in Sources */,
+				7B3AB89E2C12B82F005E4D81 /* APIKey.swift in Sources */,
 				3F85D9592C12A3DF001C66FF /* ProfileViewModel.swift in Sources */,
 				046327232C107A6B006982CF /* MacListsRecipe.swift in Sources */,
 				046327242C107A6B006982CF /* MacDetailRecipe.swift in Sources */,
@@ -366,7 +389,6 @@
 				046327152C107A11006982CF /* MacOSApp.swift in Sources */,
 				046327212C107A67006982CF /* MacProfileView.swift in Sources */,
 				7B8AB3812C129FE60017EDA7 /* MacDetailsRecipe.swift in Sources */,
-				046327282C108CA8006982CF /* Recipe.swift in Sources */,
 				7B8AB37B2C129BE90017EDA7 /* DailyStats.swift in Sources */,
 				7B8AB37C2C129BE90017EDA7 /* ModelContainers.swift in Sources */,
 				7B8AB37D2C129BE90017EDA7 /* User.swift in Sources */,
@@ -708,6 +730,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		7B3AB8A02C12B9CE005E4D81 /* OpenAISwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7B5F6A452C0F56CD00A34CCD /* XCRemoteSwiftPackageReference "OpenAISwift" */;
+			productName = OpenAISwift;
+		};
+		7B3AB8A22C12B9CE005E4D81 /* OpenAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7B5F6A482C0F8EC400A34CCD /* XCRemoteSwiftPackageReference "OpenAI" */;
+			productName = OpenAI;
+		};
+		7B3AB8A42C12B9CE005E4D81 /* GoogleGenerativeAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7B5F6A512C0FA1F000A34CCD /* XCRemoteSwiftPackageReference "generative-ai-swift" */;
+			productName = GoogleGenerativeAI;
+		};
 		7B5F6A462C0F56CE00A34CCD /* OpenAISwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7B5F6A452C0F56CD00A34CCD /* XCRemoteSwiftPackageReference "OpenAISwift" */;

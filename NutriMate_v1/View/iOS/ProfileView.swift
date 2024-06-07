@@ -79,11 +79,6 @@ struct ProfileView: View {
         (name: "Cachapa", value: 0.0),
     ]
     
-    let productColors: [String: Color] = [
-            "Eaten": .blueGreen,
-            "Cals Left": .systemGray6,
-        ]
-    
     var body: some View {
         NavigationView {
             VStack{
@@ -170,7 +165,6 @@ struct ProfileView: View {
                         
                         
                         //PROGRESS-VIEW ===============================
-                        ForEach(body_minerals) { index in
                             HStack {
                                 Text("carbs")
                                     .fontWeight(isIpad ? .bold : .medium)
@@ -219,23 +213,6 @@ struct ProfileView: View {
                         
                         //CONSUMED-MEAL ===============================
                         VStack() {
-                            //                Form {
-                            //                    Section(header: Text("Consumed Meal").font(.system(size: isIpad ? 18 : 10))) {
-                            //                        ForEach(1..<5) {index in
-                            //                            HStack{
-                            //                                Circle()
-                            //                                    .frame(width: 20)
-                            //                                Text("PLACEHOLDER")
-                            //                                    .padding(.horizontal, 20)
-                            //                                    .font(.system(size: isIpad ? 24 : 16))
-                            //                                Spacer()
-                            //                            }
-                            //                            .padding(.vertical, isIpad ? 10 : 0)
-                            //                        }
-                            //                    }
-                            //                }
-                            //                .background(Color(.systemGray6))
-                            
                             List(recipes) { item in
                                 NavigationLink(destination: DetailRecipe(recipe: item)) {
                                     Text(item.name)

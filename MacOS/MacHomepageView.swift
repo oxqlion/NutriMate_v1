@@ -1,11 +1,10 @@
 import SwiftUI
 import SwiftData
-//import GoogleGenerativeAI
+import GoogleGenerativeAI
 
 struct MacHomepageView: View {
     @State private var showSheet = false
     //    let isIpad = ScreenSizeDetector().screenWidth > 650
-    
     var body: some View {
         GeometryReader { geometry in
             VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/) {
@@ -58,7 +57,7 @@ struct MacHomepageView: View {
 struct SheetView: View {
     @Environment(\.modelContext) var modelContexts
     //    @StateObject private var viewModel = OpenAIViewModel()
-//    let model = GenerativeModel(name: "gemini-pro", apiKey: APIKey.default)
+    let model = GenerativeModel(name: "gemini-pro", apiKey: APIKey.default)
     @State private var target: String = ""
     @State private var responseText: String = ""
     @State private var selectedDate = Date()
@@ -78,65 +77,98 @@ struct SheetView: View {
     
     var body: some View {
         
-        VStack {
-            
+        VStack(alignment: .leading) {
             Text("Set Plan")
-                .font(.title2)
-                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                .font(.title)
+                .fontWeight(.bold)
                 .padding(.top, 20)
                 .padding(.horizontal)
                 .frame(maxWidth: .infinity, alignment: .leading)
             
             TextField("Target in Kg", text: $target)
-                .padding()
-                .background(.white)
-                .cornerRadius(10)
+                .textFieldStyle(PlainTextFieldStyle())
+                .font(.system(size: 24))
+                .padding(10)
+                .background(Color.white)
+                .cornerRadius(8) // Adjusted corner radius
+                .overlay(
+                    RoundedRectangle(cornerRadius: 20)
+                        .stroke(Color.slightGray, lineWidth: 1)
+                )
+            
             DatePicker("Deadline", selection: $selectedDate, displayedComponents: .date)
-                .padding(.horizontal)
-                .padding(.vertical, 10)
-                .background(.white)
+                .font(.system(size: 24))
+                .padding()
+                .background(Color.white)
                 .cornerRadius(10)
                 .foregroundColor(.gray)
             
-            Picker("Gender", selection: $gender) {
+            TextField("Age", text: $age)
+                .textFieldStyle(PlainTextFieldStyle())
+                .font(.system(size: 24))
+                .padding(10)
+                .background(Color.white)
+                .cornerRadius(8) // Adjusted corner radius
+                .overlay(
+                    RoundedRectangle(cornerRadius: 20)
+                        .stroke(Color.slightGray, lineWidth: 1)
+                )
+            
+            TextField("Weight (kg)", text: $weight)
+                .textFieldStyle(PlainTextFieldStyle())
+                .font(.system(size: 24))
+                .padding(10)
+                .background(Color.white)
+                .cornerRadius(8) // Adjusted corner radius
+                .overlay(
+                    RoundedRectangle(cornerRadius: 20)
+                        .stroke(Color.slightGray, lineWidth: 1)
+                )
+            
+            TextField("Height (cm)", text: $height)
+                .textFieldStyle(PlainTextFieldStyle())
+                .font(.system(size: 24))
+                .padding(10)
+                .background(Color.white)
+                .cornerRadius(8) // Adjusted corner radius
+                .overlay(
+                    RoundedRectangle(cornerRadius: 20)
+                        .stroke(Color.slightGray, lineWidth: 1)
+                )
+            
+            Picker(selection: $gender, label: Text("Gender").font(.system(size: 24))) {
                 ForEach(genders, id: \.self) {
                     Text($0.capitalized)
                 }
             }
             .pickerStyle(SegmentedPickerStyle())
             
-            TextField("Age", text: $age)
-                .padding()
-                .background(.white)
-                .cornerRadius(10)
-            TextField("Weight (kg)", text: $weight)
-                .padding()
-                .background(.white)
-                .cornerRadius(10)
-            TextField("Height (cm)", text: $height)
-                .padding()
-                .background(.white)
-                .cornerRadius(10)
             
-            Picker("Activity Level", selection: $activityLevel) {
-                ForEach(activityLevels, id: \.self) {
-                    Text($0.capitalized)
+            Picker(selection: $activityLevel, label: Text("Activity Level").font(.system(size: 24))) {
+                ForEach(activityLevels, id: \.self) { level in
+                    Text(level.capitalized)
                 }
             }
             .pickerStyle(MenuPickerStyle())
             
             VStack {
                 Text("Select preffered meal")
+                    .font(.system(size: 24))
                     .font(.headline)
                     .fontWeight(.bold)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding()
                 HStack {
                     Text("+ 🥬 Vegetables")
-                        .font(.caption)
+                        .font(.headline)
                         .padding()
+                        .foregroundColor(Color.black) // Use foregroundColor instead of foregroundStyle
                         .background(selectedOptions.contains("Vegetables") ? Color(hex: 0xD3D3D3) : Color.white)
-                        .cornerRadius(100)
+                        .cornerRadius(20)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 20)
+                                .stroke(Color.slightGray, lineWidth: 1)
+                        )
                         .onTapGesture {
                             if selectedOptions.contains("Vegetables") {
                                 selectedOptions[0] = ""
@@ -144,12 +176,18 @@ struct SheetView: View {
                                 self.selectedOptions[0] = "Vegetables"
                             }
                         }
+
                     
                     Text("+ 🍉 Fruits")
-                        .font(.caption)
+                        .font(.headline)
                         .padding()
+                        .foregroundColor(Color.black) // Use foregroundColor instead of foregroundStyle
                         .background(selectedOptions.contains("Fruits") ? Color(hex: 0xD3D3D3) : Color.white)
-                        .cornerRadius(100)
+                        .cornerRadius(20)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 20)
+                                .stroke(Color.slightGray, lineWidth: 1)
+                        )
                         .onTapGesture {
                             if selectedOptions.contains("Fruits") {
                                 selectedOptions[1] = ""
@@ -157,11 +195,17 @@ struct SheetView: View {
                                 self.selectedOptions[1] = "Fruits"
                             }
                         }
+                    
                     Text("+ 🫚 Herbs")
-                        .font(.caption)
+                        .font(.headline)
                         .padding()
+                        .foregroundColor(Color.black) // Use foregroundColor instead of foregroundStyle
                         .background(selectedOptions.contains("Herbs") ? Color(hex: 0xD3D3D3) : Color.white)
-                        .cornerRadius(100)
+                        .cornerRadius(20)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 20)
+                                .stroke(Color.slightGray, lineWidth: 1)
+                        )
                         .onTapGesture {
                             if selectedOptions.contains("Herbs") {
                                 selectedOptions[2] = ""
@@ -171,13 +215,18 @@ struct SheetView: View {
                         }
                     Spacer()
                 }
+
                 HStack {
-                    
                     Text("+ 🥛 Milk")
-                        .font(.caption)
+                        .font(.headline)
                         .padding()
+                        .foregroundColor(Color.black) // Use foregroundColor instead of foregroundStyle
                         .background(selectedOptions.contains("Milk") ? Color(hex: 0xD3D3D3) : Color.white)
-                        .cornerRadius(100)
+                        .cornerRadius(20)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 20)
+                                .stroke(Color.slightGray, lineWidth: 1)
+                        )
                         .onTapGesture {
                             if selectedOptions.contains("Milk") {
                                 selectedOptions[3] = ""
@@ -185,11 +234,17 @@ struct SheetView: View {
                                 self.selectedOptions[3] = "Milk"
                             }
                         }
+                    
                     Text("+ 🐟 Proteins")
-                        .font(.caption)
+                        .font(.headline)
                         .padding()
+                        .foregroundColor(Color.black) // Use foregroundColor instead of foregroundStyle
                         .background(selectedOptions.contains("Proteins") ? Color(hex: 0xD3D3D3) : Color.white)
-                        .cornerRadius(100)
+                        .cornerRadius(20)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 20)
+                                .stroke(Color.slightGray, lineWidth: 1)
+                        )
                         .onTapGesture {
                             if selectedOptions.contains("Proteins") {
                                 selectedOptions[4] = ""
@@ -199,13 +254,17 @@ struct SheetView: View {
                         }
                     Spacer()
                 }
+
             }
+            .padding()
+            
             Text(responseText)
             
-            Button{
+            Button(action: {
                 generateResponse()
-            } label: {
+            }) {
                 Text("Done")
+                    .buttonStyle(PlainButtonStyle())
                     .foregroundColor(.white)
                     .padding()
                     .frame(maxWidth: .infinity)
@@ -213,12 +272,11 @@ struct SheetView: View {
                     .cornerRadius(15)
             }
             .padding(.bottom, 10)
-            //            .padding(.top, 330)
-            
-            
+            .padding(.horizontal)
         }
         .padding()
-        .background(Color(hex: 0xF4F4F4))
+        .frame(maxWidth: .infinity, alignment: .leading)
+
     }
     
     func generateResponse() {
@@ -298,11 +356,32 @@ struct SheetView: View {
                                 meal step by step to make, separate each step with a /:
                                 meal ingredients, separate each ingredients with a /:
                                 I prefer a meal with these ingredients: \(selectedOptions.joined(separator: ", "))
-                                where if its \(selectedOptions.joined(separator: ", ")), classified as recipe for vegetables, the meal image would be 'vegetable recipe', if its for milk its 'milk recipe', if its protein its, 'protein recipe', if its herb, its 'herb recipe'
+                                where if its \(selectedOptions.joined(separator: ", ")), classified as recipe for vegetables, the meal image would be 'vegetable recipe', if its for milk its 'milk recipe', if its protein its, 'protein recipe', if its herb, its 'herb recipe'if its for fruits ,its 'fruit recipe', remembe the image name, just make it so that its inside. for example like this
+                                **Meal Name:** Chicken Breast with Roasted Vegetables
+                                **Meal Description:** A healthy and flavorful dish with lean protein and roasted vegetables.
+                                **Meal Total Calories:** 350
+                                **Meal Total Fat:** 10g
+                                **Meal Total Carbs:** 30g
+                                **Meal Total Protein:** 40g
+                                **Meal Total Sugar:** 5g
+                                **Meal Cook Time:** 40 minutes
+                                **Meal Image:** vegetable recipe
+                                **Meal Step-by-Step to Make:**
+                                1. Preheat oven to 400°F (200°C).
+                                2. Season chicken breast with salt, pepper, and your favorite herbs.
+                                3. Toss chopped vegetables (broccoli, carrots, potatoes) with olive oil and place on a baking sheet.
+                                4. Place chicken breast on top of the vegetables.
+                                5. Roast in the preheated oven for 30-40 minutes, or until chicken is cooked through and vegetables are tender.
+                                **Meal Ingredients:**
+                                * 1 boneless, skinless chicken breast
+                                * 1 cup broccoli florets
+                                * 1 cup chopped carrots
+                                * 1 medium potato, diced
+                                * 1 tablespoon olive oil
+                                * Salt and pepper to taste
                                 """
-//                    let result = try await model.generateContent(prompt)
-//                    responseText = result.text ?? "No response ... "
-                    responseText = "none"
+                    let result = try await model.generateContent(prompt)
+                    responseText = result.text ?? "No response ... "
                     target = ""
                     
                     let resModel = parseAIResponse(response: responseText)
