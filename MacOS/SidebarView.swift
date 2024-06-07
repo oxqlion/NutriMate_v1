@@ -11,7 +11,6 @@ struct SidebarView: View {
     @State private var navigateToProfile = false
     @State private var navigateToDetailRecipe = false
     var body: some View {
-        
         NavigationView {
             VStack(alignment: .center) {
                 Button(action: {
@@ -26,39 +25,46 @@ struct SidebarView: View {
                                 .frame(width: 50, height: 50)
                                 .foregroundColor(.white)
                         }
-                    })
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 40)
-                    .buttonStyle(PlainButtonStyle())
-                    
-                    Divider()
-                    
-                NavigationLink(destination: MacListsRecipe(), label: {
-                        ZStack {
-                            Image(systemName: "leaf")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 50, height: 50)
-                                .foregroundColor(.white)
-                        }
-                        Spacer()
                     }
-                    .frame(maxWidth: .infinity, minHeight: 100)
-                    .background(Color.blueGreen)
                 }
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 40)
                 .buttonStyle(PlainButtonStyle())
                 
-                NavigationLink(destination: MacHomepageView(), isActive: $navigateToProfile){EmptyView()}
-                    .hidden()
-                NavigationLink(destination: MacListsRecipe(), isActive: $navigateToDetailRecipe){EmptyView()}
-                    .hidden()
+                Divider()
+                
+                NavigationLink(destination: MacListsRecipe()) {
+                    ZStack {
+                        Image(systemName: "leaf")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 50, height: 50)
+                            .foregroundColor(.white)
+                        Spacer()
+                    }
+                }
+                .frame(maxWidth: .infinity, minHeight: 100)
+                .background(Color.blueGreen)
+                .buttonStyle(PlainButtonStyle())
+                
+                NavigationLink(destination: MacHomepageView(), isActive: $navigateToProfile) {
+                    EmptyView()
+                }
+                .hidden()
+                
+                NavigationLink(destination: MacListsRecipe(), isActive: $navigateToDetailRecipe) {
+                    EmptyView()
+                }
+                .hidden()
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
             .background(Color.blueGreen)
         }
     }
 }
+    struct SidebarView_Previews: PreviewProvider {
+        static var previews: some View {
+            SidebarView()
+        }
+    }
 
-#Preview {
-    SidebarView()
-}
