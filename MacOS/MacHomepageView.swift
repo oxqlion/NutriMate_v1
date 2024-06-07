@@ -4,57 +4,63 @@ import GoogleGenerativeAI
 
 struct MacHomepageView: View {
     @State private var showSheet = false
-    //    let isIpad = ScreenSizeDetector().screenWidth > 650
+    @Environment(\.modelContext) var modelContexts
+    @Query var recipes: [Recipes]
     var body: some View {
-        GeometryReader { geometry in
-            VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/) {
-                Spacer()
-                HStack {
+        if recipes.isEmpty {
+            GeometryReader { geometry in
+                VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/) {
                     Spacer()
-                    Image("25")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: geometry.size.width/3, height: geometry.size.height/3)
-                        .padding()
+                    HStack {
+                        Spacer()
+                        Image("25")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: geometry.size.width/3, height: geometry.size.height/3)
+                            .padding()
+                        Spacer()
+                    }
+                    
+                    HStack {
+                        Spacer()
+                        Text("You haven’t set any plans yet. Start planning today!📝🍌")
+                            .font(.system(size: 24))
+                            .multilineTextAlignment(.center)
+                            .padding()
+                        Spacer()
+                    }
+                    
+                    Button(action: {
+                        showSheet.toggle()
+                    }) {
+                        Text("Set Plan")
+                            .font(.system(size: 20))
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(Color.black)
+                            .cornerRadius(10)
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                    .sheet(isPresented: $showSheet) {
+                        SheetView()
+                            .presentationDragIndicator(.visible)
+                            .ignoresSafeArea()
+                    }
                     Spacer()
                 }
-                
-                HStack {
-                    Spacer()
-                    Text("You haven’t set any plans yet. Start planning today!📝🍌")
-                        .font(.system(size: 24))
-                        .multilineTextAlignment(.center)
-                        .padding()
-                    Spacer()
-                }
-                
-                Button(action: {
-                    showSheet.toggle()
-                }) {
-                    Text("Set Plan")
-                        .font(.system(size: 20))
-                        .foregroundColor(.white)
-                        .padding()
-                        .background(Color.black)
-                        .cornerRadius(10)
-                }
-                .buttonStyle(PlainButtonStyle())
-                .sheet(isPresented: $showSheet) {
-                    SheetView()
-                        .presentationDragIndicator(.visible)
-                        .ignoresSafeArea()
-                }
-                Spacer()
+                .padding()
+                .padding(.trailing, 10)
+                .backgroundStyle(Color(.white))
             }
-            .padding()
-            .padding(.trailing, 10)
             .backgroundStyle(Color(.white))
+        } else {
+            MacProfileView()
         }
-        .backgroundStyle(Color(.white))
     }
 }
 
 struct SheetView: View {
+    @StateObject var calorieManager = CalorieManager()
     @Environment(\.modelContext) var modelContexts
     //    @StateObject private var viewModel = OpenAIViewModel()
     let model = GenerativeModel(name: "gemini-pro", apiKey: APIKey.default)
@@ -286,7 +292,9 @@ struct SheetView: View {
                 let today = Date()
                 let components = calendar.dateComponents([.day], from: today, to: selectedDate)
                 let days = components.day ?? 0
+                calculateCalories()
                 
+                @MainActor
                 func calculateCalories() {
                     guard let loseTargetInt = Int(target),
 //                          let totalDaysInt = days,
@@ -296,6 +304,8 @@ struct SheetView: View {
                         print("Invalid input")
                         return
                     }
+                    
+                    calorieManager.calculateAllowedCaloriesPerDay(loseTarget: loseTargetInt, totalDays: days, gender: gender, age: ageInt, weight: weightDouble, height: heightDouble, activityLevel: activityLevel)
                     
                     let allowedCalories = calculateAllowedCaloriesPerDay(
                         loseTarget: loseTargetInt,
@@ -309,6 +319,7 @@ struct SheetView: View {
                     
                     print("Allowed calories per day: \(allowedCalories)")
                 }
+                
                 
                 func calculateAllowedCaloriesPerDay(loseTarget: Int, totalDays: Int, gender: String, age: Int, weight: Double, height: Double, activityLevel: String) -> Double {
                     let caloriesPerKg = 7700.0

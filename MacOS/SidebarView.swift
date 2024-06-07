@@ -33,18 +33,22 @@ struct SidebarView: View {
                 
                 Divider()
                 
-                NavigationLink(destination: MacListsRecipe()) {
-                    ZStack {
-                        Image(systemName: "leaf")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 50, height: 50)
-                            .foregroundColor(.white)
+                Button(action: {
+                    navigateToDetailRecipe = true
+                }) {
+                    VStack {
                         Spacer()
+                        ZStack {
+                            Image(systemName: "leaf")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 50, height: 50)
+                                .foregroundColor(.white)
+                        }
                     }
                 }
-                .frame(maxWidth: .infinity, minHeight: 100)
-                .background(Color.blueGreen)
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 40)
                 .buttonStyle(PlainButtonStyle())
                 
                 NavigationLink(destination: MacHomepageView(), isActive: $navigateToProfile) {

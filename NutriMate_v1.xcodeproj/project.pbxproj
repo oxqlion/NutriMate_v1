@@ -26,15 +26,6 @@
 		04EE863A2C1037FD00DD182E /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EE86392C1037FD00DD182E /* ProfileViewModel.swift */; };
 		04EE863C2C10382B00DD182E /* DailyStatsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EE863B2C10382B00DD182E /* DailyStatsRepository.swift */; };
 		04EE86402C10530400DD182E /* ModelContainers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EE863F2C10530400DD182E /* ModelContainers.swift */; };
-		3F85D9562C12A3DF001C66FF /* ListsRecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EE86372C10379900DD182E /* ListsRecipeViewModel.swift */; };
-		3F85D9572C12A3DF001C66FF /* DailyStatsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EE863B2C10382B00DD182E /* DailyStatsRepository.swift */; };
-		3F85D9582C12A3DF001C66FF /* RecipeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EE86352C10363800DD182E /* RecipeRepository.swift */; };
-		3F85D9592C12A3DF001C66FF /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EE86392C1037FD00DD182E /* ProfileViewModel.swift */; };
-		3F85D95A2C12A3E3001C66FF /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B934AEC2C06401800185089 /* Recipe.swift */; };
-		3F85D95B2C12A3E3001C66FF /* DailyStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B934AEA2C063F9000185089 /* DailyStats.swift */; };
-		3F85D95C2C12A3E3001C66FF /* ModelContainers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EE863F2C10530400DD182E /* ModelContainers.swift */; };
-		3F85D95D2C12A3E3001C66FF /* AIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5F6A432C0F501200A34CCD /* AIResponse.swift */; };
-		3F85D95E2C12A3E3001C66FF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEF106C2C083B20003A5F72 /* User.swift */; };
 		3FEF106D2C083B20003A5F72 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEF106C2C083B20003A5F72 /* User.swift */; };
 		3FEF10732C083F8C003A5F72 /* ListsRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEF10722C083F8C003A5F72 /* ListsRecipe.swift */; };
 		7B1E89C02C123D580069038C /* CalorieManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1E89BF2C123D580069038C /* CalorieManager.swift */; };
@@ -43,17 +34,24 @@
 		7B3AB8A12C12B9CE005E4D81 /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7B3AB8A02C12B9CE005E4D81 /* OpenAISwift */; };
 		7B3AB8A32C12B9CE005E4D81 /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = 7B3AB8A22C12B9CE005E4D81 /* OpenAI */; };
 		7B3AB8A52C12B9CE005E4D81 /* GoogleGenerativeAI in Frameworks */ = {isa = PBXBuildFile; productRef = 7B3AB8A42C12B9CE005E4D81 /* GoogleGenerativeAI */; };
+		7B3AB8A72C12F413005E4D81 /* DietPlanBenefitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3AB8A62C12F413005E4D81 /* DietPlanBenefitsView.swift */; };
+		7B3AB8A82C1304E2005E4D81 /* DailyStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B934AEA2C063F9000185089 /* DailyStats.swift */; };
+		7B3AB8A92C1304E2005E4D81 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEF106C2C083B20003A5F72 /* User.swift */; };
+		7B3AB8AA2C1304E2005E4D81 /* ModelContainers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EE863F2C10530400DD182E /* ModelContainers.swift */; };
+		7B3AB8AB2C1304E2005E4D81 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B934AEC2C06401800185089 /* Recipe.swift */; };
+		7B3AB8AC2C1304E2005E4D81 /* AIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5F6A432C0F501200A34CCD /* AIResponse.swift */; };
+		7B3AB8AD2C1304E2005E4D81 /* CalorieManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1E89BF2C123D580069038C /* CalorieManager.swift */; };
+		7B3AB8AE2C1304EA005E4D81 /* DailyStatsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EE863B2C10382B00DD182E /* DailyStatsRepository.swift */; };
+		7B3AB8AF2C1304EA005E4D81 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EE86392C1037FD00DD182E /* ProfileViewModel.swift */; };
+		7B3AB8B02C1304EA005E4D81 /* RecipeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EE86352C10363800DD182E /* RecipeRepository.swift */; };
+		7B3AB8B12C1304EA005E4D81 /* ListsRecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EE86372C10379900DD182E /* ListsRecipeViewModel.swift */; };
+		7B3AB8B22C130CE2005E4D81 /* DietPlanBenefitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3AB8A62C12F413005E4D81 /* DietPlanBenefitsView.swift */; };
 		7B5F6A442C0F501200A34CCD /* AIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5F6A432C0F501200A34CCD /* AIResponse.swift */; };
 		7B5F6A472C0F56CE00A34CCD /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7B5F6A462C0F56CE00A34CCD /* OpenAISwift */; };
 		7B5F6A4A2C0F8EC400A34CCD /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = 7B5F6A492C0F8EC400A34CCD /* OpenAI */; };
 		7B5F6A4E2C0F9F8400A34CCD /* GenerativeAI-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7B5F6A4D2C0F9F8400A34CCD /* GenerativeAI-Info.plist */; };
 		7B5F6A502C0F9FE000A34CCD /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5F6A4F2C0F9FE000A34CCD /* APIKey.swift */; };
 		7B5F6A532C0FA1F000A34CCD /* GoogleGenerativeAI in Frameworks */ = {isa = PBXBuildFile; productRef = 7B5F6A522C0FA1F000A34CCD /* GoogleGenerativeAI */; };
-		7B8AB37B2C129BE90017EDA7 /* DailyStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B934AEA2C063F9000185089 /* DailyStats.swift */; };
-		7B8AB37C2C129BE90017EDA7 /* ModelContainers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EE863F2C10530400DD182E /* ModelContainers.swift */; };
-		7B8AB37D2C129BE90017EDA7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEF106C2C083B20003A5F72 /* User.swift */; };
-		7B8AB37E2C129BE90017EDA7 /* CalorieManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1E89BF2C123D580069038C /* CalorieManager.swift */; };
-		7B8AB37F2C129BE90017EDA7 /* AIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5F6A432C0F501200A34CCD /* AIResponse.swift */; };
 		7B8AB3812C129FE60017EDA7 /* MacDetailsRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8AB3802C129FE60017EDA7 /* MacDetailsRecipe.swift */; };
 		7B934ADA2C063B0A00185089 /* NutriMate_v1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B934AD92C063B0A00185089 /* NutriMate_v1App.swift */; };
 		7B934ADC2C063B0A00185089 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B934ADB2C063B0A00185089 /* ContentView.swift */; };
@@ -89,6 +87,7 @@
 		3FEF106C2C083B20003A5F72 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3FEF10722C083F8C003A5F72 /* ListsRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsRecipe.swift; sourceTree = "<group>"; };
 		7B1E89BF2C123D580069038C /* CalorieManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieManager.swift; sourceTree = "<group>"; };
+		7B3AB8A62C12F413005E4D81 /* DietPlanBenefitsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietPlanBenefitsView.swift; sourceTree = "<group>"; };
 		7B5F6A432C0F501200A34CCD /* AIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIResponse.swift; sourceTree = "<group>"; };
 		7B5F6A4D2C0F9F8400A34CCD /* GenerativeAI-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GenerativeAI-Info.plist"; sourceTree = "<group>"; };
 		7B5F6A4F2C0F9FE000A34CCD /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
@@ -248,6 +247,7 @@
 				3FEF10722C083F8C003A5F72 /* ListsRecipe.swift */,
 				046C9EFF2C09702D00B2200E /* SplashScreen.swift */,
 				7BA47D8A2C0DB40C007854FB /* DetailRecipe.swift */,
+				7B3AB8A62C12F413005E4D81 /* DietPlanBenefitsView.swift */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -370,30 +370,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B3AB8AE2C1304EA005E4D81 /* DailyStatsRepository.swift in Sources */,
+				7B3AB8AF2C1304EA005E4D81 /* ProfileViewModel.swift in Sources */,
+				7B3AB8B02C1304EA005E4D81 /* RecipeRepository.swift in Sources */,
+				7B3AB8B12C1304EA005E4D81 /* ListsRecipeViewModel.swift in Sources */,
 				046327172C107A11006982CF /* ContentView.swift in Sources */,
 				046327222C107A6B006982CF /* MacHomepageView.swift in Sources */,
-				3F85D95A2C12A3E3001C66FF /* Recipe.swift in Sources */,
-				3F85D95B2C12A3E3001C66FF /* DailyStats.swift in Sources */,
-				3F85D95C2C12A3E3001C66FF /* ModelContainers.swift in Sources */,
-				3F85D95D2C12A3E3001C66FF /* AIResponse.swift in Sources */,
-				3F85D95E2C12A3E3001C66FF /* User.swift in Sources */,
-				3F85D9562C12A3DF001C66FF /* ListsRecipeViewModel.swift in Sources */,
-				3F85D9572C12A3DF001C66FF /* DailyStatsRepository.swift in Sources */,
-				3F85D9582C12A3DF001C66FF /* RecipeRepository.swift in Sources */,
 				7B3AB89E2C12B82F005E4D81 /* APIKey.swift in Sources */,
-				3F85D9592C12A3DF001C66FF /* ProfileViewModel.swift in Sources */,
 				046327232C107A6B006982CF /* MacListsRecipe.swift in Sources */,
+				7B3AB8A82C1304E2005E4D81 /* DailyStats.swift in Sources */,
+				7B3AB8A92C1304E2005E4D81 /* User.swift in Sources */,
+				7B3AB8AA2C1304E2005E4D81 /* ModelContainers.swift in Sources */,
+				7B3AB8AB2C1304E2005E4D81 /* Recipe.swift in Sources */,
+				7B3AB8AC2C1304E2005E4D81 /* AIResponse.swift in Sources */,
+				7B3AB8AD2C1304E2005E4D81 /* CalorieManager.swift in Sources */,
 				046327242C107A6B006982CF /* MacDetailRecipe.swift in Sources */,
+				7B3AB8B22C130CE2005E4D81 /* DietPlanBenefitsView.swift in Sources */,
 				046327252C107A6B006982CF /* MacSplashScreen.swift in Sources */,
 				046D15C02C119E8000A79179 /* SidebarView.swift in Sources */,
 				046327152C107A11006982CF /* MacOSApp.swift in Sources */,
 				046327212C107A67006982CF /* MacProfileView.swift in Sources */,
 				7B8AB3812C129FE60017EDA7 /* MacDetailsRecipe.swift in Sources */,
-				7B8AB37B2C129BE90017EDA7 /* DailyStats.swift in Sources */,
-				7B8AB37C2C129BE90017EDA7 /* ModelContainers.swift in Sources */,
-				7B8AB37D2C129BE90017EDA7 /* User.swift in Sources */,
-				7B8AB37E2C129BE90017EDA7 /* CalorieManager.swift in Sources */,
-				7B8AB37F2C129BE90017EDA7 /* AIResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +411,7 @@
 				04EE863C2C10382B00DD182E /* DailyStatsRepository.swift in Sources */,
 				7B1E89C02C123D580069038C /* CalorieManager.swift in Sources */,
 				7B934AF82C06427B00185089 /* iOSHomepageView.swift in Sources */,
+				7B3AB8A72C12F413005E4D81 /* DietPlanBenefitsView.swift in Sources */,
 				3FEF106D2C083B20003A5F72 /* User.swift in Sources */,
 				7B934AEB2C063F9000185089 /* DailyStats.swift in Sources */,
 				3FEF10732C083F8C003A5F72 /* ListsRecipe.swift in Sources */,

@@ -34,20 +34,13 @@ struct ContentView: View {
                 }
                 .tag(2)
             
-            Button {
-                do {
-                    try modelContexts.delete(model: Recipes.self)
-                } catch {
-                    print("Failed to delete all schools.")
-                }
-            } label: {
-                Text("Empty Model Container")
-            }.tabItem {
-                VStack {
-                    Image(systemName: "trash")
-                    Text("Empty")
-                }
-            }.tag(3)
+            DietPlanBenefitsView()
+                .tabItem {
+                    VStack {
+                        Image(systemName: "trash")
+                        Text("Empty")
+                    }
+                }.tag(3)
         }
 #else
         Text("Gtw")
