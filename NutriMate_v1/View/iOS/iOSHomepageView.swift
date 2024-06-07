@@ -242,7 +242,7 @@ struct SheetView: View {
                     
                     calorieManager.calculateAllowedCaloriesPerDay(loseTarget: loseTargetInt, totalDays: days, gender: gender, age: ageInt, weight: weightDouble, height: heightDouble, activityLevel: activityLevel)
                     
-                    let allowedCalories = calculateAllowedCaloriesPerDay(
+                    let countAllowedCalories = calculateAllowedCaloriesPerDay(
                         loseTarget: loseTargetInt,
                         totalDays: days,
                         gender: gender,
@@ -252,7 +252,9 @@ struct SheetView: View {
                         activityLevel: activityLevel
                     )
                     
-                    print("Allowed calories per day: \(allowedCalories)")
+                    print("Allowed calories per day: \(countAllowedCalories)")
+                    let newDailyStats = DailyStats(allowedCalories: Int(countAllowedCalories), date: Date())
+                    modelContexts.insert(newDailyStats.self)
                 }
                 
                 

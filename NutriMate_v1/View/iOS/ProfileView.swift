@@ -37,6 +37,9 @@ struct ProfileView: View {
     @Query var recipes: [Recipes]
     let isIpad = ScreenSizeDetector().screenWidth > 650
 
+    var totalAllowedCalories: Double {
+        Double(dailystats.filter { $0.isSameDay(as: Date()) }.reduce(0) { $0 + $1.allowedCalories })
+    }
     var totalCarbs: Double {
         Double(dailystats.filter { $0.isSameDay(as: Date()) }.reduce(0) { $0 + $1.carbs })
     }
@@ -108,7 +111,7 @@ struct ProfileView: View {
                                                 .font(.system(size: isIpad ? 48 : 28))
                                                 .fontWeight(.bold)
                                                 .foregroundColor(.green)
-                                            Text("/1600")
+                                            Text("\(Int(totalAllowedCalories))")
                                                 .font(.system(size: isIpad ? 24 : 12))
                                         }
                                         .padding(.bottom, 15)
