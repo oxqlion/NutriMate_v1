@@ -81,25 +81,25 @@ struct DetailRecipe: View {
                 .padding(.top, 20)
                 
                 
-                ZStack {
-                    RoundedRectangle(cornerRadius: 10)
-                        .foregroundColor(Color(hex: 0xeeeeee))
-                        .frame(width: 360, height: 520)
-                    
-                    VStack(alignment: .leading) {
-                        
-                        ForEach(recipe.ingredients, id: \.self) { ingredient in
-                            Text(ingredient)
-                                .font(.subheadline)
-                                .padding(.bottom, 2)
-                        }
-                        .frame(maxWidth: UIScreen.main.bounds.width, alignment: .leading)
-                        .padding(.leading, 3)
-                        .padding()
-                    }
-                    .padding()
-                }
-                .padding()
+//                ZStack {
+//                    RoundedRectangle(cornerRadius: 10)
+//                        .foregroundColor(Color(hex: 0xeeeeee))
+//                        .frame(width: 360, height: 520)
+//                    
+//                    VStack(alignment: .leading) {
+//                        
+//                        ForEach(recipe.ingredients, id: \.self) { ingredient in
+//                            Text(ingredient)
+//                                .font(.subheadline)
+//                                .padding(.bottom, 2)
+//                        }
+//                        .frame(maxWidth: UIScreen.main.bounds.width, alignment: .leading)
+//                        .padding(.leading, 3)
+//                        .padding()
+//                    }
+//                    .padding()
+//                }
+//                .padding()
                 
                 
                 VStack(alignment: .leading) {
@@ -122,7 +122,7 @@ struct DetailRecipe: View {
                 Button{
                     addsampless()
                     if dailystats.filter({ $0.date == Date() }).isEmpty {
-                        let newDailyStats = DailyStats(allowedCalories: 0,carbs: recipe.carbs , protein: recipe.protein, fat: recipe.fat, sugar: recipe.sugar, totalCalories: recipe.calories, date: Date())
+                        let newDailyStats = DailyStats(allowedCalories: 0, carbs: recipe.carbs , protein: recipe.protein, fat: recipe.fat, sugar: recipe.sugar, totalCalories: recipe.calories, date: Date())
 //                                newDailyStats.consumed.append(recipe)
                                 modelContexts.insert(newDailyStats)
                     } else {
@@ -152,8 +152,8 @@ struct DetailRecipe: View {
         }
     }
     func addsampless(){
-//        let newDailyStats = DailyStats(carbs: 0, protein: 0, fat: 0, sugar: 0, totalCalories: 0, date: Date())
-//        modelContexts.insert(newDailyStats)
+        let newDailyStats = DailyStats(allowedCalories: 0, carbs: 0, protein: 0, fat: 0, sugar: 0, totalCalories: 0, date: Date())
+        modelContexts.insert(newDailyStats)
     }
 }
 struct ContentView_Previews: PreviewProvider {
@@ -186,4 +186,3 @@ struct ContentView_Previews: PreviewProvider {
                                   steps: ["Step 1", "Step 2", "Step 3"],
                                   image: "sample_image"))
 }
-

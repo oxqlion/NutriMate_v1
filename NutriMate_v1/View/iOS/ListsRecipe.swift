@@ -14,7 +14,7 @@ struct ListsRecipe: View {
     @State private var searchTerm = ""
     let isIpad = ScreenSizeDetector().screenWidth > 650
     var filteredRecipes:[Recipes]{
-        guard !searchTerm.isEmpty else{return recipes}
+        guard !searchTerm.isEmpty else {return recipes}
         return recipes.filter{ $0.name.localizedCaseInsensitiveContains(searchTerm)}
     }
     @StateObject var calorieManager = CalorieManager()
@@ -25,50 +25,50 @@ struct ListsRecipe: View {
             VStack(alignment: .leading) {
                 
                 
-                HStack {
-                    Text("Hello Johnny,")
-                        .font(.system(size: isIpad ? 40 : 24))
-                        .fontWeight(isIpad ? .bold : .semibold)
-                    
-                    Spacer()
-                    Spacer()
-                    Image(systemName: "person.circle")
-                        .resizable()
-                        .frame(width: isIpad ? 50 : 30, height: isIpad ? 50 : 30)
-                        .clipShape(Circle())
-                } .padding(.top,50)
-                    .padding(.horizontal)
+                //                HStack {
+                //                    Text("Hello Johnny,")
+                //                        .font(.system(size: isIpad ? 40 : 24))
+                //                        .fontWeight(isIpad ? .bold : .semibold)
+                //
+                //                    Spacer()
+                //                    Spacer()
+                //                    Image(systemName: "person.circle")
+                //                        .resizable()
+                //                        .frame(width: isIpad ? 50 : 30, height: isIpad ? 50 : 30)
+                //                        .clipShape(Circle())
+                //                } .padding(.top,50)
+                //                    .padding(.horizontal)
                 
                 
-//                HStack{
-//                    VStack{
-//                        Image(systemName: "clock")
-//                            .resizable()
-//                            .frame(width: isIpad ? 60 : 30, height: isIpad ? 60 : 30)
-//                        Text("brodda")
-//                            .font(.system(size: isIpad ? 32 : 20))
-//                    }.padding(.top,0.2)
-//                    //                        .padding(.bottom)
-//                        .padding(.bottom, isIpad ? 10 : 0)
-//                        .background(Color(.systemGray6))
-//                }.padding(.horizontal)
+                //                HStack{
+                //                    VStack{
+                //                        Image(systemName: "clock")
+                //                            .resizable()
+                //                            .frame(width: isIpad ? 60 : 30, height: isIpad ? 60 : 30)
+                //                        Text("brodda")
+                //                            .font(.system(size: isIpad ? 32 : 20))
+                //                    }.padding(.top,0.2)
+                //                    //                        .padding(.bottom)
+                //                        .padding(.bottom, isIpad ? 10 : 0)
+                //                        .background(Color(.systemGray6))
+                //                }.padding(.horizontal)
                 
                 
                 
                 SearchBar(searchTerm: $searchTerm)
-                    .padding(.vertical, isIpad ? 10 : 0)
+                    .padding(.top, isIpad ? 10 : 60)
                     .padding(.horizontal)
-                
-                Text("Recommended for you")
-                    .font(.system(size: isIpad ? 28 : 16))
-                //                    .padding(.top, 24)
-                    .padding(.horizontal)
-                    .padding(.bottom, isIpad ? 10 : 0)
-                //                    .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: 10)
+                //
+                //                Text("Recommended for you")
+                //                    .font(.system(size: isIpad ? 28 : 16))
+                //                //                    .padding(.top, 24)
+                //                    .padding(.horizontal)
+                //                    .padding(.bottom, isIpad ? 10 : 0)
+                //                //                    .border(Color.black, width: 10)
                 
                 
                 List {
-                    ForEach(recipes){ recipe in
+                    ForEach(filteredRecipes){ recipe in
                         NavigationLink(destination: DetailRecipe(recipe: recipe)) {
                             VStack(spacing:20){
                                 ZStack(alignment: .topTrailing) {
@@ -80,8 +80,8 @@ struct ListsRecipe: View {
                                     HStack {
                                         Image(systemName: "star.fill")
                                         
-                                        Text("5.0")
-                                            .font(.system(size: isIpad ? 24 : 16))
+//                                        Text("5.0")
+//                                            .font(.system(size: isIpad ? 24 : 16))
                                     }
                                     .padding(10)
                                     .background(Color.yellow)
@@ -133,12 +133,12 @@ struct ListsRecipe: View {
                 .navigationBarHidden(true)
                 .edgesIgnoringSafeArea(.bottom)
                 .edgesIgnoringSafeArea(.top)
-//                .onAppear {
-//                    if !UserDefaults.standard.bool(forKey: "isDataSeeded") {
-//                        addsamples()
-//                        UserDefaults.standard.set(true, forKey: "isDataSeeded")
-//                    }
-//                }
+                //                .onAppear {
+                //                    if !UserDefaults.standard.bool(forKey: "isDataSeeded") {
+                //                        addsamples()
+                //                        UserDefaults.standard.set(true, forKey: "isDataSeeded")
+                //                    }
+                //                }
                 
             }
             .background(Color(.systemGray6))
