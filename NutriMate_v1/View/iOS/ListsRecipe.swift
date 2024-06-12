@@ -21,7 +21,7 @@ struct ListsRecipe: View {
     
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack(alignment: .leading) {
                 
                 

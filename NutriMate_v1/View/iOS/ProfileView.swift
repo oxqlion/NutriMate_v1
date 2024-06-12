@@ -80,7 +80,7 @@ struct ProfileView: View {
     ]
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack{
                 ScrollView(.horizontal) {
                         HStack {
