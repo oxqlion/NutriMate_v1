@@ -35,25 +35,25 @@ struct MacProfileView: View {
         return Double(dailystats.filter { $0.isSameDay(as: date) }.reduce(0) { $0 + $1.totalCalories})
     }
     
-    var products: [Product] {
-        [
-            .init(title: "Eaten", revenue: 0.75),
-            .init(title: "Cals Left", revenue: 0.25),
-        ]
-    }
+//    var products: [Product] {
+//        [
+//            .init(title: "Eaten", revenue: 0.75),
+//            .init(title: "Cals Left", revenue: 0.25),
+//        ]
+//    }
     
     let days = ["Monday", "Tuesday","Wednesday","Thursday", "Friday","Saturday", "Sunday"]
 
-    var body_weight: [Weight] {
-      var weights = [Weight]()
-      for day in days {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEEE"
-        guard let date = dateFormatter.date(from: day) else { continue }
-        weights.append(Weight(name: day, amount: totalEatens(date: date)))
-      }
-      return weights
-    }
+//    var body_weight: [Weight] {
+//      var weights = [Weight]()
+//      for day in days {
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "EEEE"
+//        guard let date = dateFormatter.date(from: day) else { continue }
+//        weights.append(Weight(name: day, amount: totalEatens(date: date)))
+//      }
+//      return weights
+//    }
 
 
     let data = [
@@ -68,50 +68,50 @@ struct MacProfileView: View {
                     
                     
                     //DONUT-CHART =================================
-                    ZStack {
-                        Chart(products) { product in
-                            SectorMark(
-                                angle: .value(
-                                    Text(verbatim: product.title),
-                                    product.revenue
-                                ),
-                                innerRadius: .ratio(0.8)
-                            )
-                            .foregroundStyle(
-                                by: .value(
-                                    Text(verbatim: product.title),
-                                    product.title
-                                )
-                            )
-                        }
-                        .frame(width: geometry.size.height/3.2, height: geometry.size.height/3.2)
-                        .padding(.horizontal, 30)
-                        VStack {
-                            HStack {
-                                Text("1350")
-                                    .font(.system(size: 48))
-                                    .fontWeight(.bold)
-                                    .foregroundColor(.blueGreen)
-                                Text("/1800")
-                                    .font(.system(size: 24))
-                            }
-                            .padding(.bottom, 15)
-                        }
-                    }
-                    .padding(.horizontal, 60)
+//                    ZStack {
+//                        Chart(products) { product in
+//                            SectorMark(
+//                                angle: .value(
+//                                    Text(verbatim: product.title),
+//                                    product.revenue
+//                                ),
+//                                innerRadius: .ratio(0.8)
+//                            )
+//                            .foregroundStyle(
+//                                by: .value(
+//                                    Text(verbatim: product.title),
+//                                    product.title
+//                                )
+//                            )
+//                        }
+//                        .frame(width: geometry.size.height/3.2, height: geometry.size.height/3.2)
+//                        .padding(.horizontal, 30)
+//                        VStack {
+//                            HStack {
+//                                Text("1350")
+//                                    .font(.system(size: 48))
+//                                    .fontWeight(.bold)
+//                                    .foregroundColor(.blueGreen)
+//                                Text("/1800")
+//                                    .font(.system(size: 24))
+//                            }
+//                            .padding(.bottom, 15)
+//                        }
+//                    }
+//                    .padding(.horizontal, 60)
                     //=============================================
                     
                     
                     // LINE-CHART =================================
                     ZStack {
                         Chart {
-                            ForEach(body_weight) { weight in
-                                LineMark(
-                                    x: .value("Product", weight.name),
-                                    y: .value("Revenue", weight.amount)
-                                )
-                            }
-                            .interpolationMethod(.catmullRom) // Optional: adds smooth curves
+//                            ForEach(body_weight) { weight in
+//                                LineMark(
+//                                    x: .value("Product", weight.name),
+//                                    y: .value("Revenue", weight.amount)
+//                                )
+//                            }
+//                            .interpolationMethod(.catmullRom) // Optional: adds smooth curves
                         }
                         .frame(width: geometry.size.height/3.2, height: geometry.size.height/3.2)
                         .padding(.horizontal, 30)

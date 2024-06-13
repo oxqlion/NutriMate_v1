@@ -13,7 +13,7 @@ struct ContentView: View {
     @State var selectedTab = 1
     @Query var recipes: [Recipes]
     var body: some View {
-        SidebarView()
+        MacHomepageView()
     }
 }
 
