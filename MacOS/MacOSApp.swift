@@ -12,6 +12,6 @@ struct MacOSApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-        }.modelContainer(for: [Recipes.self,DailyStats.self])
+        }.modelContainer(for: [Recipes.self, DailyStats.self])
     }
 }
